@@ -1,8 +1,10 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Open Meetings Report Card | City Bureau`,
+    description: `Report card for open meetings in Chicagoland`,
+    author: `@city_bureau`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,17 +20,28 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `open-meetings-report-card`,
+        short_name: `omareportcard`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/cb-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_KEY,
+        tables: [
+          {
+            baseId: process.env.AIRTABLE_BASE,
+            tableName: `Agencies`,
+            tableView: `Report Card`,
+            queryName: `reportCard`,
+          },
+        ],
+      },
+    },
   ],
 }
