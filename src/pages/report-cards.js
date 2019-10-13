@@ -1,22 +1,62 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React, { Component } from "react"
+import { graphql } from "gatsby"
+import * as pym from "pym.js"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ReportCardThumb from "../components/report-card-thumb"
 
-const ReportCardsPage = ({ data }) => (
-  <Layout>
-    <SEO title="Report Cards" />
-    <h1>Report Cards</h1>
-    {data.allAirtable.edges.map(({ node }, index) => (
-      <p key={index}>
-        <Link to={node.fields.slug}>{node.data.ID}</Link>
-      </p>
-    ))}
-  </Layout>
-)
+export default class ReportCardsPage extends Component {
+  state = {
+    data: [],
+    results: [],
+  }
 
-export default ReportCardsPage
+  componentDidMount() {
+    const { data } = this.props
+
+    // Placeholder
+    const pymChild = new pym.Child()
+    pymChild.sendHeight()
+
+    this.setState({
+      data,
+      results: data,
+    })
+  }
+
+  render() {
+    const { data } = this.props
+
+    return (
+      <Layout>
+        <SEO title="Report Cards" />
+        <h1>Report Cards</h1>
+        <div class="filter-controls-container">
+          <div>Search</div>
+          <div>Topics</div>
+          <div>Sort By</div>
+        </div>
+        <div className="filter-container">
+          <div className="filter-edge left">
+            <button>{"<"}</button>
+          </div>
+          <div className="filter-scroll">
+            {data.allAirtable.edges.map(({ node }) => (
+              <ReportCardThumb
+                key={node.slug}
+                {...{ ...node.data, ...node.fields }}
+              />
+            ))}
+          </div>
+          <div className="filter-edge right">
+            <button>{">"}</button>
+          </div>
+        </div>
+      </Layout>
+    )
+  }
+}
 
 export const query = graphql`
   query {

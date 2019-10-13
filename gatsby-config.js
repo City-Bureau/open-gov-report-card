@@ -2,7 +2,7 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Open Meetings Report Card | City Bureau`,
+    title: `Open Meetings Report Card`,
     description: `Report card for open meetings in Chicagoland`,
     author: `@city_bureau`,
   },
