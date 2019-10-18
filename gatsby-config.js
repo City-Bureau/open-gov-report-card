@@ -1,6 +1,7 @@
 require("dotenv").config()
 
 module.exports = {
+  pathPrefix: `/report-cards`,
   siteMetadata: {
     title: `Open Meetings Report Card`,
     description: `Report card for open meetings in Chicagoland`,
@@ -8,6 +9,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

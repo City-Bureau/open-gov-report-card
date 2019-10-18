@@ -2,11 +2,11 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const TOPIC_BACKGROUND_MAP = {
-  Education: `rgba(0,0,0,0)`,
+  Education: `rgba(255,0,0,0.1)`,
 }
 
 const TOPIC_COLOR_MAP = {
-  Education: `black`,
+  Education: `red`,
 }
 
 const Tag = ({ topic }) => (

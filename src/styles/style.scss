@@ -1,0 +1,212 @@
+@import "reset.scss";
+@import "theme.scss";
+
+body {
+  font-family: $defaultFontFamily;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: $blue;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: $red;
+}
+
+header {
+  background-color: $red;
+  width: 100%;
+
+  & > div {
+    margin: 0 auto;
+    padding: grid(3) grid(4);
+    max-width: $maxWidth;
+
+    h1 {
+      margin: 0;
+
+      a,
+      a:visited {
+        color: $white;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site > main {
+  margin: 0 auto;
+  flex-grow: 1;
+  width: 100%;
+  max-width: $maxWidth;
+  padding: grid(4);
+}
+
+footer {
+  display: flex;
+  min-height: 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: $lightGray;
+}
+
+.report-card {
+  border: $defaultBorder;
+  border-radius: 2px;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: grid(4);
+}
+
+.report-card-description {
+  margin: grid(4) 0;
+}
+
+.report-card-section {
+  margin-bottom: grid(4);
+
+  .toggle {
+    margin-top: grid(2);
+    display: flex;
+  }
+}
+
+.filter-container {
+  position: relative;
+}
+
+.filter-controls-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-controls-container > div {
+  margin: 0 grid(2);
+}
+
+.filter-scroll {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  grid-template-rows: repeat(3, 30%);
+  grid-auto-columns: 250px;
+  grid-auto-flow: column;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  min-height: 250px;
+}
+
+.filter-edge {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: grid(6);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filter-edge.left {
+  left: 0;
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #ffffff);
+}
+
+.filter-edge.right {
+  right: 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
+}
+
+.report-card-thumb {
+  display: inline-block;
+  position: relative;
+  border: $defaultBorder;
+  border-radius: 2px;
+  min-height: 150px;
+  padding: grid(2);
+  box-shadow: $defaultBoxShadow;
+}
+
+.report-card-thumb-heading {
+  line-height: 1.25;
+  display: block;
+}
+
+.filter-container .report-card-thumb {
+  margin: grid(2);
+}
+
+.topic-tag {
+  display: inline-block;
+  position: relative;
+  min-width: 3rem;
+  min-height: 2rem;
+  padding: grid(1);
+  margin: 1px;
+}
+
+.score {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: grid(6);
+  width: grid(5);
+}
+
+.score-bar {
+  height: 5px;
+  border-radius: 1px;
+  background-color: $lightGray;
+}
+
+.score-bar.filled {
+  background-color: $teal;
+}
+
+.info-toggle {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  width: grid(7);
+  height: grid(7);
+  border: solid 1px $blue;
+  background-color: $lightGray;
+  color: $blue;
+  margin: 0 grid(1);
+}
+
+.info-toggle:hover,
+.info-toggle:focus,
+.info-toggle:active {
+  color: $red;
+  border-color: $red;
+  cursor: pointer;
+}
+
+/* For Pym.js embed */
+html.embedded header,
+html.embedded footer {
+  display: none;
+}

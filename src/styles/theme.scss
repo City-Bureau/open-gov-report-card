@@ -1,0 +1,27 @@
+$defaultFontFamily: benton-sans, BlinkMacSystemFont, -apple-system, Segoe UI,
+  Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+  Helvetica, Arial, sans-serif;
+
+@function grid($n) {
+  @return $n * $gridSize;
+}
+$gridSize: 4px;
+
+$maxWidth: 960px;
+
+$red: #ed1651;
+$gray: #9b9c9f;
+$lightGray: #d8d8d8;
+$white: #fff;
+$black: #2c2e35;
+$yellow: #ffcb05;
+$teal: #00868a;
+$green: #058346;
+$blue: #0c6dde;
+$darkBlue: #024ba0;
+$lightBlue: #00a6de;
+$purple: #472f92;
+
+$borderColor: $lightGray;
+$defaultBorder: solid 1px $borderColor;
+$defaultBoxShadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);

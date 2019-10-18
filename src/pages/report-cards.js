@@ -8,7 +8,7 @@ import ReportCardThumb from "../components/report-card-thumb"
 
 export default class ReportCardsPage extends Component {
   state = {
-    data: [],
+    cards: [],
     results: [],
   }
 
@@ -19,14 +19,17 @@ export default class ReportCardsPage extends Component {
     const pymChild = new pym.Child()
     pymChild.sendHeight()
 
+    console.log(data.allAirtable.edges.slice(0, 10))
     this.setState({
-      data,
-      results: data,
+      cards: data.allAirtable.edges,
+      results: data.allAirtable.edges,
     })
   }
 
+  // TODO: Use IntersectionObserver to toggle left and right buttons
+
   render() {
-    const { data } = this.props
+    const { results } = this.state
 
     return (
       <Layout>
@@ -36,13 +39,14 @@ export default class ReportCardsPage extends Component {
           <div>Search</div>
           <div>Topics</div>
           <div>Sort By</div>
+          <div>{results.length} results</div>
         </div>
         <div className="filter-container">
           <div className="filter-edge left">
             <button>{"<"}</button>
           </div>
           <div className="filter-scroll">
-            {data.allAirtable.edges.map(({ node }) => (
+            {results.map(({ node }) => (
               <ReportCardThumb
                 key={node.slug}
                 {...{ ...node.data, ...node.fields }}

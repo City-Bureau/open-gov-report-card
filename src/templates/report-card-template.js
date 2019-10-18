@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ReportCard from "../components/report-card"
 
-const ReportCardPage = ({ pageContext }) => {
+const ReportCardTemplate = ({ pageContext }) => {
   // Placeholder
   const pymChild = new pym.Child()
   pymChild.sendHeight()
@@ -13,9 +13,9 @@ const ReportCardPage = ({ pageContext }) => {
   return (
     <Layout>
       <SEO title={pageContext.ID} />
-      <ReportCard ID={pageContext.ID} Tags={pageContext.Tags} />
+      <ReportCard {...pageContext} />
     </Layout>
   )
 }
 
-export default ReportCardPage
+export default ReportCardTemplate
