@@ -8,7 +8,7 @@ import Tag from "./tag"
 const ReportCardThumb = ({ ID, Tags, slug }) => (
   <div className="report-card-thumb">
     <div>
-      <Score score={2} />
+      <Score score={Math.floor(Math.random() * 4) + 1} />
       <Link className="report-card-thumb-heading" to={`/${slug}`}>
         {ID}
       </Link>

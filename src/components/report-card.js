@@ -10,10 +10,13 @@ const ReportCard = data => (
   <div className="report-card pym-child">
     <div className="report-card-header">
       <h2>{data.ID}</h2>
-      <Score score={2} />
       {(data.Tags || []).map((topic, idx) => (
         <Tag topic={topic} key={idx} />
       ))}
+    </div>
+    <div className="report-card-score-container">
+      <Score score={Math.floor(Math.random() * 4) + 1} isLarge />
+      <p>X of X categories. This is better/worse than X% of agencies</p>
     </div>
     <div className="report-card-description">
       {(data.Description || "").split("\n").map((line, idx) => (

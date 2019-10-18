@@ -93,6 +93,15 @@ footer {
 
   h2 {
     line-height: 1.25;
+    margin-bottom: grid(2);
+  }
+}
+
+.report-card-score-container {
+  margin-top: grid(5);
+
+  p {
+    margin-top: grid(2);
   }
 }
 
@@ -189,6 +198,7 @@ footer {
 .filter-controls-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 
   & > div {
@@ -282,6 +292,7 @@ footer {
 }
 
 .report-card-thumb-heading {
+  margin-top: grid(1);
   line-height: 1.25;
   display: block;
 }
@@ -302,20 +313,30 @@ footer {
 .score {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  height: grid(6);
-  width: grid(5);
-}
+  height: grid(7);
+  width: grid(14);
 
-.score-bar {
-  height: 5px;
-  border-radius: 1px;
-  background-color: $lightGray;
-}
+  .score-bar {
+    height: 100%;
+    width: grid(3);
+    border-radius: 1px;
+    background-color: $lightGray;
+  }
 
-.score-bar.filled {
-  background-color: $teal;
+  .score-bar.filled {
+    background-color: $teal;
+  }
+
+  &.is-large {
+    height: grid(14);
+    width: grid(28);
+
+    .score-bar {
+      width: grid(6);
+    }
+  }
 }
 
 /* For Pym.js embed */
