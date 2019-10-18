@@ -26,12 +26,12 @@ const ReportCard = data => (
           <p>{section.description}</p>
           {section.items.map((item, itemIdx) => (
             <Toggle key={itemIdx} index={itemIdx}>
-              <p>
+              <div className="report-card-grade-label">
                 <span className="report-card-grade">
                   {item.checked ? "👍" : "👎"}
                 </span>
-                {item.title}
-              </p>
+                <span>{item.title}</span>
+              </div>
               <p>{item.detail}</p>
             </Toggle>
           ))}

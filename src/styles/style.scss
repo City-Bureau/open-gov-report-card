@@ -73,7 +73,7 @@ footer {
 
 .breadcrumb {
   width: 100%;
-  max-width: 750px;
+  max-width: $reportCardWidth;
   margin: 0 auto;
   margin-bottom: grid(2);
 
@@ -87,7 +87,7 @@ footer {
 .report-card {
   border: $defaultBorder;
   border-radius: 2px;
-  max-width: 750px;
+  max-width: $reportCardWidth;
   margin: 0 auto;
   padding: grid(4);
 
@@ -154,6 +154,13 @@ footer {
   margin: 0 grid(1);
 }
 
+.report-card-grade-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .report-card-grade {
   margin-right: grid(1.5);
 }
@@ -166,10 +173,17 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
 
-.filter-controls-container > div {
-  margin: 0 grid(2);
+  & > div {
+    margin: 0 grid(2);
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 .search-container {

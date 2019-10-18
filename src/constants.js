@@ -70,12 +70,14 @@ const REPORT_CARD_SECTIONS = [
         detail: `Testing`,
       },
       {
+        // TODO: Add in mini SVG map of locations next to this
         title: `Location details`,
         key: `location`,
         checked: false,
         detail: `Testing`,
       },
       {
+        // TODO: Add some visualization of when meetings take place
         title: `Meeting times in the evening/weekends`,
         key: `times`,
         checked: false,
