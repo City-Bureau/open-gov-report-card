@@ -5,6 +5,7 @@ body {
   font-family: $defaultFontFamily;
   font-weight: 300;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 a,
@@ -70,6 +71,19 @@ footer {
   background-color: $lightGray;
 }
 
+.breadcrumb {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  margin-bottom: grid(2);
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 .report-card {
   border: $defaultBorder;
   border-radius: 2px;
@@ -87,12 +101,61 @@ footer {
 }
 
 .report-card-section {
-  margin-bottom: grid(4);
+  margin-bottom: grid(6);
+}
 
+.report-card-section .toggle {
+  margin: grid(3) 0;
+}
+
+.toggle {
+  display: flex;
+  cursor: pointer;
+}
+
+@media screen and (max-width: $mobile) {
   .toggle {
-    margin-top: grid(2);
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
+}
+
+.toggle:active,
+.toggle:hover,
+.toggle:focus {
+  outline: none;
+
+  .info-toggle {
+    color: $red;
+    border-color: $red;
+  }
+}
+
+.toggle-content {
+  border-left: solid grid(1.5) $lightGray;
+  padding: grid(2);
+  padding-left: grid(4);
+}
+
+.info-toggle {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: grid(6);
+  min-width: grid(6);
+  height: grid(6);
+  border: solid 1px $blue;
+  background-color: $lightGray;
+  color: $blue;
+  margin: 0 grid(1);
+}
+
+.report-card-grade {
+  margin-right: grid(1.5);
 }
 
 .filter-container {
@@ -102,10 +165,37 @@ footer {
 .filter-controls-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .filter-controls-container > div {
   margin: 0 grid(2);
+}
+
+.search-container {
+  position: relative;
+
+  input {
+    padding: grid(1);
+    border-radius: 2px;
+    border: $defaultBorder;
+  }
+
+  svg {
+    color: $gray;
+    width: grid(4);
+    height: grid(4);
+    position: absolute;
+    right: grid(1);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.sort-container {
+  label {
+    margin-right: grid(1);
+  }
 }
 
 .filter-scroll {
@@ -129,6 +219,12 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+  }
 }
 
 .filter-edge.left {
@@ -142,7 +238,10 @@ footer {
 }
 
 .report-card-thumb {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   position: relative;
   border: $defaultBorder;
   border-radius: 2px;
@@ -186,27 +285,6 @@ footer {
 
 .score-bar.filled {
   background-color: $teal;
-}
-
-.info-toggle {
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  border-radius: 50%;
-  width: grid(7);
-  height: grid(7);
-  border: solid 1px $blue;
-  background-color: $lightGray;
-  color: $blue;
-  margin: 0 grid(1);
-}
-
-.info-toggle:hover,
-.info-toggle:focus,
-.info-toggle:active {
-  color: $red;
-  border-color: $red;
-  cursor: pointer;
 }
 
 /* For Pym.js embed */

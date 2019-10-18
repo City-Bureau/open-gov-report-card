@@ -7,14 +7,17 @@ import Tag from "./tag"
 
 const ReportCardThumb = ({ ID, Tags, slug }) => (
   <div className="report-card-thumb">
-    <Score score={2} />
-    <Link className="report-card-thumb-heading" to={`/${slug}`}>
-      {ID}
-    </Link>
-    {/* TODO: Include succinct, discrete visual for ranking */}
-    {(Tags || []).map((topic, idx) => (
-      <Tag topic={topic} key={idx} />
-    ))}
+    <div>
+      <Score score={2} />
+      <Link className="report-card-thumb-heading" to={`/${slug}`}>
+        {ID}
+      </Link>
+    </div>
+    <div>
+      {(Tags || []).map((topic, idx) => (
+        <Tag topic={topic} key={idx} />
+      ))}
+    </div>
   </div>
 )
 
