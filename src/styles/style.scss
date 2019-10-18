@@ -200,9 +200,11 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  flex: 1;
 
   & > div {
     margin: 0 grid(2);
+    flex-grow: 1;
 
     &:first-child {
       margin-left: 0;
@@ -217,6 +219,7 @@ footer {
   position: relative;
 
   input {
+    width: 100%;
     padding: grid(1);
     border-radius: 2px;
     border: $defaultBorder;
@@ -230,6 +233,26 @@ footer {
     right: grid(1);
     top: 50%;
     transform: translateY(-50%);
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .filter-controls-container > div {
+    width: 50%;
+    margin: grid(2) 0;
+
+    &:nth-child(even) {
+      padding-left: grid(1);
+    }
+    &:nth-child(odd) {
+      padding-right: grid(1);
+    }
+  }
+
+  .search-container {
+    svg {
+      right: grid(2);
+    }
   }
 }
 
