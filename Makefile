@@ -8,4 +8,4 @@ build:
 
 # TODO: Add --cache-control max-age=3600, GZIP encode here or on CloudFront
 deploy:
-	aws s3 sync public/ s3://city-bureau-demos/report-cards --acl=public-read --recursive
+	aws s3 sync public/ s3://${S3_BUCKET}/report-cards --acl=public-read

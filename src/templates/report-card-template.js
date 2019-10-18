@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import * as pym from "pym.js"
 
 import Layout from "../components/layout"
@@ -7,8 +7,10 @@ import ReportCard from "../components/report-card"
 
 const ReportCardTemplate = ({ pageContext }) => {
   // Placeholder
-  const pymChild = new pym.Child()
-  pymChild.sendHeight()
+  useEffect(() => {
+    const pymChild = new pym.Child()
+    pymChild.sendHeight()
+  }, [])
 
   return (
     <Layout>

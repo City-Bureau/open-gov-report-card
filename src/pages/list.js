@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ReportCardThumb from "../components/report-card-thumb"
 
-export default class ReportCardsPage extends Component {
+export default class ListPage extends Component {
   state = {
     cards: [],
     results: [],

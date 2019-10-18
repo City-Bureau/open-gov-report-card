@@ -13,7 +13,7 @@ exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `report-cards/${slug}`,
+      value: `${slug}`,
     })
   }
 }
@@ -52,4 +52,20 @@ exports.createPages = async ({ graphql, actions }) => {
       }),
     })
   })
+}
+
+// Handle pym.js requiring the window/location to be defined
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /pym.js/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
 }

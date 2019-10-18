@@ -76,6 +76,10 @@ footer {
   max-width: 750px;
   margin: 0 auto;
   padding: grid(4);
+
+  h2 {
+    line-height: 1.25;
+  }
 }
 
 .report-card-description {

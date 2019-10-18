@@ -1,5 +1,6 @@
 require("dotenv").config()
 
+// TODO: Canonical URLs
 module.exports = {
   pathPrefix: `/report-cards`,
   siteMetadata: {
