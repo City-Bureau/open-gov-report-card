@@ -1,4 +1,7 @@
-.PHONY: install build deploy
+.PHONY: clean install build deploy
+
+clean:
+	rm -rf public
 
 install:
 	npm install

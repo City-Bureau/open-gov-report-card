@@ -10,7 +10,7 @@ const ReportCardTemplate = ({ pageContext }) => {
   useEffect(() => {
     const pymChild = new pym.Child()
     pymChild.sendHeight()
-  }, [])
+  })
 
   return (
     <Layout>
