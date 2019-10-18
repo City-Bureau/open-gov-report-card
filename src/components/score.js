@@ -5,9 +5,10 @@ const SCORE_BARS = [4, 3, 2, 1]
 
 const Score = ({ score }) => (
   <div className="score">
-    {SCORE_BARS.map(val => (
+    TK
+    {/* {SCORE_BARS.map(val => (
       <div key={val} className={`score-bar ${score >= val ? "filled" : ""}`} />
-    ))}
+    ))} */}
   </div>
 )
 

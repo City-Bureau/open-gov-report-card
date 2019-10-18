@@ -71,14 +71,14 @@ const REPORT_CARD_SECTIONS = [
       },
       {
         // TODO: Add in mini SVG map of locations next to this
-        title: `Location details`,
+        title: `Location details (SMALL MAP TK)`,
         key: `location`,
         checked: false,
         detail: `Testing`,
       },
       {
         // TODO: Add some visualization of when meetings take place
-        title: `Meeting times in the evening/weekends`,
+        title: `Meeting times in the evening/weekends (MEETING TIMES DISPLAY TK)`,
         key: `times`,
         checked: false,
         detail: `Testing`,

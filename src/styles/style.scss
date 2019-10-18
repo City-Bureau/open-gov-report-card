@@ -163,6 +163,23 @@ footer {
 
 .report-card-grade {
   margin-right: grid(1.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: grid(7);
+    height: grid(7);
+  }
+
+  &.positive svg {
+    transform: rotate(-90deg);
+    color: $green;
+  }
+  &.negative svg {
+    transform: rotate(90deg);
+    color: $red;
+  }
 }
 
 .filter-container {

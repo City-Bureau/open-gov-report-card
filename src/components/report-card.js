@@ -3,6 +3,7 @@ import React from "react"
 import Score from "./score"
 import Tag from "./tag"
 import Toggle from "./toggle"
+import Chevron from "./chevron"
 import REPORT_CARD_SECTIONS from "../constants"
 
 const ReportCard = data => (
@@ -27,8 +28,13 @@ const ReportCard = data => (
           {section.items.map((item, itemIdx) => (
             <Toggle key={itemIdx} index={itemIdx}>
               <div className="report-card-grade-label">
-                <span className="report-card-grade">
-                  {item.checked ? "👍" : "👎"}
+                <span
+                  className={`report-card-grade ${
+                    item.checked ? "positive" : "negative"
+                  }`}
+                >
+                  {/* {item.checked ? "👍" : "👎"} */}
+                  <Chevron />
                 </span>
                 <span>{item.title}</span>
               </div>
