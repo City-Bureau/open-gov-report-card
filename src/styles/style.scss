@@ -289,6 +289,11 @@ footer {
   &.is-active {
     opacity: 1;
   }
+
+  svg {
+    width: grid(10);
+    height: grid(10);
+  }
 }
 
 .filter-edge.left {

@@ -19,7 +19,7 @@ const ListPage = ({ data }) => {
   const [leftActive, rightActive] = edgesActive
   const scrollEl = useRef(null)
 
-  const onScroll = debounce(() => {
+  const onScroll = () => {
     const target = scrollEl.current
     const scrollLeftMax = target.scrollWidth - target.clientWidth
     const isLeftActive = target.scrollLeft >= 10
@@ -27,11 +27,13 @@ const ListPage = ({ data }) => {
     if (isLeftActive !== leftActive || isRightActive !== rightActive) {
       setEdgesActive([isLeftActive, isRightActive])
     }
-  }, 250)
+  }
+  const debouncedOnScroll = debounce(onScroll, 250)
 
   useEffect(() => {
     const pymChild = new pym.Child()
     pymChild.sendHeight()
+    if (scrollEl.current) onScroll()
   })
 
   return (
@@ -58,7 +60,11 @@ const ListPage = ({ data }) => {
         <div className={`filter-edge left ${leftActive ? "is-active" : ""}`}>
           <Chevron style={{ transform: "rotate(180deg)" }} />
         </div>
-        <div className="filter-scroll" ref={scrollEl} onScroll={onScroll}>
+        <div
+          className="filter-scroll"
+          ref={scrollEl}
+          onScroll={debouncedOnScroll}
+        >
           {results.map(({ node }) => (
             <ReportCardThumb
               key={node.slug}
