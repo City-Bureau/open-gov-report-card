@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import Score from "./score"
+import Grade from "./grade"
 import Tag from "./tag"
 import Toggle from "./toggle"
 import Chevron from "./chevron"
@@ -15,7 +15,7 @@ const ReportCard = data => (
       ))}
     </div>
     <div className="report-card-score-container">
-      <Score score={Math.floor(Math.random() * 4) + 1} isLarge />
+      <Grade score={Math.floor(Math.random() * 5)} isLarge />
       <p>X of X categories. This is better/worse than X% of agencies</p>
     </div>
     <div className="report-card-description">
