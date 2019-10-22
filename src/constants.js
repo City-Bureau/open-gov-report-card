@@ -1,4 +1,22 @@
-const REPORT_CARD_SECTIONS = [
+export const TOPICS = [
+  `Criminal Justice`,
+  `Development`,
+  `Education`,
+  `Elections`,
+  `Environment`,
+  `Finance`,
+  `Health`,
+  `Housing`,
+  `Labor`,
+  `Libraries`,
+  `Parks`,
+  `Politics`,
+  `Transportation`,
+  `Urban Animals`,
+  `Utilities`,
+]
+
+export const REPORT_CARD_SECTIONS = [
   {
     title: `Online`,
     description: `Items being posted online`,
@@ -122,5 +140,3 @@ const REPORT_CARD_SECTIONS = [
     ],
   },
 ]
-
-export default REPORT_CARD_SECTIONS

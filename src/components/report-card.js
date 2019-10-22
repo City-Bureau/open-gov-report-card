@@ -4,13 +4,13 @@ import Grade from "./grade"
 import Tag from "./tag"
 import Toggle from "./toggle"
 import Chevron from "./chevron"
-import REPORT_CARD_SECTIONS from "../constants"
+import { REPORT_CARD_SECTIONS } from "../constants"
 
-const ReportCard = data => (
+const ReportCard = ({ ID, Tags, Description }) => (
   <div className="report-card pym-child">
     <div className="report-card-header">
-      <h2>{data.ID}</h2>
-      {(data.Tags || []).map((topic, idx) => (
+      <h2>{ID}</h2>
+      {(Tags || []).map((topic, idx) => (
         <Tag topic={topic} key={idx} />
       ))}
     </div>
@@ -19,16 +19,16 @@ const ReportCard = data => (
       <p>X of X categories. This is better/worse than X% of agencies</p>
     </div>
     <div className="report-card-description">
-      {(data.Description || "").split("\n").map((line, idx) => (
+      {(Description || "").split("\n").map((line, idx) => (
         <p key={idx}>{line}</p>
       ))}
     </div>
     <div className="report-card-body">
-      {REPORT_CARD_SECTIONS.map((section, idx) => (
+      {REPORT_CARD_SECTIONS.map(({ title, description, items }, idx) => (
         <div className="report-card-section" key={idx}>
-          <h3>{section.title}</h3>
-          <p>{section.description}</p>
-          {section.items.map((item, itemIdx) => (
+          <h3>{title}</h3>
+          <p>{description}</p>
+          {items.map((item, itemIdx) => (
             <Toggle key={itemIdx} index={itemIdx}>
               <div className="report-card-grade-label">
                 <span

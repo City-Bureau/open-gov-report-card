@@ -1,23 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-const ALLOWED_TOPICS = [
-  `Criminal Justice`,
-  `Development`,
-  `Education`,
-  `Elections`,
-  `Environment`,
-  `Finance`,
-  `Health`,
-  `Housing`,
-  `Labor`,
-  `Libraries`,
-  `Parks`,
-  `Politics`,
-  `Transportation`,
-  `Urban Animals`,
-  `Utilities`,
-]
+import { TOPICS } from "../constants"
 
 const TOPIC_COLOR_MAP = {
   "Criminal Justice": `blue`,
@@ -38,7 +22,7 @@ const TOPIC_COLOR_MAP = {
 }
 
 const Tag = ({ topic }) =>
-  ALLOWED_TOPICS.includes(topic) ? (
+  TOPICS.includes(topic) ? (
     <div
       className={`topic-tag ${
         topic in TOPIC_COLOR_MAP ? TOPIC_COLOR_MAP[topic] : ``

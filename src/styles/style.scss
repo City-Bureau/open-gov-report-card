@@ -163,6 +163,45 @@ footer {
   margin: 0 grid(1);
 }
 
+.multiselect {
+  position: relative;
+}
+
+.multiselect-control {
+  padding: grid(2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    transition: transform 0.1s linear;
+    transform: rotate(90deg);
+    width: grid(5);
+    height: grid(5);
+  }
+
+  &[aria-expanded="true"] svg {
+    transform: rotate(-90deg);
+  }
+}
+
+.multiselect-content {
+  position: absolute;
+  margin-top: grid(1);
+  padding: grid(2) grid(1);
+  width: 100%;
+  top: 100%;
+  z-index: 1;
+  background-color: $white;
+  border-radius: 2px;
+  border: $defaultBorder;
+
+  label {
+    display: block;
+  }
+}
+
 .report-card-grade-label {
   display: flex;
   flex-direction: row;
@@ -211,6 +250,8 @@ footer {
     }
     &:last-child {
       margin-right: 0;
+      text-align: right;
+      flex-grow: 0;
     }
   }
 }
@@ -246,6 +287,9 @@ footer {
     }
     &:nth-child(odd) {
       padding-right: grid(1);
+    }
+    &:last-child {
+      flex-grow: 1;
     }
   }
 

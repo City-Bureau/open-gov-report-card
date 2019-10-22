@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react"
+import React, { useState } from "react"
 
 const Toggle = ({ index, children }) => {
   const [toggleLabel, toggleContent] = children
@@ -11,7 +11,7 @@ const Toggle = ({ index, children }) => {
   }
 
   return (
-    <Fragment>
+    <>
       <div
         className="toggle"
         role="button"
@@ -19,15 +19,20 @@ const Toggle = ({ index, children }) => {
         onClick={toggleActive}
         onKeyPress={onKeyPress}
         aria-controls={`toggle-${index}`}
-        aria-expanded={active.toString()}
+        aria-expanded={!!active.toString()}
       >
         {toggleLabel}
         <span className="info-toggle">?</span>
       </div>
-      <div className="toggle-content" style={{ display: active ? `` : `none` }}>
+      <div
+        id={`toggle-${index}`}
+        className="toggle-content"
+        style={{ display: active ? `` : `none` }}
+        aria-hidden={!active.toString()}
+      >
         {toggleContent}
       </div>
-    </Fragment>
+    </>
   )
 }
 
