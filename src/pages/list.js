@@ -39,9 +39,6 @@ const ListPage = ({
     topics: [],
     sort: `desc`,
   })
-  // eslint-disable-next-line
-  const [cards, setCards] = useState(edges)
-  // eslint-disable-next-line
   const [results, setResults] = useState(edges)
 
   const [edgesActive, setEdgesActive] = useState([false, false])
@@ -70,8 +67,8 @@ const ListPage = ({
   })
 
   useEffect(() => {
-    setResults(applyFilters(filters, cards))
-  }, [filters])
+    setResults(applyFilters(filters, edges))
+  }, [filters.search, filters.topics, filters.sort])
 
   return (
     <Layout>

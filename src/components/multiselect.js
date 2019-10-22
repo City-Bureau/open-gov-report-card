@@ -37,7 +37,7 @@ const Multiselect = ({ label, options, onChange }) => {
 
   useEffect(() => {
     onChange(inputOptions.filter(({ checked }) => checked))
-  }, [inputOptions])
+  }, inputOptions.map(({ checked }) => checked))
 
   return (
     <div className="multiselect">
