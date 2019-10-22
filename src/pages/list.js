@@ -14,11 +14,18 @@ import { TOPICS } from "../constants"
 const applyFilters = ({ search, topics }, data) =>
   data
     .filter(
-      ({ node: { data: ID } }) => !search || ID.toLowerCase().includes(search)
+      ({
+        node: {
+          data: { ID },
+        },
+      }) => !search || ID.toLowerCase().includes(search)
     )
     .filter(
-      ({ node: { data: Tags } }) =>
-        topics.length === 0 || topics.some(t => (Tags || []).includes(t))
+      ({
+        node: {
+          data: { Tags },
+        },
+      }) => topics.length === 0 || topics.some(t => (Tags || []).includes(t))
     )
 // .sort(({ node }) => true)
 
