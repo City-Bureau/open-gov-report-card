@@ -16,16 +16,16 @@ const applyFilters = ({ search, topics }, data) =>
     .filter(
       ({
         node: {
-          data: { ID },
+          data: { id },
         },
-      }) => !search || ID.toLowerCase().includes(search)
+      }) => !search || id.toLowerCase().includes(search)
     )
     .filter(
       ({
         node: {
-          data: { Tags },
+          data: { tags },
         },
-      }) => topics.length === 0 || topics.some(t => (Tags || []).includes(t))
+      }) => topics.length === 0 || topics.some(t => (tags || []).includes(t))
     )
 // .sort(({ node }) => true)
 
@@ -114,9 +114,22 @@ const ListPage = ({
           ref={scrollEl}
           onScroll={debouncedOnScroll}
         >
-          {results.map(({ node: { fields: { slug }, data: { ID, Tags } } }) => (
-            <ReportCardThumb key={slug} slug={slug} ID={ID} Tags={Tags} />
-          ))}
+          {results.map(
+            ({
+              node: {
+                fields: { slug, score },
+                data: { id, tags },
+              },
+            }) => (
+              <ReportCardThumb
+                key={slug}
+                slug={slug}
+                score={score}
+                id={id}
+                tags={tags}
+              />
+            )
+          )}
         </div>
         <div className={`filter-edge right ${rightActive ? "is-active" : ""}`}>
           <Chevron />
@@ -132,17 +145,18 @@ export const query = graphql`
       edges {
         node {
           data {
-            ID
-            Agency
-            Sub_Agency
-            Jurisdiction
-            Description
-            Tags
-            Website
-            OMA_Flags
+            id: ID
+            agency: Agency
+            subAgency: Sub_Agency
+            jurisdiction: Jurisdiction
+            description: Description
+            tags: Tags
+            website: Website
+            omagFlags: OMA_Flags
           }
           fields {
             slug
+            score
           }
         }
       }

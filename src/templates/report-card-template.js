@@ -7,8 +7,9 @@ import SEO from "../components/seo"
 import ReportCard from "../components/report-card"
 import Chevron from "../components/chevron"
 
-const ReportCardTemplate = ({ pageContext }) => {
-  // Placeholder
+const ReportCardTemplate = ({
+  pageContext: { id, tags, score, description },
+}) => {
   useEffect(() => {
     const pymChild = new pym.Child()
     pymChild.sendHeight()
@@ -16,7 +17,7 @@ const ReportCardTemplate = ({ pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={pageContext.ID} />
+      <SEO title={id} />
       <div className="breadcrumb">
         <Link to="/list/">
           <Chevron
@@ -25,7 +26,7 @@ const ReportCardTemplate = ({ pageContext }) => {
           {" Back to list"}
         </Link>
       </div>
-      <ReportCard {...pageContext} />
+      <ReportCard id={id} tags={tags} score={score} description={description} />
     </Layout>
   )
 }

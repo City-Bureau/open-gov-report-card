@@ -5,16 +5,16 @@ import { Link } from "gatsby"
 import Grade from "./grade"
 import Tag from "./tag"
 
-const ReportCardThumb = ({ ID, Tags, slug }) => (
+const ReportCardThumb = ({ id, tags, score, slug }) => (
   <div className="report-card-thumb">
     <div>
-      <Grade score={Math.floor(Math.random() * 5)} />
+      <Grade score={score} />
       <Link className="report-card-thumb-heading" to={`/${slug}`}>
-        {ID}
+        {id}
       </Link>
     </div>
     <div>
-      {(Tags || []).map((topic, idx) => (
+      {(tags || []).map((topic, idx) => (
         <Tag topic={topic} key={idx} />
       ))}
     </div>
@@ -22,14 +22,15 @@ const ReportCardThumb = ({ ID, Tags, slug }) => (
 )
 
 ReportCardThumb.propTypes = {
-  ID: PropTypes.string,
-  Tags: PropTypes.array,
+  id: PropTypes.string,
+  tags: PropTypes.array,
+  score: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
 }
 
 ReportCardThumb.defaultProps = {
-  ID: ``,
-  Tags: [],
+  id: ``,
+  tags: [],
 }
 
 export default ReportCardThumb

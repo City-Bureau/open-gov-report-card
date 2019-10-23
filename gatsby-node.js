@@ -6,6 +6,8 @@ const SLUGOPTS = {
   remove: /[^\-a-zA-Z0-9\s]/g,
 }
 
+const calculateScore = ({ id, omaFlags }) => Math.floor(Math.random() * 5)
+
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `Airtable`) {
@@ -14,6 +16,13 @@ exports.onCreateNode = ({ node, actions }) => {
       node,
       name: `slug`,
       value: `${slug}`,
+    })
+
+    const score = calculateScore(node.data)
+    createNodeField({
+      node,
+      name: `score`,
+      value: score,
     })
   }
 }
@@ -26,30 +35,29 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             data {
-              ID
-              Agency
-              Sub_Agency
-              Jurisdiction
-              Description
-              Tags
-              Website
-              OMA_Flags
+              id: ID
+              agency: Agency
+              subAgency: Sub_Agency
+              jurisdiction: Jurisdiction
+              description: Description
+              tags: Tags
+              website: Website
+              omagFlags: OMA_Flags
             }
             fields {
               slug
+              score
             }
           }
         }
       }
     }
   `)
-  result.data.allAirtable.edges.forEach(({ node }) => {
+  result.data.allAirtable.edges.forEach(({ node: { data, fields } }) => {
     createPage({
-      path: node.fields.slug,
+      path: fields.slug,
       component: path.resolve(`./src/templates/report-card-template.js`),
-      context: Object.assign(node.data, {
-        slug: node.fields.slug,
-      }),
+      context: { ...data, ...fields },
     })
   })
 }

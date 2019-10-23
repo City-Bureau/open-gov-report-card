@@ -6,20 +6,20 @@ import Toggle from "./toggle"
 import Chevron from "./chevron"
 import { REPORT_CARD_SECTIONS } from "../constants"
 
-const ReportCard = ({ ID, Tags, Description }) => (
+const ReportCard = ({ id, tags, score, description }) => (
   <div className="report-card pym-child">
     <div className="report-card-header">
-      <h2>{ID}</h2>
-      {(Tags || []).map((topic, idx) => (
+      <h2>{id}</h2>
+      {(tags || []).map((topic, idx) => (
         <Tag topic={topic} key={idx} />
       ))}
     </div>
     <div className="report-card-score-container">
-      <Grade score={Math.floor(Math.random() * 5)} isLarge />
+      <Grade score={score} isLarge />
       <p>X of X categories. This is better/worse than X% of agencies</p>
     </div>
     <div className="report-card-description">
-      {(Description || "").split("\n").map((line, idx) => (
+      {(description || "").split("\n").map((line, idx) => (
         <p key={idx}>{line}</p>
       ))}
     </div>
@@ -51,15 +51,16 @@ const ReportCard = ({ ID, Tags, Description }) => (
 )
 
 ReportCard.propTypes = {
-  ID: PropTypes.string,
-  Tags: PropTypes.array,
-  Description: PropTypes.string,
+  id: PropTypes.string,
+  tags: PropTypes.array,
+  score: PropTypes.number.isRequired,
+  description: PropTypes.string,
 }
 
 ReportCard.defaultProps = {
-  ID: ``,
-  Tags: [],
-  Description: ``,
+  id: ``,
+  tags: [],
+  description: ``,
 }
 
 export default ReportCard
