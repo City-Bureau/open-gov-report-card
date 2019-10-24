@@ -11,7 +11,7 @@ import SearchIcon from "../components/search-icon"
 import { debounce } from "../utils"
 import { TOPICS } from "../constants"
 
-const applyFilters = ({ search, topics }, data) =>
+const applyFilters = ({ search, topics, sort }, data) =>
   data
     .filter(
       ({
@@ -27,7 +27,11 @@ const applyFilters = ({ search, topics }, data) =>
         },
       }) => topics.length === 0 || topics.some(t => (tags || []).includes(t))
     )
-// .sort(({ node }) => true)
+    .sort((a, b) =>
+      sort === `asc`
+        ? a.node.fields.score - b.node.fields.score
+        : b.node.fields.score - a.node.fields.score
+    )
 
 const ListPage = ({
   data: {
@@ -37,9 +41,9 @@ const ListPage = ({
   const [filters, setFilters] = useState({
     search: ``,
     topics: [],
-    sort: `desc`,
+    sort: `asc`,
   })
-  const [results, setResults] = useState(edges)
+  const [results, setResults] = useState(edges.slice(0, 10))
 
   const [edgesActive, setEdgesActive] = useState([false, false])
   const [leftActive, rightActive] = edgesActive
@@ -96,12 +100,19 @@ const ListPage = ({
           />
         </div>
         <div className="sort-container">
-          <label htmlFor="sort-by">Sort by</label>
-          <select id="sort-by" name="sort-by">
-            <option value=""></option>
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
-          </select>
+          <div className="select-container">
+            <select
+              id="sort-by"
+              name="sort-by"
+              aria-label="Sort"
+              value={filters.sort}
+              onChange={e => setFilters({ ...filters, sort: e.target.value })}
+            >
+              <option value="asc">Sort F to A</option>
+              <option value="desc">Sort A to F</option>
+            </select>
+            <Chevron />
+          </div>
         </div>
         <div>{results.length} results</div>
       </div>
