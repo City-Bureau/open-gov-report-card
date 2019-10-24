@@ -6,10 +6,10 @@ import Toggle from "./toggle"
 import Chevron from "./chevron"
 import { REPORT_CARD_SECTIONS } from "../constants"
 
-const ReportCard = ({ id, tags, score, description }) => (
+const ReportCard = ({ name, tags, score, description }) => (
   <div className="report-card pym-child">
     <div className="report-card-header">
-      <h2>{id}</h2>
+      <h2>{name}</h2>
       {(tags || []).map((topic, idx) => (
         <Tag topic={topic} key={idx} />
       ))}
@@ -51,14 +51,14 @@ const ReportCard = ({ id, tags, score, description }) => (
 )
 
 ReportCard.propTypes = {
-  id: PropTypes.string,
+  name: PropTypes.string,
   tags: PropTypes.array,
   score: PropTypes.number.isRequired,
   description: PropTypes.string,
 }
 
 ReportCard.defaultProps = {
-  id: ``,
+  name: ``,
   tags: [],
   description: ``,
 }

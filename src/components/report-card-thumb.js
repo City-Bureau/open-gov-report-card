@@ -5,12 +5,12 @@ import { Link } from "gatsby"
 import Grade from "./grade"
 import Tag from "./tag"
 
-const ReportCardThumb = ({ id, tags, score, slug }) => (
+const ReportCardThumb = ({ name, tags, score, slug }) => (
   <div className="report-card-thumb">
     <div>
       <Grade score={score} />
       <Link className="report-card-thumb-heading" to={`/${slug}`}>
-        {id}
+        {name}
       </Link>
     </div>
     <div>
@@ -22,14 +22,14 @@ const ReportCardThumb = ({ id, tags, score, slug }) => (
 )
 
 ReportCardThumb.propTypes = {
-  id: PropTypes.string,
+  name: PropTypes.string,
   tags: PropTypes.array,
   score: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
 }
 
 ReportCardThumb.defaultProps = {
-  id: ``,
+  name: ``,
   tags: [],
 }
 

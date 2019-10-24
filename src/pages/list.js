@@ -16,9 +16,9 @@ const applyFilters = ({ search, topics, sort }, data) =>
     .filter(
       ({
         node: {
-          data: { id },
+          data: { name },
         },
-      }) => !search || id.toLowerCase().includes(search)
+      }) => !search || name.toLowerCase().includes(search.toLowerCase().trim())
     )
     .filter(
       ({
@@ -129,14 +129,14 @@ const ListPage = ({
             ({
               node: {
                 fields: { slug, score },
-                data: { id, tags },
+                data: { name, tags },
               },
             }) => (
               <ReportCardThumb
                 key={slug}
                 slug={slug}
                 score={score}
-                id={id}
+                name={name}
                 tags={tags}
               />
             )
@@ -156,13 +156,14 @@ export const query = graphql`
       edges {
         node {
           data {
-            id: ID
+            name: Display_Name
             agency: Agency
             subAgency: Sub_Agency
             jurisdiction: Jurisdiction
             description: Description
             tags: Tags
             website: Website
+            websiteFlags: Website_Flags
             omagFlags: OMA_Flags
           }
           fields {

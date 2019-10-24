@@ -8,7 +8,7 @@ import ReportCard from "../components/report-card"
 import Chevron from "../components/chevron"
 
 const ReportCardTemplate = ({
-  pageContext: { id, tags, score, description },
+  pageContext: { name, tags, score, description },
 }) => {
   useEffect(() => {
     const pymChild = new pym.Child()
@@ -17,7 +17,7 @@ const ReportCardTemplate = ({
 
   return (
     <Layout>
-      <SEO title={id} />
+      <SEO title={name} />
       <div className="breadcrumb">
         <Link to="/list/">
           <Chevron
@@ -26,7 +26,12 @@ const ReportCardTemplate = ({
           {" Back to list"}
         </Link>
       </div>
-      <ReportCard id={id} tags={tags} score={score} description={description} />
+      <ReportCard
+        name={name}
+        tags={tags}
+        score={score}
+        description={description}
+      />
     </Layout>
   )
 }
