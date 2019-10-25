@@ -1,54 +1,18 @@
 const path = require(`path`)
 const slugify = require(`slugify`)
+const { gradeReportCard, getGrade } = require(`./src/grading`)
 
 const SLUGOPTS = {
   lower: true,
   remove: /[^\-a-zA-Z0-9\s]/g,
 }
 
-// const calculateScore = ({ id, omaFlags }) => Math.floor(Math.random() * 5)
-const calculateScore = ({ OMA_Flags, Website_Flags }) => {
-  const oma = OMA_Flags || []
-  const web = Website_Flags || []
-  let score = 0
-  let denom = 0
-
-  if (!web.includes("No direct website")) {
-    score += 1
-  }
-  denom += 1
-  if (!oma.includes("No information online")) {
-    score += 1
-  }
-  denom += 1
-  if (
-    !oma.includes("Agendas not posted") &&
-    !oma.includes("No information online")
-  ) {
-    score += 1
-  }
-  denom += 1
-  if (
-    !oma.includes("Minutes not posted") &&
-    !oma.includes("No information online")
-  ) {
-    score += 1
-  }
-  denom += 1
-  if (!oma.includes("Pre-registration for public comment")) {
-    score += 1
-  }
-  denom += 1
-  if (!oma.includes("Public comment related to agenda")) {
-    score += 1
-  }
-  denom += 1
-  if (!oma.includes("Limit overall public comment time")) {
-    score += 1
-  }
-  denom += 1
-  return Math.round((score / denom) * 4)
-}
+const calculateScore = ({ OMA_Flags, Website_Flags, Report_Card_Flags }) =>
+  gradeReportCard([
+    ...(OMA_Flags || []),
+    ...(Website_Flags || []),
+    ...(Report_Card_Flags || []),
+  ])
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
@@ -86,6 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
               website: Website
               websiteFlags: Website_Flags
               omaFlags: OMA_Flags
+              reportCardFlags: Report_Card_Flags
             }
             fields {
               slug

@@ -165,6 +165,7 @@ export const query = graphql`
             website: Website
             websiteFlags: Website_Flags
             omagFlags: OMA_Flags
+            reportCardFlags: Report_Card_Flags
           }
           fields {
             slug

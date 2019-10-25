@@ -6,9 +6,36 @@ import Toggle from "./toggle"
 import Chevron from "./chevron"
 import Chicago from "./chicago"
 import Cook from "./cook"
-import { REPORT_CARD_SECTIONS } from "../constants"
+import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
 
-const ReportCard = ({ name, tags, score, description }) => (
+const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
+  <Toggle index={idx}>
+    <div className="report-card-grade-label">
+      <span
+        className={`report-card-grade ${
+          { 1: `positive`, 0: `na`, [-1]: `negative` }[gradeQuestion(id, flags)]
+        }`}
+      >
+        <Chevron />
+      </span>
+      <span>{title}</span>
+    </div>
+    <p>{detail}</p>
+  </Toggle>
+)
+
+// TODO: Get location map in context
+const ReportCardSection = ({ title, description, flags, items }) => (
+  <div className="report-card-section">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    {items.map((item, itemIdx) => (
+      <ReportCardToggle key={itemIdx} {...{ ...item, flags, idx: itemIdx }} />
+    ))}
+  </div>
+)
+
+const ReportCard = ({ name, tags, score, description, flags }) => (
   <div className="report-card pym-child">
     <div className="report-card-header">
       <h2>{name}</h2>
@@ -29,26 +56,14 @@ const ReportCard = ({ name, tags, score, description }) => (
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }, idx) => (
-        <div className="report-card-section" key={idx}>
-          <h3>{title}</h3>
-          <p>{description}</p>
-          {items.map((item, itemIdx) => (
-            <Toggle key={itemIdx} index={itemIdx}>
-              <div className="report-card-grade-label">
-                <span
-                  className={`report-card-grade ${
-                    item.checked ? "positive" : "negative"
-                  }`}
-                >
-                  {/* {item.checked ? "👍" : "👎"} */}
-                  <Chevron />
-                </span>
-                <span>{item.title}</span>
-              </div>
-              <p>{item.detail}</p>
-            </Toggle>
-          ))}
-        </div>
+        <ReportCardSection
+          title={title}
+          description={description}
+          items={items}
+          flags={flags}
+          key={idx}
+          idx={idx}
+        />
       ))}
     </div>
   </div>
@@ -59,12 +74,14 @@ ReportCard.propTypes = {
   tags: PropTypes.array,
   score: PropTypes.number.isRequired,
   description: PropTypes.string,
+  flags: PropTypes.array,
 }
 
 ReportCard.defaultProps = {
   name: ``,
   tags: [],
   description: ``,
+  flags: [],
 }
 
 export default ReportCard

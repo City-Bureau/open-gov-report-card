@@ -1,13 +1,10 @@
 import PropTypes from "prop-types"
 import React from "react"
-
-const GRADES = ["F", "D", "C", "B", "A"]
+import { getGrade } from "../grading"
 
 const Grade = ({ score, isLarge }) => (
-  <div
-    className={`grade ${score} ${GRADES[score]} ${isLarge ? "is-large" : ""}`}
-  >
-    <span>{GRADES[score]}</span>
+  <div className={`grade ${getGrade(score)} ${isLarge ? "is-large" : ""}`}>
+    <span>{getGrade(score)}</span>
   </div>
 )
 
