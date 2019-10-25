@@ -4,6 +4,8 @@ import Grade from "./grade"
 import Tag from "./tag"
 import Toggle from "./toggle"
 import Chevron from "./chevron"
+import Chicago from "./chicago"
+import Cook from "./cook"
 import { REPORT_CARD_SECTIONS } from "../constants"
 
 const ReportCard = ({ name, tags, score, description }) => (
@@ -22,6 +24,8 @@ const ReportCard = ({ name, tags, score, description }) => (
       {(description || "").split("\n").map((line, idx) => (
         <p key={idx}>{line}</p>
       ))}
+      <Chicago style={{ height: 50, width: 50, color: "purple" }} />
+      <Cook style={{ height: 50, width: 50 }} />
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }, idx) => (
