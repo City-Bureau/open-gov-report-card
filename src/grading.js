@@ -26,14 +26,9 @@ const REPORT_CARD_SECTIONS = [
     ],
   },
   {
-    title: `Documents`,
+    title: `Documentation`,
     description: `Document quality`,
     items: [
-      {
-        title: `Agendas include required details`,
-        id: `agendaDetail`,
-        detail: `Testing`,
-      },
       {
         title: `Minutes include required details`,
         id: `minutesDetail`,
@@ -42,7 +37,6 @@ const REPORT_CARD_SECTIONS = [
       {
         title: `Meetings are recorded and/or livestreamed`,
         id: `recording`,
-        checked: false,
         detail: `Testing`,
       },
     ],
@@ -120,25 +114,25 @@ const REPORT_CARD_QUESTIONS = {
       !flags.includes("Minutes not posted") &&
       !flags.includes("No information online"),
   },
-  agendaDetail: {
-    check: flags => !flags.includes("Agendas missing info"),
-    na: flags =>
-      (flags.includes("Agendas not posted") ||
-        flags.includes("No information online")) &&
-      !flags.includes("Agendas missing info"),
-  },
   minutesDetail: {
-    check: flags => !flags.includes("Minutes missing info"),
+    check: flags =>
+      flags.includes("Minutes have info") ||
+      !flags.includes("Minutes missing info"),
     na: flags =>
       (flags.includes("Minutes not posted") ||
         flags.includes("No information online")) &&
-      !flags.includes("Minutes missing info"),
+      !(
+        flags.includes("Minutes missing info") ||
+        flags.includes("Minutes have info")
+      ),
   },
+  // TODO: should transcript count?
   recording: {
     check: flags =>
       flags.includes("Meetings livestreamed") ||
       flags.includes("Meetings recorded"),
   },
+  // TODO: Worth keeping?
   onTime: {
     check: flags => true,
     na: flags => true,
@@ -169,6 +163,10 @@ const REPORT_CARD_QUESTIONS = {
   },
   commentAfter: {
     check: flags => !flags.includes("Public comment after meeting"),
+    na: flags =>
+      (flags.includes("No information online") ||
+        flags.includes("Minutes not posted")) &&
+      !flags.includes("Public comment after meeting"),
   },
   commentLimit: {
     check: flags => !flags.includes("Limit overall public comment time"),

@@ -8,7 +8,16 @@ import ReportCard from "../components/report-card"
 import Chevron from "../components/chevron"
 
 const ReportCardTemplate = ({
-  pageContext: { name, tags, score, description, websiteFlags, omaFlags },
+  pageContext: {
+    name,
+    tags,
+    score,
+    description,
+    websiteFlags,
+    omaFlags,
+    publicCommentFlags,
+    reportCardFlags,
+  },
 }) => {
   useEffect(() => {
     const pymChild = new pym.Child()
@@ -31,7 +40,12 @@ const ReportCardTemplate = ({
         tags={tags}
         score={score}
         description={description}
-        flags={[...(websiteFlags || []), ...(omaFlags || [])]}
+        flags={[
+          ...(websiteFlags || []),
+          ...(omaFlags || []),
+          ...(publicCommentFlags || []),
+          ...(reportCardFlags || []),
+        ]}
       />
     </Layout>
   )

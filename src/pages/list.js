@@ -43,7 +43,7 @@ const ListPage = ({
     topics: [],
     sort: `asc`,
   })
-  const [results, setResults] = useState(edges.slice(0, 10))
+  const [results, setResults] = useState(applyFilters(filters, edges))
 
   const [edgesActive, setEdgesActive] = useState([false, false])
   const [leftActive, rightActive] = edgesActive
@@ -165,6 +165,7 @@ export const query = graphql`
             website: Website
             websiteFlags: Website_Flags
             omagFlags: OMA_Flags
+            publicCommentFlags: Public_Comment_Flags
             reportCardFlags: Report_Card_Flags
           }
           fields {

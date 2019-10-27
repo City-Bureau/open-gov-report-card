@@ -7,10 +7,16 @@ const SLUGOPTS = {
   remove: /[^\-a-zA-Z0-9\s]/g,
 }
 
-const calculateScore = ({ OMA_Flags, Website_Flags, Report_Card_Flags }) =>
+const calculateScore = ({
+  OMA_Flags,
+  Website_Flags,
+  Public_Comment_Flags,
+  Report_Card_Flags,
+}) =>
   gradeReportCard([
     ...(OMA_Flags || []),
     ...(Website_Flags || []),
+    ...(Public_Comment_Flags || []),
     ...(Report_Card_Flags || []),
   ])
 
@@ -50,6 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
               website: Website
               websiteFlags: Website_Flags
               omaFlags: OMA_Flags
+              publicCommentFlags: Public_Comment_Flags
               reportCardFlags: Report_Card_Flags
             }
             fields {
