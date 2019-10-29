@@ -9,6 +9,12 @@ import Cook from "./cook"
 import Week from "./week"
 import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
 
+/*
+TODO:
+- Add link to source
+- Add link to Documenters.org for meetings
+- Add link to public comment policy in section
+*/
 const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
   <Toggle index={idx}>
     <div className="report-card-grade-label">

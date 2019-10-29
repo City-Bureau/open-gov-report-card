@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+// TODO: Update this based on report cards
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`

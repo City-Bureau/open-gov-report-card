@@ -47,6 +47,49 @@ header {
   }
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: grid(6);
+  min-width: grid(6);
+  height: grid(6);
+  margin: 0;
+  background-color: $white;
+  border: $defaultBorder;
+  border-radius: 2px;
+  box-shadow: none;
+  position: relative;
+
+  &:checked::after {
+    content: "\2714\fe0e";
+    position: absolute;
+    width: grid(6);
+    height: grid(6);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    font-size: grid(5);
+    color: $blue;
+    border-width: 0;
+    text-align: center;
+    line-height: 1;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    z-index: 1;
+    border-color: $blue;
+    outline: none;
+    cursor: pointer;
+
+    & + * {
+      z-index: 2;
+    }
+  }
+}
+
 .site {
   display: flex;
   min-height: 100vh;
@@ -198,13 +241,23 @@ footer {
   padding: grid(2) grid(1);
   width: 100%;
   top: 100%;
-  z-index: 1;
+  z-index: 2;
   background-color: $white;
   border-radius: 2px;
   border: $defaultBorder;
 
   label {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input {
+      margin-right: grid(1);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: grid(1);
+    }
   }
 }
 
@@ -234,6 +287,10 @@ footer {
     transform: rotate(90deg);
     color: $red;
   }
+}
+
+.count-container {
+  min-width: grid(20);
 }
 
 .filter-container {
@@ -571,7 +628,8 @@ footer {
     flex: 1;
     flex-direction: row;
     width: 100%;
-    height: grid(10);
+    min-height: grid(6);
+    height: grid(6);
   }
 
   .hour-label {
@@ -586,7 +644,7 @@ footer {
   .hour {
     height: 100%;
     background-color: $lightGray;
-    border: solid 1px $white;
+    border: solid 2px $white;
     border-bottom-width: 0;
     border-right-width: 0;
     flex: 1;
@@ -611,6 +669,8 @@ footer {
 
     .weekday {
       justify-content: space-between;
+      min-height: grid(5);
+      height: grid(5);
     }
 
     .hour-label {
@@ -624,7 +684,14 @@ footer {
 }
 
 /* For Pym.js embed */
-html.embedded header,
-html.embedded footer {
-  display: none;
+html.embedded {
+  header,
+  footer {
+    display: none;
+  }
+
+  body,
+  .site {
+    min-height: auto;
+  }
 }

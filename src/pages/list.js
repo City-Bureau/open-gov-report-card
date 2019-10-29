@@ -77,7 +77,6 @@ const ListPage = ({
   return (
     <Layout>
       <SEO title="Report Cards" />
-      <h1>Report Cards</h1>
       <div className="filter-controls-container">
         <div className="search-container">
           <input
@@ -114,7 +113,7 @@ const ListPage = ({
             <Chevron />
           </div>
         </div>
-        <div>{results.length} results</div>
+        <div className="count-container">{results.length} results</div>
       </div>
       <div className="filter-container">
         <div className={`filter-edge left ${leftActive ? "is-active" : ""}`}>
