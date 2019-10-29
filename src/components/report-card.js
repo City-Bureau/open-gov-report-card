@@ -6,6 +6,7 @@ import Toggle from "./toggle"
 import Chevron from "./chevron"
 import Chicago from "./chicago"
 import Cook from "./cook"
+import Week from "./week"
 import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
 
 const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
@@ -24,7 +25,6 @@ const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
   </Toggle>
 )
 
-// TODO: Get location map in context
 const ReportCardSection = ({ title, description, flags, items }) => (
   <div className="report-card-section">
     <h3>{title}</h3>
@@ -35,7 +35,15 @@ const ReportCardSection = ({ title, description, flags, items }) => (
   </div>
 )
 
-const ReportCard = ({ name, tags, score, description, flags }) => (
+const ReportCard = ({
+  name,
+  tags,
+  score,
+  description,
+  points,
+  times,
+  flags,
+}) => (
   <div className="report-card pym-child">
     <div className="report-card-header">
       <h2>{name}</h2>
@@ -51,8 +59,6 @@ const ReportCard = ({ name, tags, score, description, flags }) => (
       {(description || "").split("\n").map((line, idx) => (
         <p key={idx}>{line}</p>
       ))}
-      <Chicago style={{ height: 50, width: 50, color: "purple" }} />
-      <Cook style={{ height: 50, width: 50 }} />
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }, idx) => (
@@ -65,6 +71,22 @@ const ReportCard = ({ name, tags, score, description, flags }) => (
           idx={idx}
         />
       ))}
+      <div className="report-card-section">
+        <h3>Meeting Times</h3>
+        {times.length > 0 ? (
+          <Week times={times} />
+        ) : (
+          <p>We don't have meeting times for this agency</p>
+        )}
+      </div>
+      <div className="report-card-section">
+        <h3>Meeting Locations</h3>
+        {name.includes("Chicago") ? (
+          <Chicago style={{ height: 150, width: 150 }} points={points} />
+        ) : (
+          <Cook style={{ height: 150, width: 150 }} points={points} />
+        )}
+      </div>
     </div>
   </div>
 )
@@ -74,6 +96,8 @@ ReportCard.propTypes = {
   tags: PropTypes.array,
   score: PropTypes.number.isRequired,
   description: PropTypes.string,
+  points: PropTypes.array,
+  times: PropTypes.array,
   flags: PropTypes.array,
 }
 
@@ -81,6 +105,8 @@ ReportCard.defaultProps = {
   name: ``,
   tags: [],
   description: ``,
+  points: [],
+  times: [],
   flags: [],
 }
 

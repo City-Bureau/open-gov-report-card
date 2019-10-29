@@ -111,6 +111,10 @@ footer {
 
 .report-card-section {
   margin-bottom: grid(6);
+
+  h3 {
+    margin-bottom: grid(1);
+  }
 }
 
 .report-card-section .toggle {
@@ -520,6 +524,102 @@ footer {
 
   &.F {
     background-color: $red;
+  }
+}
+
+.micromap {
+  path {
+    fill: $gray;
+  }
+
+  circle {
+    fill: $blue;
+    stroke: $darkGray;
+  }
+}
+
+.week {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  // min-height: 200px;
+  font-size: 13px;
+
+  .weekday-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .weekday-label {
+    padding-right: grid(1);
+    text-align: right;
+
+    .is-mobile {
+      display: none;
+    }
+  }
+
+  .week-grid {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .weekday {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 100%;
+    height: grid(10);
+  }
+
+  .hour-label {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hour {
+    height: 100%;
+    background-color: $lightGray;
+    border: solid 1px $white;
+    border-bottom-width: 0;
+    border-right-width: 0;
+    flex: 1;
+
+    &.active {
+      background-color: $blue;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .week {
+    .weekday-label {
+      .is-desktop {
+        display: none;
+      }
+      .is-mobile {
+        display: inherit;
+        text-align: center;
+      }
+    }
+
+    .weekday {
+      justify-content: space-between;
+    }
+
+    .hour-label {
+      flex: none;
+
+      &:not(:first-child):not(:last-child) {
+        display: none;
+      }
+    }
   }
 }
 

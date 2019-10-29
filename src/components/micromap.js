@@ -3,22 +3,12 @@ import React from "react"
 import { projectPoint } from "../utils"
 
 const Micromap = ({ style, path, bounds, points }) => (
-  <svg viewBox="0,0,500,600" style={style}>
+  <svg viewBox="0,0,500,600" style={style} className="micromap">
     <g>
       <path d={path} fill="currentColor"></path>
-      {(points || [[-87.623177, 41.881832]]).map((point, idx) => {
+      {points.map((point, idx) => {
         let [x, y] = projectPoint(point, bounds)
-        return (
-          <circle
-            key={idx}
-            cx={x}
-            cy={y}
-            r={35}
-            strokeWidth={10}
-            stroke="black"
-            fill="steelblue"
-          />
-        )
+        return <circle key={idx} cx={x} cy={y} r={25} strokeWidth={5} />
       })}
     </g>
   </svg>

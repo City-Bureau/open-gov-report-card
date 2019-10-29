@@ -1,6 +1,6 @@
 const path = require(`path`)
 const slugify = require(`slugify`)
-const { gradeReportCard, getGrade } = require(`./src/grading`)
+const { gradeReportCard } = require(`./src/grading`)
 
 const SLUGOPTS = {
   lower: true,
@@ -41,6 +41,7 @@ exports.onCreateNode = ({ node, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  // Add all CSV, filtered items
   const result = await graphql(`
     query {
       allAirtable(filter: { table: { eq: "Agencies" } }) {
@@ -49,6 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
             data {
               name: Display_Name
               agency: Agency
+              agencyId: Agency_ID
               subAgency: Sub_Agency
               jurisdiction: Jurisdiction
               description: Description
@@ -66,13 +68,50 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allMeetingsCsv {
+        edges {
+          node {
+            id
+            agency_name
+            agency
+            start_day
+            start_time
+            lon
+            lat
+          }
+        }
+      }
     }
   `)
+
   result.data.allAirtable.edges.forEach(({ node: { data, fields } }) => {
+    const meetings = result.data.allMeetingsCsv.edges.filter(
+      ({ node: { agency } }) => data.name === agency
+    )
+    const times = [
+      ...new Set(
+        meetings.map(
+          ({ node: { start_day, start_time } }) => `${start_day} ${start_time}`
+        )
+      ),
+    ].map(t => t.split(" "))
+    const points = Object.keys(
+      meetings.reduce(
+        (obj, { node: { lon, lat } }) =>
+          lon && lat ? { ...obj, [`${lon},${lat}`]: true } : obj,
+        {}
+      )
+    ).map(coords => coords.split(",").map(c => +c))
     createPage({
       path: fields.slug,
       component: path.resolve(`./src/templates/report-card-template.js`),
-      context: { ...data, ...fields },
+      context: {
+        ...data,
+        ...fields,
+        points,
+        times,
+        meetingLen: meetings.length,
+      },
     })
   })
 }

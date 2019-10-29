@@ -1,4 +1,5 @@
 const REPORT_CARD_SECTIONS = [
+  // TODO: OMA?
   {
     title: `Online`,
     description: `Items being posted online`,
@@ -46,25 +47,13 @@ const REPORT_CARD_SECTIONS = [
     description: `When and where meetings are scheduled`,
     items: [
       {
-        title: `Start on time?`,
-        id: `onTime`,
-        detail: `Testing`,
-      },
-      {
         title: `Meetings are rarely cancelled`,
         id: `cancel`,
         detail: `Testing`,
       },
       {
-        // TODO: Add some visualization of when meetings take place
-        title: `Meeting times in the evening/weekends (MEETING TIMES DISPLAY TK)`,
+        title: `Regular meeting times in the evening/weekends`,
         id: `times`,
-        detail: `Testing`,
-      },
-      {
-        // TODO: Add in mini SVG map of locations next to this
-        title: `Location details (SMALL MAP TK)`,
-        id: `location`,
         detail: `Testing`,
       },
     ],
@@ -81,11 +70,6 @@ const REPORT_CARD_SECTIONS = [
       {
         title: `Commenters can discuss anything related to the agency and not just the meeting agenda`,
         id: `commentAgenda`,
-        detail: `Testing`,
-      },
-      {
-        title: `Public comment occurs before most of the meeting discussions`,
-        id: `commentAfter`,
         detail: `Testing`,
       },
       {
@@ -132,11 +116,6 @@ const REPORT_CARD_QUESTIONS = {
       flags.includes("Meetings livestreamed") ||
       flags.includes("Meetings recorded"),
   },
-  // TODO: Worth keeping?
-  onTime: {
-    check: flags => true,
-    na: flags => true,
-  },
   cancel: {
     check: flags => !flags.includes("Frequently cancelled"),
     na: flags =>
@@ -149,10 +128,6 @@ const REPORT_CARD_QUESTIONS = {
       flags.includes("No information online") &&
       !flags.includes("Meeting times in the evenings/weekends"),
   },
-  location: {
-    check: flags => true,
-    na: flags => true,
-  },
   preReg: {
     check: flags => !flags.includes("Pre-registration for public comment"),
     na: flags => flags.includes("No public comment policy"),
@@ -160,13 +135,6 @@ const REPORT_CARD_QUESTIONS = {
   commentAgenda: {
     check: flags => !flags.includes("Public comment related to the agenda"),
     na: flags => flags.includes("No public comment policy"),
-  },
-  commentAfter: {
-    check: flags => !flags.includes("Public comment after meeting"),
-    na: flags =>
-      (flags.includes("No information online") ||
-        flags.includes("Minutes not posted")) &&
-      !flags.includes("Public comment after meeting"),
   },
   commentLimit: {
     check: flags => !flags.includes("Limit overall public comment time"),

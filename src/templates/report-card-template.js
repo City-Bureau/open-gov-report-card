@@ -13,6 +13,8 @@ const ReportCardTemplate = ({
     tags,
     score,
     description,
+    points,
+    times,
     websiteFlags,
     omaFlags,
     publicCommentFlags,
@@ -40,6 +42,8 @@ const ReportCardTemplate = ({
         tags={tags}
         score={score}
         description={description}
+        points={points}
+        times={times}
         flags={[
           ...(websiteFlags || []),
           ...(omaFlags || []),
