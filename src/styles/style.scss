@@ -305,12 +305,10 @@ footer {
   flex: 1;
 
   & > div {
-    margin: 0 grid(2);
+    margin: 0;
+    margin-right: grid(2);
     flex-grow: 1;
 
-    &:first-child {
-      margin-left: 0;
-    }
     &:last-child {
       margin-right: 0;
       text-align: right;
@@ -343,7 +341,8 @@ footer {
 @media screen and (max-width: $mobile) {
   .filter-controls-container > div {
     width: 50%;
-    margin: grid(2) 0;
+    margin: 0;
+    margin-bottom: grid(2);
 
     &:nth-child(even) {
       padding-left: grid(1);
@@ -381,13 +380,12 @@ footer {
   flex-direction: row;
   flex: 1;
   flex-grow: 0;
-  line-height: 1.25;
 
   select {
     appearance: none;
     border: $defaultBorder;
     border-radius: 2px;
-    padding: grid(1);
+    padding: grid(0.75) grid(1);
     width: 100%;
     height: 100%;
     flex: 1;
@@ -405,14 +403,20 @@ footer {
 
 .filter-scroll {
   display: grid;
-  grid-template-columns: repeat(2, 250px);
+  grid-template-columns: repeat(2, #{grid(60)});
   grid-template-rows: repeat(3, 30%);
-  grid-auto-columns: 250px;
+  grid-auto-columns: grid(60);
   grid-auto-flow: column;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-  min-height: 250px;
+  min-height: grid(100);
+}
+
+@media screen and (max-width: $mobile) {
+  .filter-scroll {
+    grid-template-rows: repeat(2, 48%);
+  }
 }
 
 .filter-edge {
