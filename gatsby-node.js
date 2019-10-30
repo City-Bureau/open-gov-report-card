@@ -67,6 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
               context: Report_Card_Context
               tags: Tags
               website: Website
+              publicCommentPolicy: Public_Comment_Policy
               websiteFlags: Website_Flags
               omaFlags: OMA_Flags
               publicCommentFlags: Public_Comment_Flags

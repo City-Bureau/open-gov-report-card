@@ -1,5 +1,6 @@
 const REPORT_CARD_SECTIONS = [
   // TODO: OMA?
+  // TODO: Need a flag for irregularly posting minutes or missing minutes like Midway
   {
     title: `Online`,
     description: `Items being posted online`,

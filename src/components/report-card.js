@@ -9,10 +9,6 @@ import Cook from "./cook"
 import Week from "./week"
 import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
 
-/*
-TODO:
-- Add link to public comment policy in section
-*/
 const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
   <Toggle index={idx}>
     <div className="report-card-grade-label">
@@ -29,15 +25,59 @@ const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
   </Toggle>
 )
 
-const ReportCardSection = ({ title, description, flags, items }) => (
-  <div className="report-card-section">
-    <h3>{title}</h3>
-    <p>{description}</p>
-    {items.map((item, itemIdx) => (
-      <ReportCardToggle key={itemIdx} {...{ ...item, flags, idx: itemIdx }} />
-    ))}
-  </div>
-)
+const ReportCardSection = ({
+  title,
+  description,
+  flags,
+  items,
+  website,
+  publicCommentPolicy,
+}) => {
+  let details = null
+  if (title === `Public Comment`) {
+    details = (
+      <p>
+        {publicCommentPolicy ? (
+          <a
+            href={publicCommentPolicy}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read the public comment policy
+          </a>
+        ) : (
+          <span className="unavailable">
+            No public comment policy available
+          </span>
+        )}
+      </p>
+    )
+  } else if (title === `Online`) {
+    details = (
+      <p>
+        {website ? (
+          <a href={website} target="_blank" rel="noopener noreferrer">
+            See agency website
+          </a>
+        ) : (
+          <span className="unavailable">
+            This agency does not have a website
+          </span>
+        )}
+      </p>
+    )
+  }
+  return (
+    <div className="report-card-section">
+      <h3>{title}</h3>
+      <p>{description}</p>
+      {details}
+      {items.map((item, itemIdx) => (
+        <ReportCardToggle key={itemIdx} {...{ ...item, flags, idx: itemIdx }} />
+      ))}
+    </div>
+  )
+}
 
 const ReportCard = ({
   name,
@@ -48,6 +88,7 @@ const ReportCard = ({
   description,
   context,
   website,
+  publicCommentPolicy,
   agencyId,
   points,
   times,
@@ -63,8 +104,8 @@ const ReportCard = ({
     <div className="report-card-score-container">
       <Grade score={score} isLarge />
       <p>
-        {correct} of {questions} categories we have information for a score of{" "}
-        {score * 100}%. This is better/worse than X% of agencies
+        {correct} of {questions} categories where we have information for a
+        score of {score * 100}%. This is better/worse than X% of agencies
       </p>
     </div>
     <div className="report-card-description">
@@ -74,17 +115,6 @@ const ReportCard = ({
       {(context || "").split("\n").map((line, idx) => (
         <p key={`context-${idx}`}>{line}</p>
       ))}
-    </div>
-    <div className="report-card-links">
-      <p>
-        {website ? (
-          <a href={website} target="_blank" rel="noopener noreferrer">
-            See agency website
-          </a>
-        ) : (
-          <span>Website unavailable for this agency</span>
-        )}
-      </p>
       <p>
         {(agencyId || []).length > 0 ? (
           <a
@@ -96,7 +126,7 @@ const ReportCard = ({
             See agency meetings on Documenters.org
           </a>
         ) : (
-          <span>
+          <span className="unavailable">
             Meetings for this agency are not currently available on
             Documenters.org
           </span>
@@ -110,6 +140,8 @@ const ReportCard = ({
           description={description}
           items={items}
           flags={flags}
+          website={website}
+          publicCommentPolicy={publicCommentPolicy}
           key={idx}
           idx={idx}
         />
@@ -143,6 +175,7 @@ ReportCard.propTypes = {
   description: PropTypes.string,
   context: PropTypes.string,
   website: PropTypes.string,
+  publicCommentPolicy: PropTypes.string,
   agencyId: PropTypes.array,
   points: PropTypes.array,
   times: PropTypes.array,
@@ -155,6 +188,7 @@ ReportCard.defaultProps = {
   description: ``,
   context: ``,
   website: ``,
+  publicCommentPolicy: ``,
   agencyId: [],
   points: [],
   times: [],

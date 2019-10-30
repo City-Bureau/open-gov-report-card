@@ -140,6 +140,10 @@ footer {
   }
 }
 
+span.unavailable {
+  font-style: italic;
+}
+
 .report-card-score-container {
   margin-top: grid(5);
 
@@ -148,18 +152,11 @@ footer {
   }
 }
 
-.report-card-description,
-.report-card-links {
+.report-card-description {
   margin: grid(4) 0;
-}
-
-.report-card-links {
-  background-color: $lightGray;
-  padding: grid(3);
-  border-radius: grid(1);
 
   p {
-    margin: grid(2) 0;
+    margin-bottom: grid(2);
   }
 }
 
@@ -167,6 +164,10 @@ footer {
   margin-bottom: grid(6);
 
   h3 {
+    margin-bottom: grid(2);
+  }
+
+  p {
     margin-bottom: grid(1);
   }
 }

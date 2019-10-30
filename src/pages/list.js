@@ -51,6 +51,7 @@ const ListPage = ({
 
   const onScroll = () => {
     const target = scrollEl.current
+    if (!target) return
     const scrollLeftMax = target.scrollWidth - target.clientWidth
     const isLeftActive = target.scrollLeft >= 10
     const isRightActive = scrollLeftMax - target.scrollLeft >= 10
