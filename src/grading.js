@@ -111,6 +111,7 @@ const REPORT_CARD_QUESTIONS = {
       ),
   },
   // TODO: should transcript count?
+  // TODO: Meetings recordings or a livestream are available
   recording: {
     check: flags =>
       flags.includes("Meetings livestreamed") ||
@@ -143,15 +144,19 @@ const REPORT_CARD_QUESTIONS = {
 }
 
 const gradeReportCard = flags => {
-  let total = Object.values(REPORT_CARD_QUESTIONS).length
-  let points = Object.values(REPORT_CARD_QUESTIONS).filter(
+  const total = Object.values(REPORT_CARD_QUESTIONS).length
+  const correct = Object.values(REPORT_CARD_QUESTIONS).filter(
     ({ check, na }) => check && check(flags) && !(na && na(flags))
   ).length
-  let excluded = Object.values(REPORT_CARD_QUESTIONS).filter(
+  const excluded = Object.values(REPORT_CARD_QUESTIONS).filter(
     ({ na }) => na && na(flags)
   ).length
 
-  return +(points / (total - excluded)).toFixed(2)
+  return {
+    correct,
+    questions: total - excluded,
+    score: +(correct / (total - excluded)).toFixed(2),
+  }
 }
 
 const gradeQuestion = (id, flags) => {

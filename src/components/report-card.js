@@ -45,7 +45,10 @@ const ReportCard = ({
   name,
   tags,
   score,
+  correct,
+  questions,
   description,
+  context,
   points,
   times,
   flags,
@@ -59,11 +62,17 @@ const ReportCard = ({
     </div>
     <div className="report-card-score-container">
       <Grade score={score} isLarge />
-      <p>X of X categories. This is better/worse than X% of agencies</p>
+      <p>
+        {correct} of {questions} categories we have information on for a score
+        of {score * 100}%. This is better/worse than X% of agencies
+      </p>
     </div>
     <div className="report-card-description">
       {(description || "").split("\n").map((line, idx) => (
         <p key={idx}>{line}</p>
+      ))}
+      {(context || "").split("\n").map((line, idx) => (
+        <p key={`context-${idx}`}>{line}</p>
       ))}
     </div>
     <div className="report-card-body">
@@ -82,7 +91,7 @@ const ReportCard = ({
         {times.length > 0 ? (
           <Week times={times} />
         ) : (
-          <p>We don't have meeting times for this agency</p>
+          <p>We don't have detailed meeting times for this agency.</p>
         )}
       </div>
       <div className="report-card-section">
@@ -101,7 +110,10 @@ ReportCard.propTypes = {
   name: PropTypes.string,
   tags: PropTypes.array,
   score: PropTypes.number.isRequired,
+  correct: PropTypes.number.isRequired,
+  questions: PropTypes.number.isRequired,
   description: PropTypes.string,
+  context: PropTypes.string,
   points: PropTypes.array,
   times: PropTypes.array,
   flags: PropTypes.array,
@@ -111,6 +123,7 @@ ReportCard.defaultProps = {
   name: ``,
   tags: [],
   description: ``,
+  context: ``,
   points: [],
   times: [],
   flags: [],

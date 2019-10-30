@@ -30,7 +30,17 @@ exports.onCreateNode = ({ node, actions }) => {
       value: `${slug}`,
     })
 
-    const score = calculateScore(node.data)
+    const { correct, questions, score } = calculateScore(node.data)
+    createNodeField({
+      node,
+      name: `correct`,
+      value: correct,
+    })
+    createNodeField({
+      node,
+      name: `questions`,
+      value: questions,
+    })
     createNodeField({
       node,
       name: `score`,
@@ -54,6 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
               subAgency: Sub_Agency
               jurisdiction: Jurisdiction
               description: Description
+              context: Report_Card_Context
               tags: Tags
               website: Website
               websiteFlags: Website_Flags
@@ -63,6 +74,8 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             fields {
               slug
+              correct
+              questions
               score
             }
           }

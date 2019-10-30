@@ -15,3 +15,21 @@ export const TOPICS = [
   `Urban Animals`,
   `Utilities`,
 ]
+
+export const TOPIC_COLOR_MAP = {
+  "Criminal Justice": `blue`,
+  Development: `brown`,
+  Education: `red`,
+  Elections: `red`,
+  Environment: `green`,
+  Finance: `yellow`,
+  Health: `green`,
+  Housing: `brown`,
+  Labor: `yellow`,
+  Libraries: `red`,
+  Parks: `green`,
+  Politics: `red`,
+  Transportation: `brown`,
+  "Urban Animals": `blue`,
+  Utilities: `blue`,
+}

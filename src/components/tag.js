@@ -1,25 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-import { TOPICS } from "../constants"
-
-const TOPIC_COLOR_MAP = {
-  "Criminal Justice": `blue`,
-  Development: `brown`,
-  Education: `red`,
-  Elections: `red`,
-  Environment: `green`,
-  Finance: `yellow`,
-  Health: `green`,
-  Housing: `brown`,
-  Labor: `yellow`,
-  Libraries: `red`,
-  Parks: `green`,
-  Politics: `red`,
-  Transportation: `brown`,
-  "Urban Animals": `blue`,
-  Utilities: `blue`,
-}
+import { TOPICS, TOPIC_COLOR_MAP } from "../constants"
 
 const Tag = ({ topic }) =>
   TOPICS.includes(topic) ? (

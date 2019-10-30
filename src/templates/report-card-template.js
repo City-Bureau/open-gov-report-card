@@ -12,7 +12,10 @@ const ReportCardTemplate = ({
     name,
     tags,
     score,
+    correct,
+    questions,
     description,
+    context,
     points,
     times,
     websiteFlags,
@@ -32,16 +35,24 @@ const ReportCardTemplate = ({
       <div className="breadcrumb">
         <Link to="/list/">
           <Chevron
-            style={{ transform: "rotate(180deg)", width: 18, height: 18 }}
+            style={{
+              transform: "rotate(180deg)",
+              width: 24,
+              height: 24,
+              marginRight: 8,
+            }}
           />
-          {" Back to list"}
+          <span>Back to list</span>
         </Link>
       </div>
       <ReportCard
         name={name}
         tags={tags}
         score={score}
+        correct={correct}
+        questions={questions}
         description={description}
+        context={context}
         points={points}
         times={times}
         flags={[

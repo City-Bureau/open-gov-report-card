@@ -9,7 +9,7 @@ import Multiselect from "../components/multiselect"
 import Chevron from "../components/chevron"
 import SearchIcon from "../components/search-icon"
 import { debounce } from "../utils"
-import { TOPICS } from "../constants"
+import { TOPICS, TOPIC_COLOR_MAP } from "../constants"
 
 const applyFilters = ({ search, topics, sort }, data) =>
   data
@@ -89,7 +89,13 @@ const ListPage = ({
         <div className="topics-container">
           <Multiselect
             label="Topics"
-            options={TOPICS}
+            options={TOPICS.map(topic => ({
+              label: topic,
+              value: topic,
+              className: `topic-tag-input ${
+                topic in TOPIC_COLOR_MAP ? TOPIC_COLOR_MAP[topic] : ``
+              }`,
+            }))}
             onChange={values =>
               setFilters({
                 ...filters,
@@ -124,21 +130,27 @@ const ListPage = ({
           ref={scrollEl}
           onScroll={debouncedOnScroll}
         >
-          {results.map(
-            ({
-              node: {
-                fields: { slug, score },
-                data: { name, tags },
-              },
-            }) => (
-              <ReportCardThumb
-                key={slug}
-                slug={slug}
-                score={score}
-                name={name}
-                tags={tags}
-              />
+          {results.length > 0 ? (
+            results.map(
+              ({
+                node: {
+                  fields: { slug, score },
+                  data: { name, tags },
+                },
+              }) => (
+                <ReportCardThumb
+                  key={slug}
+                  slug={slug}
+                  score={score}
+                  name={name}
+                  tags={tags}
+                />
+              )
             )
+          ) : (
+            <div className="no-results">
+              <span>No results</span>
+            </div>
           )}
         </div>
         <div className={`filter-edge right ${rightActive ? "is-active" : ""}`}>
