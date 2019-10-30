@@ -18,6 +18,8 @@ const ReportCardTemplate = ({
     context,
     points,
     times,
+    website,
+    agencyId,
     websiteFlags,
     omaFlags,
     publicCommentFlags,
@@ -54,6 +56,8 @@ const ReportCardTemplate = ({
         description={description}
         context={context}
         points={points}
+        website={website}
+        agencyId={agencyId}
         times={times}
         flags={[
           ...(websiteFlags || []),

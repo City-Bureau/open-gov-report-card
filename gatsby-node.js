@@ -48,10 +48,10 @@ exports.onCreateNode = ({ node, actions }) => {
     })
   }
 }
-
+// TODO: Process markdown https://stackoverflow.com/questions/55998067/convert-markdown-to-html-from-within-a-rich-text-component-with-gatsby
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  // Add all CSV, filtered items
+
   const result = await graphql(`
     query {
       allAirtable(filter: { table: { eq: "Agencies" } }) {
@@ -111,7 +111,12 @@ exports.createPages = async ({ graphql, actions }) => {
     const points = Object.keys(
       meetings.reduce(
         (obj, { node: { lon, lat } }) =>
-          lon && lat ? { ...obj, [`${lon},${lat}`]: true } : obj,
+          lon && lat
+            ? {
+                ...obj,
+                [`${lon},${lat}`]: true,
+              }
+            : obj,
         {}
       )
     ).map(coords => coords.split(",").map(c => +c))

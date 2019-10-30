@@ -46,7 +46,9 @@ const Week = ({ times }) => (
     <div className="week-grid">
       <div className="weekday">
         {HOURS.map(hour => (
-          <div className="hour-label">{getTime(hour)}</div>
+          <div key={hour} className="hour-label">
+            {getTime(hour)}
+          </div>
         ))}
       </div>
       {DAYS.map(day => (

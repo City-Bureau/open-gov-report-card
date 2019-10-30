@@ -148,8 +148,19 @@ footer {
   }
 }
 
-.report-card-description {
+.report-card-description,
+.report-card-links {
   margin: grid(4) 0;
+}
+
+.report-card-links {
+  background-color: $lightGray;
+  padding: grid(3);
+  border-radius: grid(1);
+
+  p {
+    margin: grid(2) 0;
+  }
 }
 
 .report-card-section {
@@ -544,7 +555,7 @@ footer {
 .topic-tag-input {
   background-color: $lightGray;
   color: $black;
-  padding: grid(0.5);
+  padding: grid(0.5) grid(1);
   font-size: 14px;
 
   &.yellow {
@@ -652,12 +663,15 @@ footer {
 
 .micromap {
   path {
-    fill: $gray;
+    fill: $lightGray;
+    stroke-width: grid(1);
+    stroke: $gray;
   }
 
   circle {
     fill: $blue;
-    stroke: $darkGray;
+    stroke: $gray;
+    stroke-width: grid(1);
   }
 }
 

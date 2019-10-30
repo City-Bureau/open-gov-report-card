@@ -8,7 +8,7 @@ const Micromap = ({ style, path, bounds, points }) => (
       <path d={path} fill="currentColor"></path>
       {points.map((point, idx) => {
         let [x, y] = projectPoint(point, bounds)
-        return <circle key={idx} cx={x} cy={y} r={25} strokeWidth={5} />
+        return <circle key={idx} cx={x} cy={y} r={25} />
       })}
     </g>
   </svg>

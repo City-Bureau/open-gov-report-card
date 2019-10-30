@@ -11,8 +11,6 @@ import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
 
 /*
 TODO:
-- Add link to source
-- Add link to Documenters.org for meetings
 - Add link to public comment policy in section
 */
 const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
@@ -49,6 +47,8 @@ const ReportCard = ({
   questions,
   description,
   context,
+  website,
+  agencyId,
   points,
   times,
   flags,
@@ -63,8 +63,8 @@ const ReportCard = ({
     <div className="report-card-score-container">
       <Grade score={score} isLarge />
       <p>
-        {correct} of {questions} categories we have information on for a score
-        of {score * 100}%. This is better/worse than X% of agencies
+        {correct} of {questions} categories we have information for a score of{" "}
+        {score * 100}%. This is better/worse than X% of agencies
       </p>
     </div>
     <div className="report-card-description">
@@ -74,6 +74,34 @@ const ReportCard = ({
       {(context || "").split("\n").map((line, idx) => (
         <p key={`context-${idx}`}>{line}</p>
       ))}
+    </div>
+    <div className="report-card-links">
+      <p>
+        {website ? (
+          <a href={website} target="_blank" rel="noopener noreferrer">
+            See agency website
+          </a>
+        ) : (
+          <span>Website unavailable for this agency</span>
+        )}
+      </p>
+      <p>
+        {(agencyId || []).length > 0 ? (
+          <a
+            href={`https://chicago.documenters.org/meetings?agency=${
+              agencyId[0]
+            }`}
+            target="_blank"
+          >
+            See agency meetings on Documenters.org
+          </a>
+        ) : (
+          <span>
+            Meetings for this agency are not currently available on
+            Documenters.org
+          </span>
+        )}
+      </p>
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }, idx) => (
@@ -114,6 +142,8 @@ ReportCard.propTypes = {
   questions: PropTypes.number.isRequired,
   description: PropTypes.string,
   context: PropTypes.string,
+  website: PropTypes.string,
+  agencyId: PropTypes.array,
   points: PropTypes.array,
   times: PropTypes.array,
   flags: PropTypes.array,
@@ -124,6 +154,8 @@ ReportCard.defaultProps = {
   tags: [],
   description: ``,
   context: ``,
+  website: ``,
+  agencyId: [],
   points: [],
   times: [],
   flags: [],
