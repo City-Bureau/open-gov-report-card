@@ -18,6 +18,7 @@ const ReportCardTemplate = ({
     context,
     points,
     times,
+    jurisdiction,
     website,
     publicCommentPolicy,
     agencyId,
@@ -61,6 +62,7 @@ const ReportCardTemplate = ({
         agencyId={agencyId}
         publicCommentPolicy={publicCommentPolicy}
         times={times}
+        jurisdiction={jurisdiction}
         flags={[
           ...(websiteFlags || []),
           ...(omaFlags || []),

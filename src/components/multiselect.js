@@ -59,8 +59,8 @@ const Multiselect = ({ label, options, onChange }) => {
         style={{ display: active ? `` : `none` }}
         className="multiselect-content"
       >
-        {inputOptions.map(({ label, value, checked, className }, idx) => (
-          <label key={idx}>
+        {inputOptions.map(({ label, value, checked, className }) => (
+          <label key={value}>
             <input
               type="checkbox"
               value={value}

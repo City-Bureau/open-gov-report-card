@@ -169,16 +169,7 @@ export const query = graphql`
         node {
           data {
             name: Display_Name
-            agency: Agency
-            subAgency: Sub_Agency
-            jurisdiction: Jurisdiction
-            description: Description
             tags: Tags
-            website: Website
-            websiteFlags: Website_Flags
-            omagFlags: OMA_Flags
-            publicCommentFlags: Public_Comment_Flags
-            reportCardFlags: Report_Card_Flags
           }
           fields {
             slug

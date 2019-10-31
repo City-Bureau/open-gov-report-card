@@ -73,7 +73,14 @@ const ReportCardSection = ({
       <p>{description}</p>
       {details}
       {items.map((item, itemIdx) => (
-        <ReportCardToggle key={itemIdx} {...{ ...item, flags, idx: itemIdx }} />
+        <ReportCardToggle
+          key={`${title.replace(" ", "_")}-${itemIdx}`}
+          {...{
+            ...item,
+            flags,
+            toggleId: `${title.replace(" ", "_")}-${itemIdx}`,
+          }}
+        />
       ))}
     </div>
   )
@@ -92,13 +99,14 @@ const ReportCard = ({
   agencyId,
   points,
   times,
+  jurisdiction,
   flags,
 }) => (
   <div className="report-card pym-child">
     <div className="report-card-header">
       <h2>{name}</h2>
-      {(tags || []).map((topic, idx) => (
-        <Tag topic={topic} key={idx} />
+      {(tags || []).map(topic => (
+        <Tag topic={topic} key={topic} />
       ))}
     </div>
     <div className="report-card-score-container">
@@ -110,7 +118,7 @@ const ReportCard = ({
     </div>
     <div className="report-card-description">
       {(description || "").split("\n").map((line, idx) => (
-        <p key={idx}>{line}</p>
+        <p key={`desc-${idx}`}>{line}</p>
       ))}
       {(context || "").split("\n").map((line, idx) => (
         <p key={`context-${idx}`}>{line}</p>
@@ -134,7 +142,7 @@ const ReportCard = ({
       </p>
     </div>
     <div className="report-card-body">
-      {REPORT_CARD_SECTIONS.map(({ title, description, items }, idx) => (
+      {REPORT_CARD_SECTIONS.map(({ title, description, items }) => (
         <ReportCardSection
           title={title}
           description={description}
@@ -142,8 +150,7 @@ const ReportCard = ({
           flags={flags}
           website={website}
           publicCommentPolicy={publicCommentPolicy}
-          key={idx}
-          idx={idx}
+          key={title}
         />
       ))}
       <div className="report-card-section">
@@ -156,7 +163,7 @@ const ReportCard = ({
       </div>
       <div className="report-card-section">
         <h3>Meeting Locations</h3>
-        {name.includes("Chicago") ? (
+        {(jurisdiction || []).includes("Chicago") ? (
           <Chicago style={{ height: 150, width: 150 }} points={points} />
         ) : (
           <Cook style={{ height: 150, width: 150 }} points={points} />
@@ -179,6 +186,7 @@ ReportCard.propTypes = {
   agencyId: PropTypes.array,
   points: PropTypes.array,
   times: PropTypes.array,
+  jurisdiction: PropTypes.array,
   flags: PropTypes.array,
 }
 
@@ -192,6 +200,7 @@ ReportCard.defaultProps = {
   agencyId: [],
   points: [],
   times: [],
+  jurisdiction: [],
   flags: [],
 }
 
