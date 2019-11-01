@@ -4,6 +4,7 @@ import * as pym from "pym.js"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import InfoFooter from "../components/info-footer"
 import ReportCard from "../components/report-card"
 import Chevron from "../components/chevron"
 
@@ -31,7 +32,7 @@ const ReportCardTemplate = ({
   useEffect(() => {
     const pymChild = new pym.Child()
     pymChild.sendHeight()
-  })
+  }, [])
 
   return (
     <Layout>
@@ -70,6 +71,7 @@ const ReportCardTemplate = ({
           ...(reportCardFlags || []),
         ]}
       />
+      <InfoFooter />
     </Layout>
   )
 }

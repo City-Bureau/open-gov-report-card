@@ -52,7 +52,7 @@ const ReportCardSection = ({
         )}
       </p>
     )
-  } else if (title === `Online`) {
+  } else if (title === `Information`) {
     details = (
       <p>
         {website ? (
@@ -123,6 +123,7 @@ const ReportCard = ({
       {(context || "").split("\n").map((line, idx) => (
         <p key={`context-${idx}`}>{line}</p>
       ))}
+      {/* // TODO: Move this lower on the page/CTA?
       <p>
         {(agencyId || []).length > 0 ? (
           <a
@@ -139,7 +140,7 @@ const ReportCard = ({
             Documenters.org
           </span>
         )}
-      </p>
+      </p> */}
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }) => (

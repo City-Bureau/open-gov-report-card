@@ -39,6 +39,8 @@ const Multiselect = ({ label, options, onChange }) => {
     onChange(inputOptions.filter(({ checked }) => checked))
   }, inputOptions.map(({ checked }) => checked))
 
+  const selectedOptions = inputOptions.filter(({ checked }) => checked)
+
   return (
     <div className="multiselect">
       <div
@@ -50,7 +52,11 @@ const Multiselect = ({ label, options, onChange }) => {
         aria-controls={`toggle-${label}`}
         aria-expanded={!!active.toString()}
       >
-        <span>{label}</span>
+        <span className="multiselect-label">
+          {selectedOptions.length
+            ? selectedOptions.map(({ label }) => label).join(", ")
+            : label}
+        </span>
         <Chevron />
       </div>
       <div

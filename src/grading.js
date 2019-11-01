@@ -2,7 +2,7 @@ const REPORT_CARD_SECTIONS = [
   // TODO: OMA?
   // TODO: Need a flag for irregularly posting minutes or missing minutes like Midway
   {
-    title: `Online`,
+    title: `Information`,
     description: `Items being posted online`,
     items: [
       {
@@ -25,12 +25,6 @@ const REPORT_CARD_SECTIONS = [
         id: `minutes`,
         detail: `Testing`,
       },
-    ],
-  },
-  {
-    title: `Documentation`,
-    description: `Document quality`,
-    items: [
       {
         title: `Minutes include required details`,
         id: `minutesDetail`,
@@ -39,22 +33,6 @@ const REPORT_CARD_SECTIONS = [
       {
         title: `Meetings are recorded and/or livestreamed`,
         id: `recording`,
-        detail: `Testing`,
-      },
-    ],
-  },
-  {
-    title: `Scheduling`,
-    description: `When and where meetings are scheduled`,
-    items: [
-      {
-        title: `Meetings are rarely cancelled`,
-        id: `cancel`,
-        detail: `Testing`,
-      },
-      {
-        title: `Regular meeting times in the evening/weekends`,
-        id: `times`,
         detail: `Testing`,
       },
     ],
@@ -76,6 +54,27 @@ const REPORT_CARD_SECTIONS = [
       {
         title: `The overall time for public comment is not limited`,
         id: `commentLimit`,
+        detail: `Testing`,
+      },
+    ],
+  },
+  {
+    title: `Legal/Complaints`,
+    description: `PAC issues`,
+    items: [],
+  },
+  {
+    title: `Scheduling`,
+    description: `When and where meetings are scheduled`,
+    items: [
+      {
+        title: `Meetings are rarely cancelled`,
+        id: `cancel`,
+        detail: `Testing`,
+      },
+      {
+        title: `Regular meeting times in the evening/weekends`,
+        id: `times`,
         detail: `Testing`,
       },
     ],

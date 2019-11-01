@@ -121,6 +121,7 @@ exports.createPages = async ({ graphql, actions }) => {
         {}
       )
     ).map(coords => coords.split(",").map(c => +c))
+    // TODO: Process markdown in constant descriptions, include as context for page
     createPage({
       path: fields.slug,
       component: path.resolve(`./src/templates/report-card-template.js`),

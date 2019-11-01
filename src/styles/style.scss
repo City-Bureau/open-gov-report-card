@@ -240,12 +240,19 @@ span.unavailable {
     transition: transform 0.1s linear;
     transform: rotate(90deg);
     width: grid(6);
+    min-width: grid(6);
     height: grid(6);
   }
 
   &[aria-expanded="true"] svg {
     transform: rotate(-90deg);
   }
+}
+
+.multiselect-label {
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .multiselect-content {
@@ -331,6 +338,7 @@ span.unavailable {
     &.topics-container {
       flex-grow: 0;
       min-width: grid(45);
+      max-width: grid(45);
     }
   }
 }
@@ -725,7 +733,7 @@ span.unavailable {
   .hour {
     height: 100%;
     background-color: $lightGray;
-    border: solid 2px $white;
+    border: solid grid(1) $white;
     border-bottom-width: 0;
     border-right-width: 0;
     flex: 1;
@@ -762,6 +770,12 @@ span.unavailable {
       }
     }
   }
+}
+
+// TODO: Maybe put between main and footer?
+.info-footer {
+  max-width: $reportCardWidth;
+  margin: grid(8) auto;
 }
 
 /* For Pym.js embed */

@@ -20,10 +20,9 @@ const Layout = ({ children }) => {
     <>
       <div className="site">
         <Header siteTitle={data.site.siteMetadata.title} />
-
         <main>{children}</main>
         <footer>
-          <p>© {new Date().getFullYear()} City Bureau</p>
+          <p>City Bureau</p>
         </footer>
       </div>
     </>

@@ -69,7 +69,7 @@ const ListPage = ({
     const pymChild = new pym.Child()
     pymChild.sendHeight()
     if (scrollEl.current) onScroll()
-  })
+  }, [])
 
   useEffect(() => {
     setResults(applyFilters(filters, edges))
