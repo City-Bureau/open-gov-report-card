@@ -1,6 +1,4 @@
 const REPORT_CARD_SECTIONS = [
-  // TODO: OMA?
-  // TODO: Need a flag for irregularly posting minutes or missing minutes like Midway
   {
     title: `Information`,
     description: `Items being posted online`,
@@ -72,11 +70,6 @@ const REPORT_CARD_SECTIONS = [
         id: `cancel`,
         detail: `Testing`,
       },
-      {
-        title: `Regular meeting times in the evening/weekends`,
-        id: `times`,
-        detail: `Testing`,
-      },
     ],
   },
 ]
@@ -110,8 +103,6 @@ const REPORT_CARD_QUESTIONS = {
         flags.includes("Minutes have info")
       ),
   },
-  // TODO: should transcript count?
-  // TODO: Meetings recordings or a livestream are available
   recording: {
     check: flags =>
       flags.includes("Meetings livestreamed") ||
@@ -122,12 +113,6 @@ const REPORT_CARD_QUESTIONS = {
     na: flags =>
       flags.includes("No information online") &&
       !flags.includes("Frequently cancelled"),
-  },
-  times: {
-    check: flags => flags.includes("Meeting times in evenings/weekends"),
-    na: flags =>
-      flags.includes("No information online") &&
-      !flags.includes("Meeting times in the evenings/weekends"),
   },
   preReg: {
     check: flags => !flags.includes("Pre-registration for public comment"),

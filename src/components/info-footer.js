@@ -31,20 +31,16 @@ const InfoFooter = () => (
             defaultValue=""
           />
         </div>
-        <div>
-          <div>
-            <input
-              aria-label="Email"
-              placeholder="Email address"
-              type="email"
-              defaultValue=""
-              name="EMAIL"
-              id="mce-EMAIL"
-            />
-          </div>
-          <div>
-            <button type="submit">Subscribe</button>
-          </div>
+        <div className="subscribe-input">
+          <input
+            aria-label="Email"
+            placeholder="Email address"
+            type="email"
+            defaultValue=""
+            name="EMAIL"
+            id="mce-EMAIL"
+          />
+          <button type="submit">Subscribe</button>
         </div>
       </form>
     </div>

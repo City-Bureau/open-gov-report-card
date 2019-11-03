@@ -113,7 +113,8 @@ const ReportCard = ({
       <Grade score={score} isLarge />
       <p>
         {correct} of {questions} categories where we have information for a
-        score of {score * 100}%. This is better/worse than X% of agencies
+        score of {+(score * 100).toFixed(2)}%. This is better/worse than X% of
+        agencies
       </p>
     </div>
     <div className="report-card-description">
@@ -155,7 +156,7 @@ const ReportCard = ({
         />
       ))}
       <div className="report-card-section">
-        <h3>Meeting Times</h3>
+        <h4>Meeting Times</h4>
         {times.length > 0 ? (
           <Week times={times} />
         ) : (
@@ -163,7 +164,7 @@ const ReportCard = ({
         )}
       </div>
       <div className="report-card-section">
-        <h3>Meeting Locations</h3>
+        <h4>Meeting Locations</h4>
         {(jurisdiction || []).includes("Chicago") ? (
           <Chicago style={{ height: 150, width: 150 }} points={points} />
         ) : (

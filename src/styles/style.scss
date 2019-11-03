@@ -163,7 +163,8 @@ span.unavailable {
 .report-card-section {
   margin-bottom: grid(6);
 
-  h3 {
+  h3,
+  h4 {
     margin-bottom: grid(2);
   }
 
@@ -776,6 +777,34 @@ span.unavailable {
 .info-footer {
   max-width: $reportCardWidth;
   margin: grid(8) auto;
+
+  .subscribe-input {
+    display: flex;
+    flex-direction: row;
+
+    input {
+      flex: 1;
+      border-top-left-radius: grid(0.5);
+      border-bottom-left-radius: grid(0.5);
+      border: $defaultBorder;
+      border-right-width: 0;
+      padding: grid(1);
+    }
+    button {
+      flex-grow: 0;
+      border-top-right-radius: grid(0.5);
+      border-bottom-right-radius: grid(0.5);
+      border: $defaultBorder;
+      padding: grid(1);
+      cursor: pointer;
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $red;
+      }
+    }
+  }
 }
 
 /* For Pym.js embed */
