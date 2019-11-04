@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
+import { scaleThreshold } from "d3-scale"
 
 const DAYS = [
   "Sunday",
@@ -12,6 +13,8 @@ const DAYS = [
 ]
 
 const HOURS = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+const COLORS = ["#deebf7", "#9ecae1", "#3182bd"]
 
 const getDayAbbrev = day => {
   if (day === "Sunday") {
@@ -32,45 +35,64 @@ const getTime = hour => {
   }
 }
 
-const Week = ({ times }) => (
-  <div className="week">
-    <div className="weekday-labels">
-      <div className="weekday-label">&nbsp;</div>
-      {DAYS.map(day => (
-        <div key={day} className="weekday-label">
-          <span className="is-desktop">{day}</span>
-          <span className="is-mobile">{getDayAbbrev(day)}</span>
-        </div>
-      ))}
-    </div>
-    <div className="week-grid">
-      <div className="weekday">
-        {HOURS.map(hour => (
-          <div key={hour} className="hour-label">
-            {getTime(hour)}
-          </div>
-        ))}
-      </div>
-      {DAYS.map(day => (
-        <div key={day} className="weekday">
-          {HOURS.map(hour => (
-            <div
-              key={hour}
-              className={`hour ${
-                times.filter(
-                  ([timeDay, timeHour]) =>
-                    timeDay === day && +timeHour.split(":")[0] === hour
-                ).length
-                  ? "active"
-                  : ""
-              }`}
-            />
+const Week = ({ times }) => {
+  const color = scaleThreshold()
+    .domain([2, Math.max(...times.map(d => d[2]))])
+    .range(COLORS)
+  return (
+    <div className="week">
+      <div className="week-row">
+        <div className="weekday-labels">
+          <div className="weekday-label">&nbsp;</div>
+          {DAYS.map(day => (
+            <div key={day} className="weekday-label">
+              <span>{getDayAbbrev(day)}</span>
+            </div>
           ))}
         </div>
-      ))}
+        <div className="week-grid">
+          <div className="weekday">
+            {HOURS.map((hour, idx) => (
+              <div key={hour} className="hour-label">
+                {idx % 2 === 0 ? getTime(hour) : ``}
+              </div>
+            ))}
+          </div>
+          {DAYS.map(day => (
+            <div key={day} className="weekday">
+              {HOURS.map(hour => {
+                const timeData = times.find(
+                  ([timeDay, timeHour, _]) =>
+                    timeDay === day && +timeHour.split(":")[0] === hour
+                )
+                return (
+                  <div
+                    key={hour}
+                    className="hour"
+                    style={{
+                      backgroundColor: timeData ? color(timeData[2]) : "",
+                    }}
+                  />
+                )
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="week-legend">
+        <div>Fewer</div>
+        {COLORS.map(color => (
+          <div
+            key={color}
+            className="color"
+            style={{ backgroundColor: color }}
+          />
+        ))}
+        <div>More</div>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 Week.propTypes = {
   times: PropTypes.array,

@@ -177,6 +177,25 @@ span.unavailable {
   margin: grid(3) 0;
 }
 
+.report-card-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .report-card-section {
+    flex: 1;
+
+    &:first-child {
+      margin-right: grid(6);
+    }
+
+    .micromap {
+      margin-top: grid(6);
+    }
+  }
+}
+
 .toggle {
   display: flex;
   cursor: pointer;
@@ -188,6 +207,10 @@ span.unavailable {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .report-card-row .report-card-section .micromap {
+    margin-top: 0;
   }
 }
 
@@ -220,8 +243,8 @@ span.unavailable {
   border: solid 1px $blue;
   background-color: $lightGray;
   color: $blue;
-  margin: 0 grid(1);
-  margin-left: grid(2);
+  margin: 0;
+  margin-left: grid(1);
 }
 
 .multiselect {
@@ -686,11 +709,13 @@ span.unavailable {
 }
 
 .week {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  // min-height: 200px;
   font-size: 13px;
+  // justify-content: center;
+
+  .week-row {
+    display: flex;
+    flex-direction: row;
+  }
 
   .weekday-labels {
     display: flex;
@@ -701,29 +726,24 @@ span.unavailable {
   .weekday-label {
     padding-right: grid(1);
     text-align: right;
-
-    .is-mobile {
-      display: none;
-    }
   }
 
   .week-grid {
     display: flex;
     flex-direction: column;
-    flex: 1;
   }
 
   .weekday {
     display: flex;
     flex: 1;
     flex-direction: row;
-    width: 100%;
     min-height: grid(6);
     height: grid(6);
   }
 
   .hour-label {
-    height: 100%;
+    height: grid(6);
+    max-width: grid(6);
     flex: 1;
     display: flex;
     align-items: center;
@@ -732,7 +752,9 @@ span.unavailable {
   }
 
   .hour {
-    height: 100%;
+    height: grid(6);
+    width: grid(6);
+    max-width: grid(6);
     background-color: $lightGray;
     border: solid grid(1) $white;
     border-bottom-width: 0;
@@ -743,20 +765,35 @@ span.unavailable {
       background-color: $blue;
     }
   }
+
+  .week-legend {
+    display: flex;
+    flex-direction: row;
+    margin-top: grid(2);
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .color {
+      min-height: grid(6);
+      min-width: grid(6);
+      border: solid grid(1) $white;
+      border-top-width: 2px;
+      border-bottom-width: 2px;
+      border-right-width: 0;
+
+      &:nth-child(4) {
+        margin-right: grid(1);
+      }
+    }
+  }
 }
 
 @media screen and (max-width: $mobile) {
   .week {
-    .weekday-label {
-      .is-desktop {
-        display: none;
-      }
-      .is-mobile {
-        display: inherit;
-        text-align: center;
-      }
-    }
-
     .weekday {
       justify-content: space-between;
       min-height: grid(5);
@@ -764,11 +801,26 @@ span.unavailable {
     }
 
     .hour-label {
-      flex: none;
+      min-height: grid(5);
+      height: grid(5);
+      width: grid(5);
+      max-width: grid(5);
 
       &:not(:first-child):not(:last-child) {
         display: none;
       }
+    }
+
+    .hour {
+      min-height: grid(5);
+      height: grid(5);
+      width: grid(5);
+      max-width: grid(5);
+    }
+
+    .week-legend .color {
+      min-height: grid(5);
+      min-width: grid(5);
     }
   }
 }

@@ -155,21 +155,23 @@ const ReportCard = ({
           key={title}
         />
       ))}
-      <div className="report-card-section">
-        <h4>Meeting Times</h4>
-        {times.length > 0 ? (
-          <Week times={times} />
-        ) : (
-          <p>We don't have detailed meeting times for this agency.</p>
-        )}
-      </div>
-      <div className="report-card-section">
-        <h4>Meeting Locations</h4>
-        {(jurisdiction || []).includes("Chicago") ? (
-          <Chicago style={{ height: 150, width: 150 }} points={points} />
-        ) : (
-          <Cook style={{ height: 150, width: 150 }} points={points} />
-        )}
+      <div className="report-card-row">
+        <div className="report-card-section">
+          <h4>Meeting Times</h4>
+          {times.length > 0 ? (
+            <Week times={times} />
+          ) : (
+            <p>We don't have detailed meeting times for this agency.</p>
+          )}
+        </div>
+        <div className="report-card-section">
+          <h4>Meeting Locations</h4>
+          {(jurisdiction || []).includes("Chicago") ? (
+            <Chicago style={{ height: 150, width: 150 }} points={points} />
+          ) : (
+            <Cook style={{ height: 150, width: 150 }} points={points} />
+          )}
+        </div>
       </div>
     </div>
   </div>

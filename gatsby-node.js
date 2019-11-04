@@ -108,7 +108,16 @@ exports.createPages = async ({ graphql, actions }) => {
           ({ node: { start_day, start_time } }) => `${start_day} ${start_time}`
         )
       ),
-    ].map(t => t.split(" "))
+    ]
+      .map(t => t.split(" "))
+      .map(([start_day, start_time]) => [
+        start_day,
+        start_time,
+        meetings.filter(
+          ({ node }) =>
+            start_day === node.start_day && start_time === node.start_time
+        ).length,
+      ])
     const points = Object.keys(
       meetings.reduce(
         (obj, { node: { lon, lat } }) =>

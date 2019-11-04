@@ -57,17 +57,17 @@ const REPORT_CARD_SECTIONS = [
     ],
   },
   {
-    title: `Legal/Complaints`,
-    description: `PAC issues`,
-    items: [],
-  },
-  {
     title: `Scheduling`,
     description: `When and where meetings are scheduled`,
     items: [
       {
         title: `Meetings are rarely cancelled`,
         id: `cancel`,
+        detail: `Testing`,
+      },
+      {
+        title: `Meetings from 9am-5pm as well as on the evenings and/or weekends`,
+        id: `times`,
         detail: `Testing`,
       },
     ],
@@ -89,6 +89,7 @@ const REPORT_CARD_QUESTIONS = {
   minutes: {
     check: flags =>
       !flags.includes("Minutes not posted") &&
+      !flags.includes("Minutes posted late") &&
       !flags.includes("No information online"),
   },
   minutesDetail: {
@@ -108,12 +109,6 @@ const REPORT_CARD_QUESTIONS = {
       flags.includes("Meetings livestreamed") ||
       flags.includes("Meetings recorded"),
   },
-  cancel: {
-    check: flags => !flags.includes("Frequently cancelled"),
-    na: flags =>
-      flags.includes("No information online") &&
-      !flags.includes("Frequently cancelled"),
-  },
   preReg: {
     check: flags => !flags.includes("Pre-registration for public comment"),
     na: flags => flags.includes("No public comment policy"),
@@ -125,6 +120,19 @@ const REPORT_CARD_QUESTIONS = {
   commentLimit: {
     check: flags => !flags.includes("Limit overall public comment time"),
     na: flags => flags.includes("No public comment policy"),
+  },
+  cancel: {
+    check: flags => !flags.includes("Frequently cancelled"),
+    na: flags =>
+      flags.includes("No information online") &&
+      !flags.includes("Frequently cancelled"),
+  },
+  times: {
+    check: flags =>
+      flags.includes("Meeting days/times spread through week/day"),
+    na: flags =>
+      flags.includes("No information online") &&
+      !flags.includes("Meeting days/times spread through week/day"),
   },
 }
 
