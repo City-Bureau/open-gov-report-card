@@ -50,7 +50,7 @@ const REPORT_CARD_SECTIONS = [
         detail: `Testing`,
       },
       {
-        title: `The overall time for public comment is not limited`,
+        title: `The cumulative time for public comment is not limited`,
         id: `commentLimit`,
         detail: `Testing`,
       },

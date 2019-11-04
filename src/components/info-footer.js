@@ -39,6 +39,7 @@ const InfoFooter = () => (
             defaultValue=""
             name="EMAIL"
             id="mce-EMAIL"
+            required
           />
           <button type="submit">Subscribe</button>
         </div>

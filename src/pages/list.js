@@ -83,6 +83,7 @@ const ListPage = ({
           <input
             placeholder="Search"
             aria-label="Search"
+            type="search"
             onInput={e => debouncedOnSearch(e.target.value)}
           />
           <SearchIcon style={{ width: 18, height: 18 }} />

@@ -21,7 +21,9 @@ a:focus {
 }
 
 header {
-  background-color: $red;
+  background-color: $white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  z-index: 1;
   width: 100%;
 
   & > div {
@@ -31,10 +33,22 @@ header {
 
     h1 {
       margin: 0;
+      font-size: 20px;
+
+      a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex: 1;
+
+        span {
+          margin-left: grid(2);
+        }
+      }
 
       a,
       a:visited {
-        color: $white;
+        color: $black;
         text-decoration: none;
 
         &:hover,
@@ -209,8 +223,12 @@ span.unavailable {
     align-items: center;
   }
 
-  .report-card-row .report-card-section .micromap {
-    margin-top: 0;
+  .report-card-row {
+    flex-direction: column;
+
+    .report-card-section .micromap {
+      margin-top: 0;
+    }
   }
 }
 
@@ -830,25 +848,36 @@ span.unavailable {
   max-width: $reportCardWidth;
   margin: grid(8) auto;
 
+  form {
+    margin-top: grid(4);
+  }
+
   .subscribe-input {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     input {
       flex: 1;
+      border-radius: 0;
       border-top-left-radius: grid(0.5);
       border-bottom-left-radius: grid(0.5);
       border: $defaultBorder;
       border-right-width: 0;
       padding: grid(1);
+      margin: 0;
     }
     button {
       flex-grow: 0;
+      height: 100%;
+      background-color: $lightGray;
+      border-radius: 0;
       border-top-right-radius: grid(0.5);
       border-bottom-right-radius: grid(0.5);
       border: $defaultBorder;
       padding: grid(1);
       cursor: pointer;
+      margin: 0;
 
       &:hover,
       &:active,
