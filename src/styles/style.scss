@@ -205,8 +205,53 @@ span.unavailable {
     }
 
     .micromap {
-      margin-top: grid(6);
+      margin-top: grid(5);
     }
+  }
+}
+
+.report-card-grade {
+  position: relative;
+  width: grid(6);
+  height: grid(6);
+  font-size: 28px;
+  flex-shrink: 0;
+
+  &.fail::after {
+    content: "\2716\fe0e";
+    color: $red;
+  }
+
+  &.pass::after {
+    content: "";
+    display: block;
+    width: grid(2.5);
+    height: grid(4);
+    border: solid $green;
+    border-width: 0 grid(1) grid(1) 0;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: grid(1);
+    margin: auto;
+  }
+
+  &.empty::after {
+    content: "";
+    display: block;
+    width: grid(5);
+    height: grid(5);
+    border: solid $gray;
+    border-width: grid(1);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: grid(1);
+    margin: auto;
   }
 }
 
@@ -258,7 +303,7 @@ span.unavailable {
   width: grid(6);
   min-width: grid(6);
   height: grid(6);
-  border: solid 1px $blue;
+  border: solid 1.5px $blue;
   background-color: $lightGray;
   color: $blue;
   margin: 0;
@@ -803,7 +848,7 @@ span.unavailable {
       border-bottom-width: 2px;
       border-right-width: 0;
 
-      &:nth-child(4) {
+      &:nth-child(5) {
         margin-right: grid(1);
       }
     }

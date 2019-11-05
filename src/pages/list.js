@@ -11,6 +11,8 @@ import SearchIcon from "../components/search-icon"
 import { debounce } from "../utils"
 import { TOPICS, TOPIC_COLOR_MAP } from "../constants"
 
+// TODO: Filter on grade categories?
+
 const applyFilters = ({ search, topics, sort }, data) =>
   data
     .filter(

@@ -50,7 +50,7 @@ const REPORT_CARD_SECTIONS = [
         detail: `Testing`,
       },
       {
-        title: `The cumulative time for public comment is not limited`,
+        title: `Total time for public comment is not limited or at least one hour`,
         id: `commentLimit`,
         detail: `Testing`,
       },
@@ -114,11 +114,11 @@ const REPORT_CARD_QUESTIONS = {
     na: flags => flags.includes("No public comment policy"),
   },
   commentAgenda: {
-    check: flags => !flags.includes("Public comment related to the agenda"),
+    check: flags => !flags.includes("Public comment related to agenda"),
     na: flags => flags.includes("No public comment policy"),
   },
   commentLimit: {
-    check: flags => !flags.includes("Limit overall public comment time"),
+    check: flags => !flags.includes("Overall comment time less than 1 hour"),
     na: flags => flags.includes("No public comment policy"),
   },
   cancel: {

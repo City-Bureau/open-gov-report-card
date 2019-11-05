@@ -3,8 +3,8 @@ import React from "react"
 import { projectPoint } from "../utils"
 
 const Micromap = ({ style, path, bounds, points }) => (
-  <svg viewBox="0,0,500,600" style={style} className="micromap">
-    <g>
+  <svg viewBox="0,0,550,650" style={style} className="micromap">
+    <g transform="translate(25,25)">
       <path d={path} fill="currentColor"></path>
       {points.map((point, idx) => {
         let [x, y] = projectPoint(point, bounds)

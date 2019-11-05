@@ -14,7 +14,7 @@ const DAYS = [
 
 const HOURS = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
-const COLORS = ["#deebf7", "#9ecae1", "#3182bd"]
+const COLORS = ["#d8d8d8", "#deebf7", "#9ecae1", "#3182bd"]
 
 const getDayAbbrev = day => {
   if (day === "Sunday") {
@@ -35,10 +35,11 @@ const getTime = hour => {
   }
 }
 
+// TODO: aria attributes?
 const Week = ({ times }) => {
   const color = scaleThreshold()
     .domain([2, Math.max(...times.map(d => d[2]))])
-    .range(COLORS)
+    .range(COLORS.slice(1))
   return (
     <div className="week">
       <div className="week-row">
@@ -80,7 +81,7 @@ const Week = ({ times }) => {
         </div>
       </div>
       <div className="week-legend">
-        <div>Fewer</div>
+        <div>Less</div>
         {COLORS.map(color => (
           <div
             key={color}

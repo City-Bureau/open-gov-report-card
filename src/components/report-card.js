@@ -1,9 +1,9 @@
 import PropTypes from "prop-types"
 import React from "react"
 import Grade from "./grade"
+import GradeSymbol from "./grade-symbol"
 import Tag from "./tag"
 import Toggle from "./toggle"
-import Chevron from "./chevron"
 import Chicago from "./chicago"
 import Cook from "./cook"
 import Week from "./week"
@@ -12,13 +12,7 @@ import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
 const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
   <Toggle index={idx}>
     <div className="report-card-grade-label">
-      <span
-        className={`report-card-grade ${
-          { 1: `positive`, 0: `na`, [-1]: `negative` }[gradeQuestion(id, flags)]
-        }`}
-      >
-        <Chevron />
-      </span>
+      <GradeSymbol value={gradeQuestion(id, flags)} />
       <span>{title}</span>
     </div>
     <p>{detail}</p>
@@ -112,9 +106,8 @@ const ReportCard = ({
     <div className="report-card-score-container">
       <Grade score={score} isLarge />
       <p>
-        {correct} of {questions} categories where we have information for a
-        score of {+(score * 100).toFixed(2)}%. This is better/worse than X% of
-        agencies
+        This agency passes {correct} of the {questions} categories where we have
+        information for a score of {+(score * 100).toFixed(2)}%.
       </p>
     </div>
     <div className="report-card-description">
@@ -167,9 +160,9 @@ const ReportCard = ({
         <div className="report-card-section">
           <h4>Meeting Locations</h4>
           {(jurisdiction || []).includes("Chicago") ? (
-            <Chicago style={{ height: 150, width: 150 }} points={points} />
+            <Chicago style={{ height: 175, width: 175 }} points={points} />
           ) : (
-            <Cook style={{ height: 150, width: 150 }} points={points} />
+            <Cook style={{ height: 175, width: 175 }} points={points} />
           )}
         </div>
       </div>
