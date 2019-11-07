@@ -959,7 +959,9 @@ span.unavailable {
 /* For Pym.js embed */
 html.embedded {
   header,
-  footer {
+  footer,
+  .list-description,
+  .info-footer {
     display: none;
   }
 
