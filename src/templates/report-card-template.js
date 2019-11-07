@@ -30,7 +30,7 @@ const ReportCardTemplate = ({
   },
 }) => {
   useEffect(() => {
-    const pymChild = new pym.Child()
+    const pymChild = new pym.Child({ polling: 500 })
     pymChild.sendHeight()
   }, [])
 

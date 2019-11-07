@@ -117,24 +117,6 @@ const ReportCard = ({
       {(context || "").split("\n").map((line, idx) => (
         <p key={`context-${idx}`}>{line}</p>
       ))}
-      {/* // TODO: Move this lower on the page/CTA?
-      <p>
-        {(agencyId || []).length > 0 ? (
-          <a
-            href={`https://chicago.documenters.org/meetings?agency=${
-              agencyId[0]
-            }`}
-            target="_blank"
-          >
-            See agency meetings on Documenters.org
-          </a>
-        ) : (
-          <span className="unavailable">
-            Meetings for this agency are not currently available on
-            Documenters.org
-          </span>
-        )}
-      </p> */}
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }) => (
@@ -151,11 +133,7 @@ const ReportCard = ({
       <div className="report-card-row">
         <div className="report-card-section">
           <h4>Meeting Times</h4>
-          {times.length > 0 ? (
-            <Week times={times} />
-          ) : (
-            <p>We don't have detailed meeting times for this agency.</p>
-          )}
+          <Week times={times} />
         </div>
         <div className="report-card-section">
           <h4>Meeting Locations</h4>

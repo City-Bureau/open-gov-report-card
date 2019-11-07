@@ -11,8 +11,6 @@ import SearchIcon from "../components/search-icon"
 import { debounce } from "../utils"
 import { TOPICS, TOPIC_COLOR_MAP } from "../constants"
 
-// TODO: Filter on grade categories?
-
 const applyFilters = ({ search, topics, sort }, data) =>
   data
     .filter(
@@ -93,7 +91,7 @@ const ListPage = ({
   )
 
   useEffect(() => {
-    const pymChild = new pym.Child()
+    const pymChild = new pym.Child({ polling: 500 })
     pymChild.sendHeight()
     if (scrollEl.current) onScroll()
   }, [])

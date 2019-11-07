@@ -2,7 +2,7 @@ require("dotenv").config()
 
 // TODO: Canonical URLs
 module.exports = {
-  pathPrefix: `/report-cards`,
+  pathPrefix: `/report-cards-stg`,
   siteMetadata: {
     title: `Open Meetings Report Card`,
     description: `Report card for open meetings in Chicagoland`,
