@@ -52,23 +52,29 @@ const ListPage = ({
   const scrollEl = useRef(null)
 
   // Handle horizontal overscroll on desktop Safari only
-  const onWheelActive = event => {
+  useEffect(() => {
     if (
-      (event.deltaX < 0 && scrollEl && scrollEl.current.scrollLeft <= 0) ||
-      (event.deltaX > 0 &&
+      !(
         scrollEl &&
-        scrollEl.current.scrollLeft >=
-          scrollEl.current.scrollWidth - scrollEl.current.clientWidth)
+        window.innerWidth > 600 &&
+        navigator.userAgent.indexOf("Safari") > -1
+      )
     ) {
-      event.preventDefault()
-      return false
+      return
     }
-    return true
-  }
-  const onWheel =
-    window.innerWidth > 600 && navigator.userAgent.indexOf("Safari") > -1
-      ? onWheelActive
-      : null
+    scrollEl.current.addEventListener("wheel", event => {
+      if (
+        (event.deltaX < 0 && scrollEl.current.scrollLeft <= 0) ||
+        (event.deltaX > 0 &&
+          scrollEl.current.scrollLeft >=
+            scrollEl.current.scrollWidth - scrollEl.current.clientWidth)
+      ) {
+        event.preventDefault()
+        return false
+      }
+      return true
+    })
+  }, [scrollEl])
 
   const onScroll = () => {
     const target = scrollEl.current
@@ -151,7 +157,6 @@ const ListPage = ({
         <div
           className="filter-scroll"
           ref={scrollEl}
-          onWheel={onWheel}
           onScroll={debouncedOnScroll}
         >
           {results.length > 0 ? (
