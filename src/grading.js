@@ -1,72 +1,72 @@
 const REPORT_CARD_SECTIONS = [
   {
     title: `Information`,
-    description: `Items being posted online`,
+    description: `The first step in participating in a public meeting is knowing when and where it is and getting context on what policy decisions it’s been making.`,
     items: [
       {
         title: `Has a website`,
         id: `website`,
-        detail: `Testing`,
+        detail: `While the Illinois Open Meetings Act doesn’t require agencies to have a website, the city of Chicago and Cook County government both have official websites that agencies can use, so there’s little excuse not to have some information online.`,
       },
       {
         title: `Meeting schedule posted online`,
         id: `schedule`,
-        detail: `Testing`,
+        detail: `Knowing when and where meetings are is a prerequisite for participation.`,
       },
       {
         title: `Agendas posted online`,
         id: `agenda`,
-        detail: `Testing`,
+        detail: `Public meeting processes can be confusing, especially if you’re not sure what issues will be talked about before the meeting begins. Agendas aren’t always comprehensive, but give an idea of what will be discussed.`,
       },
       {
         title: `Minutes posted online`,
         id: `minutes`,
-        detail: `Testing`,
+        detail: `Even if a meeting is well-attended, an official record of what happened is important for context on past decisions an agency has made. We’re only counting this category if there aren’t significant amounts of minutes missing from a site.`,
       },
       {
         title: `Minutes include required details`,
         id: `minutesDetail`,
-        detail: `Testing`,
+        detail: `Meeting minutes are only useful if they actually include relevant information. Illinois’s Open Meetings Act requires that minutes include the time and place of a meeting, attendance and a summary of any votes taken or discussion. Many agencies leave out the discussion and only report a list of votes.`,
       },
       {
-        title: `Meetings are recorded and/or livestreamed`,
+        title: `Meeting recordings or a live-stream posted online`,
         id: `recording`,
-        detail: `Testing`,
+        detail: `Meeting minutes and text transcripts are useful, but can sometimes leave out important context for what goes on at a meeting. Audio or video recordings provide additional layers of communications and context for how a meeting was conducted.`,
       },
     ],
   },
   {
     title: `Public Comment`,
-    description: `How easy or hard it is for members of the public to speak`,
+    description: `Public comment periods offers an avenue for people to support or reject policy decisions, share perspectives and provide information that might not otherwise be represented in a meeting.`,
     items: [
       {
         title: `Public commenters can speak without having to pre-register`,
         id: `preReg`,
-        detail: `Testing`,
+        detail: `The Illinois Attorney General has said that requiring people to sign up for public comment even 15 minutes in advance can be an unnecessary barrier to participation (LINK).`,
       },
       {
         title: `Commenters can discuss anything related to the agency and not just the meeting agenda`,
         id: `commentAgenda`,
-        detail: `Testing`,
+        detail: `It’s hard to advocate for an agency to add an issue to its agenda when you can only talk about the items already on it. The Public Access Counselor has said (ADD LINK) that agencies can only restrict public comment to issues under their jurisdiction (so a pension fund can restrict people talking about snow plows).`,
       },
       {
         title: `Total time for public comment is not limited or at least one hour`,
         id: `commentLimit`,
-        detail: `Testing`,
+        detail: `Agencies are allowed to limit how long each commenter can speak as well as the maximum length for public comment, but limits as low as 15 minutes can restrict access more than is necessary to ensure a meeting runs smoothly.`,
       },
     ],
   },
   {
     title: `Scheduling`,
-    description: `When and where meetings are scheduled`,
+    description: `Knowing the time and location of a meeting is one thing, but it doesn’t necessarily make getting there any easier. Planning meetings for times and locations that are more accessible can reduce barriers to attendance.`,
     items: [
       {
         title: `Meetings are rarely cancelled`,
         id: `cancel`,
-        detail: `Testing`,
+        detail: `While some cancellations are inevitable (often due to quorum issues(?)), a pattern of cancelled meetings can be discouraging for people who plan to attend. This category is looking at whether 20% or more of the meetings we looked at were cancelled.`,
       },
       {
-        title: `Meetings from 9am-5pm as well as on the evenings and/or weekends`,
+        title: `Meetings from 8am-5pm as well as on the evenings and/or weekends`,
         id: `times`,
         detail: `Testing`,
       },
