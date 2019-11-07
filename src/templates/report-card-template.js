@@ -39,7 +39,7 @@ const ReportCardTemplate = ({
     <Layout>
       <SEO title={`${name}: ${getGrade(score)}`} />
       <div className="breadcrumb">
-        <Link to="/list/">
+        <Link to="/">
           <Chevron
             style={{
               transform: "rotate(180deg)",
