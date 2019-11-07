@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import * as pym from "pym.js"
+import { getGrade } from "../grading"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -36,7 +37,7 @@ const ReportCardTemplate = ({
 
   return (
     <Layout>
-      <SEO title={name} />
+      <SEO title={`${name}: ${getGrade(score)}`} />
       <div className="breadcrumb">
         <Link to="/list/">
           <Chevron

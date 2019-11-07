@@ -317,6 +317,7 @@ span.unavailable {
 }
 
 .multiselect-control {
+  position: relative;
   padding: grid(1);
   display: flex;
   flex-direction: row;
@@ -324,6 +325,8 @@ span.unavailable {
   justify-content: space-between;
 
   svg {
+    position: absolute;
+    right: 0;
     transition: transform 0.1s linear;
     transform: rotate(90deg);
     width: grid(6);
@@ -340,6 +343,7 @@ span.unavailable {
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-right: grid(5);
 }
 
 .multiselect-content {
@@ -424,7 +428,7 @@ span.unavailable {
 
     &.topics-container {
       flex-grow: 0;
-      min-width: grid(45);
+      min-width: grid(40);
       max-width: grid(45);
     }
   }
@@ -432,10 +436,12 @@ span.unavailable {
 
 .search-container {
   position: relative;
+  max-width: grid(80);
 
   input {
     width: 100%;
     padding: grid(1);
+    padding-left: grid(7);
     border-radius: 2px;
     border: $defaultBorder;
   }
@@ -445,7 +451,7 @@ span.unavailable {
     width: grid(4);
     height: grid(4);
     position: absolute;
-    right: grid(1);
+    left: grid(1);
     top: 50%;
     transform: translateY(-50%);
   }
@@ -503,22 +509,26 @@ span.unavailable {
     border: $defaultBorder;
     border-radius: 2px;
     padding: grid(0.75) grid(1);
-    width: 100%;
+    padding-right: grid(6);
     height: 100%;
     flex: 1;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   svg {
     width: grid(6);
     height: grid(6);
     position: absolute;
-    right: grid(1);
+    right: 0;
     top: grid(1);
     transform: rotate(90deg);
   }
 }
 
 .filter-scroll {
+  margin-top: grid(1);
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, #{grid(60)});
@@ -589,6 +599,18 @@ span.unavailable {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
 }
 
+.filter-edge-control {
+  width: grid(10);
+  min-width: grid(10);
+  height: grid(10);
+  background-color: $blue;
+  border-radius: 50%;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .report-card-thumb {
   display: flex;
   flex-direction: column;
@@ -609,7 +631,7 @@ span.unavailable {
 }
 
 .filter-container .report-card-thumb {
-  margin: grid(2);
+  margin: grid(1);
 }
 
 .topic-tag {

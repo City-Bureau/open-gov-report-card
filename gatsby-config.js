@@ -4,8 +4,8 @@ require("dotenv").config()
 module.exports = {
   pathPrefix: `/report-cards-stg`,
   siteMetadata: {
-    title: `Open Meetings Report Card`,
-    description: `Report card for open meetings in Chicagoland`,
+    title: `Chi Gov Report Card`,
+    description: `Report card for open meetings in Chicago`,
     author: `@city_bureau`,
   },
   plugins: [

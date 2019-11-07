@@ -27,11 +27,15 @@ const applyFilters = ({ search, topics, sort }, data) =>
         },
       }) => topics.length === 0 || topics.some(t => (tags || []).includes(t))
     )
-    .sort((a, b) =>
-      sort === `asc`
+    .sort((a, b) => {
+      if (sort === `alpha`) {
+        if (a.node.data.name === b.node.data.name) return 0
+        return a.node.data.name > b.node.data.name ? 1 : -1
+      }
+      return sort === `asc`
         ? a.node.fields.score - b.node.fields.score
         : b.node.fields.score - a.node.fields.score
-    )
+    })
 
 const ListPage = ({
   data: {
@@ -41,7 +45,7 @@ const ListPage = ({
   const [filters, setFilters] = useState({
     search: ``,
     topics: [],
-    sort: `asc`,
+    sort: `alpha`,
   })
   const [results, setResults] = useState(applyFilters(filters, edges))
 
@@ -140,8 +144,9 @@ const ListPage = ({
               value={filters.sort}
               onChange={e => setFilters({ ...filters, sort: e.target.value })}
             >
-              <option value="asc">Sort F to A</option>
-              <option value="desc">Sort A to F</option>
+              <option value="alpha">Sort A to Z</option>
+              <option value="asc">Sort grades F to A</option>
+              <option value="desc">Sort grades A to F</option>
             </select>
             <Chevron />
           </div>
@@ -150,7 +155,9 @@ const ListPage = ({
       </div>
       <div className="filter-container">
         <div className={`filter-edge left ${leftActive ? "is-active" : ""}`}>
-          <Chevron style={{ transform: "rotate(180deg)" }} />
+          <div className="filter-edge-control">
+            <Chevron style={{ transform: "rotate(180deg)" }} />
+          </div>
         </div>
         <div
           className="filter-scroll"
@@ -181,7 +188,9 @@ const ListPage = ({
           )}
         </div>
         <div className={`filter-edge right ${rightActive ? "is-active" : ""}`}>
-          <Chevron />
+          <div className="filter-edge-control">
+            <Chevron />
+          </div>
         </div>
       </div>
     </Layout>

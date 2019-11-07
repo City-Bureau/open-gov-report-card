@@ -90,7 +90,6 @@ const ReportCard = ({
   context,
   website,
   publicCommentPolicy,
-  agencyId,
   points,
   times,
   jurisdiction,
