@@ -143,6 +143,36 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  const pageTemplate = path.resolve(`src/templates/page-template.js`)
+  const {
+    data: {
+      allMarkdownRemark: { edges },
+    },
+  } = await graphql(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+  edges.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: pageTemplate,
+      context: {},
+    })
+  })
 }
 
 // Handle pym.js requiring the window/location to be defined

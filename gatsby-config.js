@@ -6,7 +6,9 @@ module.exports = {
   siteMetadata: {
     title: `Chi Gov Report Card`,
     description: `Report card for open meetings in Chicago`,
-    author: `@city_bureau`,
+    author: `City Bureau`,
+    twitterAuthor: `@city_bureau`,
+    siteUrl: `https://projects.citybureau.org/report-cards-stg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,8 +28,22 @@ module.exports = {
         path: `${__dirname}/data`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown`,
+        path: `${__dirname}/src/markdown`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [``],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

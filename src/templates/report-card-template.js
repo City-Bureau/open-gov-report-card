@@ -28,6 +28,7 @@ const ReportCardTemplate = ({
     omaFlags,
     publicCommentFlags,
     reportCardFlags,
+    slug,
   },
 }) => {
   useEffect(() => {
@@ -37,7 +38,7 @@ const ReportCardTemplate = ({
 
   return (
     <Layout>
-      <SEO title={`${name}: ${getGrade(score)}`} />
+      <SEO title={`${name}: ${getGrade(score)}`} pathname={slug} />
       <div className="breadcrumb">
         <Link to="/">
           <Chevron

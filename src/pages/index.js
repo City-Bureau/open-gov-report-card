@@ -106,7 +106,7 @@ const IndexPage = ({
 
   return (
     <Layout>
-      <SEO title="Report Cards" />
+      <SEO title="Report Card" pathname="/" />
       <div className="list-description">TK</div>
       <div className="filter-controls-container">
         <div className="search-container">
