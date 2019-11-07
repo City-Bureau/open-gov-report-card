@@ -526,6 +526,7 @@ span.unavailable {
   grid-auto-columns: grid(60);
   grid-auto-flow: column;
   overflow-x: scroll;
+  overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   width: 100%;
   min-height: grid(100);
