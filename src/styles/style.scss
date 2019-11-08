@@ -332,6 +332,7 @@ span.unavailable {
     width: grid(6);
     min-width: grid(6);
     height: grid(6);
+    color: $gray;
   }
 
   &[aria-expanded="true"] svg {
@@ -528,6 +529,7 @@ span.unavailable {
     right: 0;
     top: grid(1);
     transform: rotate(90deg);
+    color: $gray;
   }
 }
 
@@ -631,6 +633,10 @@ span.unavailable {
   min-height: 150px;
   padding: grid(2);
   box-shadow: $defaultBoxShadow;
+
+  .topic-tag {
+    font-size: 14px;
+  }
 }
 
 .report-card-thumb-heading {
@@ -644,12 +650,16 @@ span.unavailable {
 }
 
 .topic-tag {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
   position: relative;
   min-width: 3rem;
   min-height: 2rem;
-  padding: grid(1);
-  margin: 1px;
+  padding: grid(1) grid(2);
+  margin: 0;
+  margin-right: grid(1);
+  margin-bottom: grid(1);
 
   background-color: $lightGray;
   color: $black;
@@ -749,7 +759,7 @@ span.unavailable {
   justify-content: center;
   text-align: center;
   background-color: $gray;
-  border-radius: grid(1);
+  border-radius: 50%;
   height: grid(9);
   width: grid(9);
 

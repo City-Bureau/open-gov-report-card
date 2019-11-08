@@ -86,7 +86,6 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
-            agency_name
             agency
             start_day
             start_time
