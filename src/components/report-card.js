@@ -1,5 +1,9 @@
 import PropTypes from "prop-types"
 import React from "react"
+import remark from "remark"
+import html from "remark-html"
+import remarkAttr from "remark-attr"
+import recommended from "remark-preset-lint-recommended"
 import Grade from "./grade"
 import GradeSymbol from "./grade-symbol"
 import Tag from "./tag"
@@ -9,13 +13,18 @@ import Cook from "./cook"
 import Week from "./week"
 import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
 
+const processor = remark()
+  .use(recommended)
+  .use(remarkAttr)
+  .use(html)
+
 const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
   <Toggle index={idx}>
     <div className="report-card-grade-label">
       <GradeSymbol value={gradeQuestion(id, flags)} />
       <span>{title}</span>
     </div>
-    <p>{detail}</p>
+    <div dangerouslySetInnerHTML={{ __html: processor.processSync(detail) }} />
   </Toggle>
 )
 

@@ -16,17 +16,17 @@ const REPORT_CARD_SECTIONS = [
       {
         title: `Agendas posted online`,
         id: `agenda`,
-        detail: `Public meeting processes can be confusing, especially if you’re not sure what issues will be talked about before the meeting begins. Agendas aren’t always comprehensive, but give an idea of what will be discussed.`,
+        detail: `Public meeting processes can be confusing, especially if you’re not sure what issues will be talked about. Agendas aren’t always comprehensive, but give an idea of what’s on deck.`,
       },
       {
         title: `Minutes posted online`,
         id: `minutes`,
-        detail: `Even if a meeting is well-attended, an official record of what happened is important for context on past decisions an agency has made. We’re only counting this category if there aren’t significant amounts of minutes missing from a site.`,
+        detail: `Even if a meeting is well-attended, an official record of what happened provides context on its past decisions. We’re only counting this category if there aren’t significant amounts of minutes missing from a site.`,
       },
       {
         title: `Minutes include required details`,
         id: `minutesDetail`,
-        detail: `Meeting minutes are only useful if they actually include relevant information. Illinois’s Open Meetings Act requires that minutes include the time and place of a meeting, attendance and a summary of any votes taken or discussion. Many agencies leave out the discussion and only report a list of votes.`,
+        detail: `Meeting minutes are only useful if they include relevant information. Illinois’s Open Meetings Act requires that minutes include the time and place of a meeting, attendance and a summary of any votes taken or discussion. Many agencies leave out the discussion and only report a list of votes.`,
       },
       {
         title: `Meeting recordings or a live-stream posted online`,
@@ -37,38 +37,39 @@ const REPORT_CARD_SECTIONS = [
   },
   {
     title: `Public Comment`,
-    description: `Public comment periods offers an avenue for people to support or reject policy decisions, share perspectives and provide information that might not otherwise be represented in a meeting.`,
+    description: `Public comment periods offer an avenue for people to support or reject policy decisions, share perspectives and provide information that might not otherwise be represented in a meeting.
+`,
     items: [
       {
         title: `Public commenters can speak without having to pre-register`,
         id: `preReg`,
-        detail: `The Illinois Attorney General has said that requiring people to sign up for public comment even 15 minutes in advance can be an unnecessary barrier to participation (LINK).`,
+        detail: `The Illinois Attorney General [has said](https://www.documentcloud.org/documents/6194259-OMA-Determination-Letters-2018-10-2019-06.html#document/p45){target="_blank", rel="noopener noreferrer"} that requiring people to sign up for public comment even 15 minutes in advance can be an unnecessary barrier to participation.`,
       },
       {
         title: `Commenters can discuss anything related to the agency and not just the meeting agenda`,
         id: `commentAgenda`,
-        detail: `It’s hard to advocate for an agency to add an issue to its agenda when you can only talk about the items already on it. The Public Access Counselor has said (ADD LINK) that agencies can only restrict public comment to issues under their jurisdiction (so a pension fund can restrict people talking about snow plows).`,
+        detail: `It’s hard to advocate for an agency to add an issue to its agenda when you can only talk about the items already on it. The Illinois Attorney General [has said](https://www.documentcloud.org/documents/6194259-OMA-Determination-Letters-2018-10-2019-06.html#document/p317){target="_blank", rel="noopener noreferrer"} that agencies can only restrict public comment to issues under their jurisdiction.`,
       },
       {
         title: `Total time for public comment is not limited or at least one hour`,
         id: `commentLimit`,
-        detail: `Agencies are allowed to limit how long each commenter can speak as well as the maximum length for public comment, but limits as low as 15 minutes can restrict access more than is necessary to ensure a meeting runs smoothly.`,
+        detail: `Agencies are allowed to limit how long each commenter can speak as well as the maximum length for public comment periods, but limits as low as 15 total minutes per period can unduly restrict access.`,
       },
     ],
   },
   {
     title: `Scheduling`,
-    description: `Knowing the time and location of a meeting is one thing, but it doesn’t necessarily make getting there any easier. Planning meetings for times and locations that are more accessible can reduce barriers to attendance.`,
+    description: `Knowing the time and location of a meeting is one thing, but it doesn’t necessarily make getting there any easier. Reasonable variation of  meeting times and locations can reduce barriers to attendance.`,
     items: [
       {
         title: `Meetings are rarely cancelled`,
         id: `cancel`,
-        detail: `While some cancellations are inevitable (often due to quorum issues(?)), a pattern of cancelled meetings can be discouraging for people who plan to attend. This category is looking at whether 20% or more of the meetings we looked at were cancelled.`,
+        detail: `While some cancellations are inevitable, a pattern of cancelled meetings can be discouraging. This category is looking at whether 20% or more of the meetings we looked at were cancelled.`,
       },
       {
         title: `Meetings from 8am-5pm as well as on the evenings and/or weekends`,
         id: `times`,
-        detail: `Testing`,
+        detail: `The overwhelming majority of public meetings happen between 8am and 5pm on weekdays because it’s the most convenient time for politicians and government staff. While there’s [no perfect time to hold a meeting](https://tcf.org/content/commentary/better-community-meeting-possible/){target="_blank", rel="noopener noreferrer"}, holding meetings at different times can make attending more accessible to members of the public.`,
       },
     ],
   },
