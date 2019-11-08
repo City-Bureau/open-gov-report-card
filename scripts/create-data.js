@@ -30,7 +30,7 @@ const FIELDS = [
   })
     .then(r => r.json())
     .then(res =>
-      [...res.records, ...records]
+      [...records, ...res.records]
         .map(({ fields }) =>
           FIELDS.reduce(
             (acc, field) => ({ ...acc, [field]: fields[field] || null }),

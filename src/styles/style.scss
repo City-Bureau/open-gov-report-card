@@ -174,6 +174,7 @@ span.unavailable {
   }
 }
 
+// TODO: Increase section margin
 .report-card-section {
   margin-bottom: grid(6);
 
@@ -533,6 +534,8 @@ span.unavailable {
   }
 }
 
+// TODO: Fix cut off lines for Environmental
+// Look at text-wrap through CSS that isn't ellipsis?
 .filter-scroll {
   margin-top: grid(1);
   position: relative;

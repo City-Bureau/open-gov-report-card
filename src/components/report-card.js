@@ -119,6 +119,7 @@ const ReportCard = ({
       </p>
     </div>
     <div className="report-card-description">
+      {/* TODO: Add header */}
       {(description || "").split("\n").map((line, idx) => (
         <p key={`desc-${idx}`}>{line}</p>
       ))}
@@ -138,6 +139,7 @@ const ReportCard = ({
           key={title}
         />
       ))}
+      {/* TODO: Add line that info isn't available */}
       <div className="report-card-row">
         <div className="report-card-section">
           <h4>Meeting Times</h4>

@@ -9,6 +9,7 @@ const setupOptions = options =>
       : { ...option, checked: false }
   )
 
+// TODO: Click outside to close
 const Multiselect = ({ label, options, onChange }) => {
   const [active, setActive] = useState("")
   const [inputOptions, setInputOptions] = useState(setupOptions(options))

@@ -170,8 +170,8 @@ const IndexPage = ({
               onChange={e => setFilters({ ...filters, sort: e.target.value })}
             >
               <option value="alpha">Sort A to Z</option>
-              <option value="asc">Sort grades F to A</option>
               <option value="desc">Sort grades A to F</option>
+              <option value="asc">Sort grades F to A</option>
             </select>
             <Chevron />
           </div>
@@ -212,6 +212,7 @@ const IndexPage = ({
             </div>
           )}
         </div>
+        {/* TODO: Scroll on button click */}
         <div className={`filter-edge right ${rightActive ? "is-active" : ""}`}>
           <div className="filter-edge-control">
             <Chevron />
