@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Pat Sier <pat@citybureau.org>",
   "dependencies": {
+    "cross-fetch": "^3.0.4",
+    "csv-writer": "^1.5.0",
     "d3-geo": "^1.11.6",
     "d3-scale": "^3.2.0",
     "gatsby": "^2.17.1",
