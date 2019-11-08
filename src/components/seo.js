@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-// TODO: Update this based on report cards
+// TODO: Update this based on report cards, add images
 function SEO({ description, lang, meta, pathname, title }) {
   const { site, ogImage, twitterImage } = useStaticQuery(
     graphql`
@@ -115,6 +115,7 @@ function SEO({ description, lang, meta, pathname, title }) {
         // },
       ].concat(meta)}
     >
+      <link rel="canonical" href={`${site.siteMetadata.siteUrl}${pathname}`} />
       <link rel="stylesheet" href="https://use.typekit.net/pbz7tnn.css" />
     </Helmet>
   )

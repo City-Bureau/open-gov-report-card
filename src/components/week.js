@@ -35,7 +35,6 @@ const getTime = hour => {
   }
 }
 
-// TODO: aria attributes?
 const Week = ({ times }) => {
   const color = scaleThreshold()
     .domain([2, Math.max(...times.map(d => d[2]))])

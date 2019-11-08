@@ -48,7 +48,7 @@ exports.onCreateNode = ({ node, actions }) => {
     })
   }
 }
-// TODO: Process markdown https://stackoverflow.com/questions/55998067/convert-markdown-to-html-from-within-a-rich-text-component-with-gatsby
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -129,7 +129,6 @@ exports.createPages = async ({ graphql, actions }) => {
         {}
       )
     ).map(coords => coords.split(",").map(c => +c))
-    // TODO: Process markdown in constant descriptions, include as context for page
     createPage({
       path: fields.slug,
       component: path.resolve(`./src/templates/report-card-template.js`),

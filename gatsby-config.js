@@ -1,6 +1,5 @@
 require("dotenv").config()
 
-// TODO: Canonical URLs
 module.exports = {
   pathPrefix: `/report-cards-stg`,
   siteMetadata: {
@@ -41,9 +40,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [``],
+        trackingIds: [`UA-68381272-6`],
       },
     },
+    // TODO: Fix manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
