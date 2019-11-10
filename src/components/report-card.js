@@ -119,13 +119,19 @@ const ReportCard = ({
       </p>
     </div>
     <div className="report-card-description">
-      {/* TODO: Add header */}
-      {(description || "").split("\n").map((line, idx) => (
-        <p key={`desc-${idx}`}>{line}</p>
-      ))}
-      {(context || "").split("\n").map((line, idx) => (
-        <p key={`context-${idx}`}>{line}</p>
-      ))}
+      <h3>Description</h3>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: processor.processSync(description || ""),
+        }}
+      />
+      {context || "" ? (
+        <div
+          dangerouslySetInnerHTML={{ __html: processor.processSync(context) }}
+        />
+      ) : (
+        ``
+      )}
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }) => (
@@ -139,7 +145,6 @@ const ReportCard = ({
           key={title}
         />
       ))}
-      {/* TODO: Add line that info isn't available */}
       <div className="report-card-row">
         <div className="report-card-section">
           <h4>Meeting Times</h4>
@@ -154,6 +159,15 @@ const ReportCard = ({
           )}
         </div>
       </div>
+      {times.length > 0 || points.length > 0 ? (
+        ``
+      ) : (
+        <div className="report-card-row">
+          <p style={{ fontStyle: `italic` }}>
+            Detailed meeting information not available
+          </p>
+        </div>
+      )}
     </div>
   </div>
 )

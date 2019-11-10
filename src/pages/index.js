@@ -6,10 +6,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ReportCardThumb from "../components/report-card-thumb"
 import Multiselect from "../components/multiselect"
+import ScrollButton from "../components/scroll-button"
 import Chevron from "../components/chevron"
 import SearchIcon from "../components/search-icon"
 import { debounce } from "../utils"
-import { TOPICS, TOPIC_COLOR_MAP } from "../constants"
+import { TOPICS } from "../constants"
 
 const applyFilters = ({ search, topics, sort }, data) =>
   data
@@ -145,13 +146,7 @@ const IndexPage = ({
         <div className="topics-container">
           <Multiselect
             label="Topics"
-            options={TOPICS.map(topic => ({
-              label: topic,
-              value: topic,
-              className: `topic-tag-input ${
-                topic in TOPIC_COLOR_MAP ? TOPIC_COLOR_MAP[topic] : ``
-              }`,
-            }))}
+            options={TOPICS}
             onChange={values =>
               setFilters({
                 ...filters,
@@ -180,9 +175,7 @@ const IndexPage = ({
       </div>
       <div className="filter-container">
         <div className={`filter-edge left ${leftActive ? "is-active" : ""}`}>
-          <div className="filter-edge-control">
-            <Chevron style={{ transform: "rotate(180deg)" }} />
-          </div>
+          <ScrollButton isLeft scrollEl={scrollEl} />
         </div>
         <div
           className="filter-scroll"
@@ -212,11 +205,8 @@ const IndexPage = ({
             </div>
           )}
         </div>
-        {/* TODO: Scroll on button click */}
         <div className={`filter-edge right ${rightActive ? "is-active" : ""}`}>
-          <div className="filter-edge-control">
-            <Chevron />
-          </div>
+          <ScrollButton scrollEl={scrollEl} />
         </div>
       </div>
     </Layout>

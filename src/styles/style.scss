@@ -167,29 +167,32 @@ span.unavailable {
 }
 
 .report-card-description {
-  margin: grid(4) 0;
+  margin: grid(8) 0;
+
+  h3 {
+    margin-bottom: grid(2);
+  }
 
   p {
     margin-bottom: grid(2);
   }
 }
 
-// TODO: Increase section margin
 .report-card-section {
-  margin-bottom: grid(6);
+  margin-bottom: grid(8);
 
   h3,
   h4 {
-    margin-bottom: grid(2);
+    margin-bottom: grid(3);
   }
 
   p {
-    margin-bottom: grid(1);
+    margin-bottom: grid(2);
   }
-}
 
-.report-card-section .toggle {
-  margin: grid(3) 0;
+  .toggle {
+    margin: grid(4) 0;
+  }
 }
 
 .report-card-row {
@@ -363,6 +366,7 @@ span.unavailable {
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 14px;
 
     input {
       margin-right: grid(1);
@@ -468,19 +472,25 @@ span.unavailable {
     width: 50%;
     margin: 0;
     margin-bottom: grid(2);
+    flex-grow: 1;
 
-    &:nth-child(even) {
-      padding-left: grid(1);
+    &.search-container {
+      width: 100%;
+      min-width: 100%;
     }
-    &:nth-child(odd) {
+
+    &.topics-container {
       padding-right: grid(1);
     }
-    &:last-child {
+
+    &.sort-container {
+      padding-left: grid(1);
       flex-grow: 1;
     }
 
     &.topics-container {
       min-width: auto;
+      max-width: 100%;
     }
   }
 
@@ -488,6 +498,10 @@ span.unavailable {
     svg {
       right: grid(2);
     }
+  }
+
+  .count-container {
+    display: none;
   }
 }
 
@@ -534,21 +548,19 @@ span.unavailable {
   }
 }
 
-// TODO: Fix cut off lines for Environmental
-// Look at text-wrap through CSS that isn't ellipsis?
 .filter-scroll {
   margin-top: grid(1);
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, #{grid(60)});
+  grid-template-columns: repeat(2, #{grid(64)});
   grid-template-rows: repeat(3, 30%);
-  grid-auto-columns: grid(60);
+  grid-auto-columns: grid(64);
   grid-auto-flow: column;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-  min-height: grid(100);
+  min-height: grid(120);
   // Might not be necessary?
   scroll-snap-type: x proximity;
   scroll-padding: grid(4.75);
@@ -613,7 +625,7 @@ span.unavailable {
   }
 }
 
-.filter-edge-control {
+.scroll-button {
   width: grid(10);
   min-width: grid(10);
   height: grid(10);
@@ -623,6 +635,8 @@ span.unavailable {
   display: flex;
   align-items: center;
   justify-content: center;
+  appearance: none;
+  border-width: 0;
 }
 
 .report-card-thumb {
@@ -637,6 +651,10 @@ span.unavailable {
   padding: grid(2);
   box-shadow: $defaultBoxShadow;
 
+  .topic-row {
+    margin-top: grid(2);
+  }
+
   .topic-tag {
     font-size: 14px;
   }
@@ -645,7 +663,10 @@ span.unavailable {
 .report-card-thumb-heading {
   margin-top: grid(1);
   line-height: 1.25;
-  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .filter-container .report-card-thumb {

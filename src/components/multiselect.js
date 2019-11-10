@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Chevron from "./chevron"
 
 const setupOptions = options =>
@@ -9,10 +9,10 @@ const setupOptions = options =>
       : { ...option, checked: false }
   )
 
-// TODO: Click outside to close
 const Multiselect = ({ label, options, onChange }) => {
   const [active, setActive] = useState("")
   const [inputOptions, setInputOptions] = useState(setupOptions(options))
+  const selectEl = useRef(null)
 
   const toggleActive = () => setActive(active === "" ? "active" : "")
   const onKeyPress = event => {
@@ -37,13 +37,26 @@ const Multiselect = ({ label, options, onChange }) => {
   }
 
   useEffect(() => {
+    const docClickListener = e => {
+      if (active && selectEl && !selectEl.current.contains(e.target)) {
+        toggleActive()
+      }
+    }
+    document.addEventListener("click", docClickListener)
+
+    return function cleanup() {
+      document.removeEventListener("click", docClickListener)
+    }
+  }, [active, toggleActive, selectEl])
+
+  useEffect(() => {
     onChange(inputOptions.filter(({ checked }) => checked))
   }, inputOptions.map(({ checked }) => checked))
 
   const selectedOptions = inputOptions.filter(({ checked }) => checked)
 
   return (
-    <div className="multiselect">
+    <div className="multiselect" ref={selectEl}>
       <div
         className="multiselect-control"
         role="button"

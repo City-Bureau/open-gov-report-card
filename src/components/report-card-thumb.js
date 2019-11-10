@@ -13,7 +13,7 @@ const ReportCardThumb = ({ name, tags, score, slug }) => (
         {name}
       </Link>
     </div>
-    <div>
+    <div className="topic-row">
       {(tags || []).map(topic => (
         <Tag topic={topic} key={topic} />
       ))}
