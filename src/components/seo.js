@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 // TODO: Update this based on report cards, add images
-function SEO({ description, lang, meta, pathname, title }) {
+function SEO({ description, lang, meta, pathname, title, overrideTitle }) {
   const { site, ogImage, twitterImage } = useStaticQuery(
     graphql`
       query {
@@ -43,6 +43,7 @@ function SEO({ description, lang, meta, pathname, title }) {
         lang,
       }}
       title={title}
+      titleTemplate={overrideTitle ? `%s` : `%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -125,6 +126,7 @@ SEO.defaultProps = {
   meta: [],
   description: ``,
   pathname: ``,
+  overrideTitle: false,
 }
 
 SEO.propTypes = {
@@ -133,6 +135,7 @@ SEO.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   pathname: PropTypes.string,
+  overrideTitle: PropTypes.bool,
 }
 
 export default SEO

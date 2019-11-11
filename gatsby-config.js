@@ -4,7 +4,7 @@ module.exports = {
   pathPrefix: `/report-cards-stg`,
   siteMetadata: {
     title: `Chi Gov Report Card`,
-    description: `Report card for open meetings in Chicago`,
+    description: `Chicago and Cook County government agencies, ranked by commitment to transparency`,
     author: `City Bureau`,
     twitterAuthor: `@city_bureau`,
     siteUrl: `https://projects.citybureau.org/report-cards-stg`,
@@ -43,12 +43,11 @@ module.exports = {
         trackingIds: [`UA-68381272-6`],
       },
     },
-    // TODO: Fix manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `open-meetings-report-card`,
-        short_name: `omareportcard`,
+        name: `Chi Gov Report Card`,
+        short_name: `Chi Gov Report Card`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ffffff`,

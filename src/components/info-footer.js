@@ -1,6 +1,5 @@
 import React from "react"
 
-// TODO: Update text, add prop for CTA/children?
 // TODO: Which newsletter?
 const InfoFooter = () => (
   <div className="info-footer">

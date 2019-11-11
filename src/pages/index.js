@@ -50,30 +50,6 @@ const IndexPage = ({
   })
   const [results, setResults] = useState(applyFilters(filters, edges))
 
-  // TODO: Remove
-  // const gradeObj = [
-  //   ["A", 0.9, 1.1],
-  //   ["B", 0.8, 0.9],
-  //   ["C", 0.7, 0.8],
-  //   ["D", 0.6, 0.7],
-  //   ["F", 0.0, 0.6],
-  // ]
-  // gradeObj.map(([grade, low, high]) => {
-  //   const gradeResults = results.filter(
-  //     ({
-  //       node: {
-  //         fields: { score },
-  //       },
-  //     }) => score >= low && score < high
-  //   )
-  //   console.log(
-  //     `${grade}: ${gradeResults.length} ${(
-  //       (gradeResults.length / results.length) *
-  //       100
-  //     ).toFixed(2)}%`
-  //   )
-  // })
-
   const [edgesActive, setEdgesActive] = useState([false, false])
   const [leftActive, rightActive] = edgesActive
   const scrollEl = useRef(null)
@@ -131,7 +107,11 @@ const IndexPage = ({
 
   return (
     <Layout>
-      <SEO title="Report Card" pathname="/" />
+      <SEO
+        title="How Open Is Your Government? | City Bureau"
+        overrideTitle
+        pathname="/"
+      />
       <div className="list-description">
         “Public business is the public’s business” — and public meetings are
         important spaces for democracy where any resident can participate in

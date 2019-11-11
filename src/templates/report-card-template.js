@@ -38,7 +38,11 @@ const ReportCardTemplate = ({
 
   return (
     <Layout>
-      <SEO title={`${getGrade(score)} - ${name}`} pathname={slug} />
+      <SEO
+        title={`${name} Gets a ${getGrade(score)} on Government Transparency`}
+        overrideTitle
+        pathname={slug}
+      />
       <div className="breadcrumb">
         <Link to="/">
           <Chevron

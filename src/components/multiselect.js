@@ -47,7 +47,7 @@ const Multiselect = ({ label, options, onChange }) => {
     return function cleanup() {
       document.removeEventListener("click", docClickListener)
     }
-  }, [active, toggleActive, selectEl])
+  }, [active, selectEl])
 
   useEffect(() => {
     onChange(inputOptions.filter(({ checked }) => checked))

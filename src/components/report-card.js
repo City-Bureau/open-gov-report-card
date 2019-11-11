@@ -11,7 +11,11 @@ import Toggle from "./toggle"
 import Chicago from "./chicago"
 import Cook from "./cook"
 import Week from "./week"
-import { REPORT_CARD_SECTIONS, gradeQuestion } from "../grading"
+import {
+  REPORT_CARD_SECTIONS,
+  TOTAL_REPORT_CARD_QUESTIONS,
+  gradeQuestion,
+} from "../grading"
 
 const processor = remark()
   .use(recommended)
@@ -116,6 +120,10 @@ const ReportCard = ({
       <p>
         This agency passes {correct} of the {questions} categories where we have
         information for a score of {+(score * 100).toFixed(2)}%.
+        {TOTAL_REPORT_CARD_QUESTIONS - questions > 0
+          ? ` Information was not available for ${TOTAL_REPORT_CARD_QUESTIONS -
+              questions} categories`
+          : ``}
       </p>
     </div>
     <div className="report-card-description">

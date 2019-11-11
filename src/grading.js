@@ -137,6 +137,9 @@ const REPORT_CARD_QUESTIONS = {
   },
 }
 
+const TOTAL_REPORT_CARD_QUESTIONS = [...Object.keys(REPORT_CARD_QUESTIONS)]
+  .length
+
 const gradeReportCard = flags => {
   const total = Object.values(REPORT_CARD_QUESTIONS).length
   const correct = Object.values(REPORT_CARD_QUESTIONS).filter(
@@ -170,6 +173,7 @@ const getGrade = score => {
 module.exports = {
   REPORT_CARD_SECTIONS,
   REPORT_CARD_QUESTIONS,
+  TOTAL_REPORT_CARD_QUESTIONS,
   gradeReportCard,
   gradeQuestion,
   getGrade,
