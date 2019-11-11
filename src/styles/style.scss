@@ -976,6 +976,10 @@ span.unavailable {
   max-width: $reportCardWidth;
   margin: grid(8) auto;
 
+  p {
+    margin-bottom: grid(2);
+  }
+
   form {
     margin-top: grid(4);
   }
