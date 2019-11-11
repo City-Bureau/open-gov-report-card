@@ -35,3 +35,12 @@ Our criteria for agencies listed in the TK TITLE is based on the following—the
 - Holds Open Meetings Act-related meetings
 - Has jurisdiction anywhere in Chicago
 - Publicizes enough information to be reasonably considered active
+
+## Download our data
+
+- [Agencies](https://raw.githubusercontent.com/City-Bureau/open-meetings-report-card/master/data/agencies.csv)
+- [Meetings](https://raw.githubusercontent.com/City-Bureau/open-meetings-report-card/master/data/meetings.csv)
+
+## Contact
+
+Have a question? See an issue? Contact us at documenters@citybureau.org
