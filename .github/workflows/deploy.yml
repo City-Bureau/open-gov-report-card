@@ -9,7 +9,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
   AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
-  S3_BUCKET: city-bureau-demos
+  S3_BUCKET: city-bureau-projects
   CLOUDFRONT_ID: E1KVCPPPIJI04K
 
 jobs:
