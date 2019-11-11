@@ -118,8 +118,8 @@ const ReportCard = ({
     <div className="report-card-score-container">
       <Grade score={score} isLarge />
       <p>
-        This agency passes {correct} of the {questions} categories where we have
-        information for a score of {+(score * 100).toFixed(2)}%.
+        This agency passes {correct} of the {questions} categories for a score
+        of {+(score * 100).toFixed(2)}%.
         {TOTAL_REPORT_CARD_QUESTIONS - questions > 0
           ? ` Information was not available for ${TOTAL_REPORT_CARD_QUESTIONS -
               questions} categories`
