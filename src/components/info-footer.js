@@ -1,13 +1,25 @@
 import React from "react"
 
 // TODO: Update text, add prop for CTA/children?
+// TODO: Which newsletter?
 const InfoFooter = () => (
   <div className="info-footer">
     <div>
-      <h3>Interested in learning more?</h3>
       <p>
-        Sign up for our newsletter to get the latest from our *proactive*
-        political rundown, the Documenters Newswire.
+        Help us protect your democracy. Donate to our nonprofit civic news lab
+        and{" "}
+        <a
+          href="https://www.citybureau.org/press-club"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          your contribution
+        </a>{" "}
+        will be doubled through December 31, thanks to NewsMatch.
+      </p>
+      <p>
+        Sign up for our newsletter to get the latest news and events from City
+        Bureau.
       </p>
       <form
         action="https://citybureau.us11.list-manage.com/subscribe/post?u=5d2d7d56eca627ab2ca1a9c7e&amp;id=80e2e0ec06"

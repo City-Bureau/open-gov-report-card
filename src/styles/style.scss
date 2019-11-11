@@ -119,6 +119,11 @@ input[type="checkbox"] {
   padding: grid(4);
 }
 
+main > .content {
+  max-width: $reportCardWidth;
+  margin: auto;
+}
+
 footer {
   display: flex;
   min-height: 100px;
@@ -129,6 +134,10 @@ footer {
 }
 
 .breadcrumb {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: $reportCardWidth;
   margin: 0 auto;
@@ -138,6 +147,10 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    &:last-child {
+      flex-grow: 0;
+    }
   }
 }
 
@@ -407,7 +420,7 @@ span.unavailable {
 }
 
 .list-description {
-  margin-bottom: grid(2);
+  margin-bottom: grid(4);
 }
 
 .count-container {
@@ -468,6 +481,10 @@ span.unavailable {
 }
 
 @media screen and (max-width: $mobile) {
+  .list-description {
+    display: none;
+  }
+
   .filter-controls-container > div {
     width: 50%;
     margin: 0;
@@ -637,6 +654,7 @@ span.unavailable {
   justify-content: center;
   appearance: none;
   border-width: 0;
+  cursor: pointer;
 }
 
 .report-card-thumb {
@@ -995,6 +1013,24 @@ span.unavailable {
         border-color: $red;
       }
     }
+  }
+}
+
+.content {
+  h1,
+  h2 {
+    margin: grid(4) 0;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: grid(3);
+  }
+  li {
+    margin-bottom: grid(2);
   }
 }
 

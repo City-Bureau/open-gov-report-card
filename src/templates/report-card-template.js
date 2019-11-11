@@ -51,6 +51,7 @@ const ReportCardTemplate = ({
           />
           <span>Back to list</span>
         </Link>
+        <Link to="/about">About</Link>
       </div>
       <ReportCard
         name={name}

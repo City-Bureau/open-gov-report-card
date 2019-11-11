@@ -132,7 +132,13 @@ const IndexPage = ({
   return (
     <Layout>
       <SEO title="Report Card" pathname="/" />
-      <div className="list-description">TK</div>
+      <div className="list-description">
+        “Public business is the public’s business” — and public meetings are
+        important spaces for democracy where any resident can participate in
+        civic life and hold power to account. How great is your government at
+        upholding access and transparency standards? The TK TITLE is giving
+        local government a grade.
+      </div>
       <div className="filter-controls-container">
         <div className="search-container">
           <input
