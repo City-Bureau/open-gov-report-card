@@ -169,11 +169,15 @@ main > .content {
 
 footer {
   display: flex;
-  min-height: 100px;
+  min-height: grid(30);
   width: 100%;
   align-items: center;
   justify-content: center;
   background-color: $lightGray;
+
+  .footer-powered-by {
+    margin-bottom: grid(4);
+  }
 
   .social-icons {
     display: flex;

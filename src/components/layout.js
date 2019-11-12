@@ -24,6 +24,16 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer>
           <div>
+            <div className="footer-powered-by">
+              Powered by{" "}
+              <a
+                href="https://www.citybureau.org/"
+                target="_blank"
+                rel="noopener"
+              >
+                City Bureau
+              </a>
+            </div>
             <div className="social-icons">
               <a
                 href="https://www.facebook.com/citybureau"
@@ -38,16 +48,6 @@ const Layout = ({ children }) => {
                 rel="noopener noreferrer"
               >
                 <TwitterIcon style={{ width: 24, height: 24 }} />
-              </a>
-            </div>
-            <div>
-              Powered by{" "}
-              <a
-                href="https://www.citybureau.org/"
-                target="_blank"
-                rel="noopener"
-              >
-                City Bureau
               </a>
             </div>
           </div>
