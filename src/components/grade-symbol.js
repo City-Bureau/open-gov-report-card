@@ -9,7 +9,7 @@ const GradeSymbol = ({ value }) => {
     gradeLabel = `Failing grade`
   } else if (value === 0) {
     gradeClass = `empty`
-    gradeClass = `No information for grade`
+    gradeLabel = `No information for grade`
   }
   return (
     <span

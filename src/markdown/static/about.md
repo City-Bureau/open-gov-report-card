@@ -45,4 +45,4 @@ The Open Gov Report Card is the newest tool from our Documenters program, which 
 
 ## Contact
 
-Have a question? See an issue? Contact us at documenters@citybureau.org
+Have a question? See an issue? Contact us at [documenters@citybureau.org](mailto:documenters@citybureau.org).
