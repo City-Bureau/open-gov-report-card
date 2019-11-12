@@ -33,11 +33,12 @@ The [Open Meetings Act](https://www.rcfp.org/open-government-guide/illinois/#ope
 Of the 11 accessibility criteria listed on each agency’s Report Card, six are related to the Open Meetings Act or refer to opinions by Illinois’ Attorney General and five are best practices for government transparency as determined by City Bureau research. When data is not available, we do not count the category. So an agency who passes 5 of 9 available categories would receive a 55 percent, or an ‘F.’
 
 The grading scale is as follows:
-90-100 = A
-80-89 = B
-70-79 = C
-60-69 = D
-59 and below = F
+
+- 90-100 = A
+- 80-89 = B
+- 70-79 = C
+- 60-69 = D
+- 59 and below = F
 
 Agencies that have failed any of the 11 criteria are not necessarily in violation of the Open Meetings Act. For example, “reasonable time, place and manner restrictions” may be applied to open meetings but, upon examining the data and academic research, we determined that while there’s no perfect time to hold a meeting, reasonable variation in time and location can make meetings more accessible to members of the public.
 
