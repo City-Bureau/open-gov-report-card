@@ -96,7 +96,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  // TODO: Re-check timings varying
 
   result.data.allAirtable.edges.forEach(({ node: { data, fields } }) => {
     const meetings = result.data.allMeetingsCsv.edges.filter(
@@ -105,7 +104,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const times = [
       ...new Set(
         meetings.map(
-          ({ node: { start_day, start_time } }) => `${start_day} ${start_time}`
+          ({ node: { start_day, start_time } }) =>
+            `${start_day} ${start_time.split(":")[0]}`
         )
       ),
     ]
@@ -115,7 +115,8 @@ exports.createPages = async ({ graphql, actions }) => {
         start_time,
         meetings.filter(
           ({ node }) =>
-            start_day === node.start_day && start_time === node.start_time
+            start_day === node.start_day &&
+            start_time === node.start_time.split(":")[0]
         ).length,
       ])
     const points = Object.keys(

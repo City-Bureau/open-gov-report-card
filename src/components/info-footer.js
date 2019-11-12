@@ -9,7 +9,7 @@ const InfoFooter = () => (
         <a
           href="https://www.citybureau.org/press-club"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           your contribution
         </a>{" "}

@@ -116,9 +116,12 @@ const IndexPage = ({
         How open is your government? City Bureau analyzed data from over 100
         government agencies serving the Chicago area about how they conduct
         public meetings. Browse the report cards below or see our reporting{" "}
-        <a href="#" target="_blank" rel="noopener">
+        <a
+          href="https://www.citybureau.org/newswire/2019/11/12/how-open-is-your-government-one-third-of-local-agencies-get-failing-grade-for-transparency"
+          target="_blank"
+          rel="noopener"
+        >
           here
-          {/* TODO: replace link */}
         </a>
         .
       </div>
