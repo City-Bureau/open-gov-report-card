@@ -1223,7 +1223,8 @@ html.embedded {
   header,
   footer,
   .list-description,
-  .info-footer {
+  .info-footer,
+  .count-container {
     display: none;
   }
 
@@ -1231,5 +1232,11 @@ html.embedded {
   .site {
     min-height: auto;
     background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .filter-controls-container > div {
+    margin-bottom: grid(2);
   }
 }
