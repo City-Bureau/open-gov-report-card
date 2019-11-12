@@ -36,7 +36,7 @@ Of the 11 accessibility criteria listed on each agency’s Report Card, six are 
 
 **This tool was created by [City Bureau](https://www.citybureau.org/)**, a nonprofit, nonpartisan civic journalism lab based on the South Side of Chicago. We bring journalists and communities together in a collaborative spirit to produce media that is impactful, equitable and responsive to the public.
 
-The Open Gov Report Card is the newest tool from our Documenters program, which trains and pays Chicagoans to monitor local government meetings and distribute their findings to the public. Our [Documenters.org](https://www.documenters.org/) website is a first-of-its-kind transparency tool that collects all government meeting info (including locations, times, official records and Documenters notes and live-tweet threads) into a searchable database. If you want to hold your public officials accountable, check out Documenters.org and sign up for our next free Documenters training.
+The Open Gov Report Card is the newest tool from our Documenters program, which trains and pays Chicagoans to monitor local government meetings and distribute their findings to the public. Our [Documenters.org](https://www.documenters.org/) website is a first-of-its-kind transparency tool that collects all government meeting info (including locations, times, official records and Documenters notes and live-tweet threads) into a searchable database. If you want to hold your public officials accountable, check out Documenters.org and sign up for [our next free Documenters training](https://chicago.documenters.org/trainings/?start_time=6%2C22).
 
 ## Download our data
 
