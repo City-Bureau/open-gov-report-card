@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import { FacebookIcon, TwitterIcon } from "./social-icons"
+import { FacebookIcon, InstagramIcon, TwitterIcon } from "./social-icons"
 import "../styles/style.scss"
 
 const Layout = ({ children }) => {
@@ -50,6 +50,14 @@ const Layout = ({ children }) => {
                 aria-label="Twitter"
               >
                 <TwitterIcon style={{ width: 24, height: 24 }} />
+              </a>
+              <a
+                href="https://www.instagram.com/city_bureau/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <InstagramIcon style={{ width: 24, height: 24 }} />
               </a>
             </div>
           </div>
