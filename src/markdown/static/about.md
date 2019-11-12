@@ -8,7 +8,7 @@ date: 2019-11-07
 
 “Public business is the public’s business.” — _Harold Cross, [The People’s Right to Know](http://www.johnemossfoundation.org/foi/kennedy.htm)_
 
-Public meetings are important spaces for democracy where any resident can participate in civic life and hold government officials accountable. But for meetings to truly be “public,” they must be accessible to attendees and their proceedings must be recorded.
+Public meetings are important spaces for democracy where any resident can participate in civic life and hold government officials accountable. But for meetings to truly be “public,” they must be accessible to attendees and there must be a record of their proceedings.
 
 So how open are your local meetings? The Open Gov Report Card is giving Chicago and Cook County government a grade.
 
