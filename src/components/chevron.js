@@ -1,9 +1,10 @@
 import React from "react"
 
-const Chevron = ({ style }) => (
+const Chevron = ({ style, className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 11 12"
+    className={className || ``}
     style={{ shapeRendering: "geometricprecision", ...(style || {}) }}
   >
     <path

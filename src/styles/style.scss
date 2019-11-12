@@ -381,6 +381,7 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   border-bottom: $defaultBorder;
 }
@@ -389,7 +390,6 @@ footer {
   .toggle {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
   }
 
@@ -428,9 +428,9 @@ footer {
   color: #aaa;
   margin: 0;
   margin-left: grid(3);
-  width: grid(5);
-  height: grid(5);
-  min-width: grid(5);
+  width: grid(6);
+  height: grid(6);
+  min-width: grid(6);
 }
 
 .multiselect {
