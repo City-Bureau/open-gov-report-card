@@ -352,26 +352,12 @@ footer {
   font-size: 28px;
   flex-shrink: 0;
 
-  &.fail::after {
-    content: "\2716\fe0e";
-    font-size: 24px;
+  &.fail {
     color: $red;
   }
 
-  &.pass::after {
-    content: "";
-    display: block;
-    width: grid(2.5);
-    height: grid(4);
-    border: solid $green;
-    border-width: 0 grid(1.25) grid(1.25) 0;
-    transform: rotate(45deg);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: grid(1);
-    margin: auto;
+  &.pass {
+    color: $green;
   }
 
   &.empty::after {
@@ -388,12 +374,6 @@ footer {
     right: 0;
     bottom: grid(1);
     margin: auto;
-  }
-}
-
-@-moz-document url-prefix() {
-  .report-card-grade.fail::after {
-    font-size: 28px;
   }
 }
 
