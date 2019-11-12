@@ -1,5 +1,5 @@
 {
-  "name": "open-meetings-report-card",
+  "name": "open-gov-report-card",
   "private": true,
   "description": "",
   "version": "0.1.0",
@@ -53,9 +53,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/City-Bureau/open-meetings-report-card"
+    "url": "https://github.com/City-Bureau/open-gov-report-card"
   },
   "bugs": {
-    "url": "https://github.com/City-Bureau/open-meetings-report-card"
+    "url": "https://github.com/City-Bureau/open-gov-report-card"
   }
 }

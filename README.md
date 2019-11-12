@@ -1,4 +1,4 @@
-# Open Meetings Report Card
+# Open Gov Report Card
 
 ## 🧐 What's inside?
 

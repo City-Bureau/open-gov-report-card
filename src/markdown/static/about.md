@@ -40,8 +40,8 @@ The Open Gov Report Card is the newest tool from our Documenters program, which 
 
 ## Download our data
 
-- [Agencies](https://raw.githubusercontent.com/City-Bureau/open-meetings-report-card/master/data/agencies.csv)
-- [Meetings](https://raw.githubusercontent.com/City-Bureau/open-meetings-report-card/master/data/meetings.csv)
+- [Agencies](https://raw.githubusercontent.com/City-Bureau/open-gov-report-card/master/data/agencies.csv)
+- [Meetings](https://raw.githubusercontent.com/City-Bureau/open-gov-report-card/master/data/meetings.csv)
 
 ## Contact
 
