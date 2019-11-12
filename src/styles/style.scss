@@ -92,7 +92,7 @@ header {
       &:hover,
       &:focus,
       &:active {
-        color: $blue;
+        color: $red;
       }
     }
   }
@@ -822,6 +822,7 @@ footer {
 @media screen and (max-width: $mobile) {
   .filter-scroll {
     grid-template-rows: repeat(3, #{grid(41)});
+    scroll-padding: grid(12);
 
     .report-card-thumb {
       min-height: 0;
@@ -1200,6 +1201,10 @@ footer {
 
   h1 {
     margin-top: 0;
+  }
+
+  h2 {
+    margin-top: grid(6);
   }
 
   p {

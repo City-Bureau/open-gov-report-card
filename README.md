@@ -1,5 +1,17 @@
 # Open Gov Report Card
 
+How open is your government? Chicago and Cook County agencies, ranked by transparency of public meetings.
+
+## Setup
+
+You'll need [Node](https://nodejs.org/en/) and [GNU Make](https://www.gnu.org/software/make/) installed. You can run the following commands to install dependencies and run a server locally:
+
+```bash
+npm install -g gatsby-cli
+npm install
+npm start
+```
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
