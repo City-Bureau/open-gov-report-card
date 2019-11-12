@@ -10,7 +10,6 @@ const ScrollButton = ({ isLeft, scrollEl }) => {
     scrollEl.current.scroll({ left: scrollLeft + diff, behavior: "smooth" })
   }
 
-  // TODO: Fix chevron size on mobile
   return (
     <button className="scroll-button" onClick={onClick}>
       <Chevron style={{ transform: isLeft ? "rotate(180deg)" : `` }} />
