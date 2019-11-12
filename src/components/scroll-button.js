@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import Chevron from "./chevron"
 
-const SCROLL_DISTANCE = 248
+const SCROLL_DISTANCE = 256
 
 const ScrollButton = ({ isLeft, scrollEl }) => {
   const onClick = () => {

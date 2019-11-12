@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => {
     query {
       file: file(relativePath: { eq: "cb-icon.png" }) {
         childImageSharp {
-          fixed(width: 48) {
+          fixed(width: 54) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => {
           <h1>
             <Link to="/">
               <Img fixed={imageData.file.childImageSharp.fixed} />
-              <span>{siteTitle}</span>
+              <div className="heading">{siteTitle}</div>
             </Link>
           </h1>
         </div>

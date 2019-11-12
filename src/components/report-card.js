@@ -24,8 +24,8 @@ const processor = remark()
   .use(remarkAttr)
   .use(html)
 
-const ReportCardToggle = ({ id, title, detail, flags, idx }) => (
-  <Toggle index={idx}>
+const ReportCardToggle = ({ toggleId, id, title, detail, flags }) => (
+  <Toggle toggleId={toggleId}>
     <div className="report-card-grade-label">
       <GradeSymbol value={gradeQuestion(id, flags)} />
       <span>{title}</span>

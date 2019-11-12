@@ -68,6 +68,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: grid(22);
 
   h1 {
     margin: 0;
@@ -77,10 +78,12 @@ header {
       display: flex;
       flex-direction: row;
       align-items: center;
-      flex: 1;
 
-      span {
+      .heading {
+        flex: 1;
         margin-left: grid(2);
+        padding: grid(2);
+        border-left: $defaultBorder;
       }
     }
 
@@ -351,6 +354,7 @@ footer {
 
   &.fail::after {
     content: "\2716\fe0e";
+    font-size: 24px;
     color: $red;
   }
 
@@ -360,7 +364,7 @@ footer {
     width: grid(2.5);
     height: grid(4);
     border: solid $green;
-    border-width: 0 grid(1) grid(1) 0;
+    border-width: 0 grid(1.25) grid(1.25) 0;
     transform: rotate(45deg);
     position: absolute;
     top: 0;
@@ -384,6 +388,12 @@ footer {
     right: 0;
     bottom: grid(1);
     margin: auto;
+  }
+}
+
+@-moz-document url-prefix() {
+  .report-card-grade.fail::after {
+    font-size: 28px;
   }
 }
 
@@ -445,8 +455,6 @@ footer {
 
 .multiselect {
   position: relative;
-  border-radius: 2px;
-  border: $defaultBorder;
 }
 
 .multiselect-control {
@@ -457,6 +465,8 @@ footer {
   align-items: center;
   justify-content: space-between;
   background-color: $white;
+  border-radius: 2px;
+  border: $defaultBorder;
 
   svg {
     position: absolute;
@@ -471,6 +481,12 @@ footer {
 
   &[aria-expanded="true"] svg {
     transform: rotate(-90deg);
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-color: $blue;
   }
 }
 
@@ -559,7 +575,7 @@ footer {
 
   & > div {
     margin: 0;
-    margin-right: grid(2);
+    margin-right: grid(1);
     flex-grow: 1;
 
     &:last-child {
@@ -586,6 +602,12 @@ footer {
     padding-left: grid(7);
     border-radius: 2px;
     border: $defaultBorder;
+
+    &:focus,
+    &:active {
+      outline: none;
+      border-color: $blue;
+    }
   }
 
   svg {
@@ -607,7 +629,7 @@ footer {
   .filter-controls-container > div {
     width: 50%;
     margin: 0;
-    margin-bottom: grid(2);
+    margin-bottom: grid(1);
     flex-grow: 1;
 
     &.search-container {
@@ -616,11 +638,11 @@ footer {
     }
 
     &.topics-container {
-      padding-right: grid(1);
+      padding-right: grid(0.5);
     }
 
     &.sort-container {
-      padding-left: grid(1);
+      padding-left: grid(0.5);
       flex-grow: 1;
     }
 
@@ -673,6 +695,12 @@ footer {
     white-space: nowrap;
     text-overflow: ellipsis;
     color: $blue;
+
+    &:focus,
+    &:active {
+      outline: none;
+      border-color: $blue;
+    }
   }
 
   svg {
@@ -693,7 +721,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(2, #{grid(64)});
   grid-template-rows: repeat(3, 32%);
-  grid-row-gap: grid(2);
+  grid-row-gap: grid(1);
   grid-auto-columns: grid(64);
   grid-auto-flow: column;
   overflow-x: scroll;
@@ -799,7 +827,6 @@ footer {
   min-height: grid(41);
   padding: grid(2);
   background-color: $white;
-  box-shadow: $defaultBoxShadow;
 
   .topic-row {
     margin-top: grid(2);
@@ -820,7 +847,7 @@ footer {
 }
 
 .filter-container .report-card-thumb {
-  margin: 0 grid(1);
+  margin: grid(0.5);
 }
 
 @media screen and (max-width: $mobile) {
@@ -941,6 +968,7 @@ footer {
   height: grid(9);
   width: grid(9);
   font-family: Governor, $defaultFontFamily;
+  line-height: 1.6;
 
   svg {
     position: absolute;
@@ -964,6 +992,7 @@ footer {
   &.is-large {
     height: grid(16);
     width: grid(16);
+    line-height: 1.5;
 
     span {
       font-size: grid(12);
@@ -1237,6 +1266,6 @@ html.embedded {
 
 @media screen and (max-width: 800px) {
   .filter-controls-container > div {
-    margin-bottom: grid(2);
+    margin-bottom: grid(1);
   }
 }
