@@ -39,7 +39,8 @@ const ReportCardTemplate = ({
   return (
     <Layout>
       <SEO
-        title={`${name} Gets a ${getGrade(score)} on Government Transparency`}
+        title={`Open Gov Report Card: ‘${getGrade(score)}’ for ${name}`}
+        description="See details and grades for 100+ other local government agencies."
         overrideTitle
         pathname={`/${slug}`}
       />
