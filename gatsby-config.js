@@ -7,6 +7,7 @@ module.exports = {
     description: `How open is your government? 148 Chicago and Cook County agencies, ranked by transparency of public meetings`,
     author: `City Bureau`,
     twitterAuthor: `@city_bureau`,
+    siteDomain: `https://projects.citybureau.org`,
     siteUrl: `https://projects.citybureau.org/open-gov-report-card`,
   },
   plugins: [

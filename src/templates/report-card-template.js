@@ -41,7 +41,7 @@ const ReportCardTemplate = ({
       <SEO
         title={`${name} Gets a ${getGrade(score)} on Government Transparency`}
         overrideTitle
-        pathname={slug}
+        pathname={`/${slug}`}
       />
       <div className="breadcrumb">
         <Link to="/">

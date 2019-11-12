@@ -3,9 +3,8 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-// TODO: add images
 function SEO({ description, lang, meta, pathname, title, overrideTitle }) {
-  const { site, ogImage, twitterImage } = useStaticQuery(
+  const { site, socialImage } = useStaticQuery(
     graphql`
       query {
         site {
@@ -15,18 +14,12 @@ function SEO({ description, lang, meta, pathname, title, overrideTitle }) {
             author
             twitterAuthor
             siteUrl
+            siteDomain
           }
         }
-        ogImage: file(relativePath: { eq: "cb-icon.png" }) {
+        socialImage: file(relativePath: { eq: "teaser.jpg" }) {
           childImageSharp {
-            fixed(width: 200) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        twitterImage: file(relativePath: { eq: "cb-icon.png" }) {
-          childImageSharp {
-            fixed(width: 200) {
+            fixed(width: 1023) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -73,25 +66,25 @@ function SEO({ description, lang, meta, pathname, title, overrideTitle }) {
           property: `og:type`,
           content: `website`,
         },
-        // {
-        //   property: `og:image`,
-        //   content: `${site.siteMetadata.siteUrl}${ogImage.childImageSharp.fixed.src}`,
-        // },
-        // {
-        //   property: `og:image:width`,
-        //   content: 2400,
-        // },
-        // {
-        //   property: `og:image:width`,
-        //   content: 1260,
-        // },
-        // {
-        //   property: `og:image:alt`,
-        //   content: ``,
-        // },
+        {
+          property: `og:image`,
+          content: `${site.siteMetadata.siteDomain}${socialImage.childImageSharp.fixed.src}`,
+        },
+        {
+          property: `og:image:width`,
+          content: socialImage.childImageSharp.fixed.width,
+        },
+        {
+          property: `og:image:height`,
+          content: socialImage.childImageSharp.fixed.height,
+        },
+        {
+          property: `og:image:alt`,
+          content: `Open Gov Report Card logo`,
+        },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -105,14 +98,14 @@ function SEO({ description, lang, meta, pathname, title, overrideTitle }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-        // {
-        //   name: `twitter:image:src`,
-        //   content: `${site.siteMetadata.siteUrl}${twitterImage.childImageSharp.fixed.src}`,
-        // },
-        // {
-        //   property: `twitter:image:alt`,
-        //   content: ``,
-        // },
+        {
+          name: `twitter:image:src`,
+          content: `${site.siteMetadata.siteDomain}${socialImage.childImageSharp.fixed.src}`,
+        },
+        {
+          property: `twitter:image:alt`,
+          content: `Open Gov Report Card logo`,
+        },
       ].concat(meta)}
     >
       <link rel="canonical" href={`${site.siteMetadata.siteUrl}${pathname}`} />

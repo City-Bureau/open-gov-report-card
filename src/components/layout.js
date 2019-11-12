@@ -39,6 +39,7 @@ const Layout = ({ children }) => {
                 href="https://www.facebook.com/citybureau"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
               >
                 <FacebookIcon style={{ width: 24, height: 24 }} />
               </a>
@@ -46,6 +47,7 @@ const Layout = ({ children }) => {
                 href="https://twitter.com/city_bureau"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Twitter"
               >
                 <TwitterIcon style={{ width: 24, height: 24 }} />
               </a>
