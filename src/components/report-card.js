@@ -87,7 +87,9 @@ const ReportCardSection = ({
   return (
     <div className="report-card-section">
       <h3>{title}</h3>
-      <p>{description}</p>
+      <div
+        dangerouslySetInnerHTML={{ __html: processor.processSync(description) }}
+      />
       {details}
       {items.map((item, itemIdx) => (
         <ReportCardToggle

@@ -1,75 +1,74 @@
 const REPORT_CARD_SECTIONS = [
   {
     title: `Information`,
-    description: `The first step in participating in a public meeting is knowing when and where it is and getting context on what policy decisions it’s been making.`,
+    description: `The first step toward participating in a public meeting is knowing when and where it is, and getting context on the decisions it’s been making.`,
     items: [
       {
         title: `Has a website`,
         id: `website`,
-        detail: `While the Illinois Open Meetings Act doesn’t require agencies to have a website, the city of Chicago and Cook County government both have official websites that agencies can use, so there’s little excuse not to have some information online.`,
+        detail: `While the Illinois Open Meetings Act doesn’t require agencies to have their own websites, they are required to post information online and a website makes it easier for people to access.`,
       },
       {
         title: `Meeting schedule posted online`,
         id: `schedule`,
-        detail: `Knowing when and where meetings are is a prerequisite for participation.`,
+        detail: `Information must be posted at least 48 hours before the meeting, according to the Illinois Open Meetings Act.`,
       },
       {
         title: `Agendas posted online`,
         id: `agenda`,
-        detail: `Public meeting processes can be confusing, especially if you’re not sure what issues will be talked about. Agendas aren’t always comprehensive, but give an idea of what’s on deck.`,
+        detail: `If an agency has a website maintained by its own full-time staff, Illinois’s Open Meetings Act requires that it posts agendas 48 hours in advance of any meetings. Agendas aren’t always comprehensive but can help people understand the meeting processes and what issues will be discussed.`,
       },
       {
         title: `Minutes posted online`,
         id: `minutes`,
-        detail: `Even if a meeting is well-attended, an official record of what happened provides context on its past decisions. We’re only counting this category if there aren’t significant amounts of minutes missing from a site.`,
+        detail: `Minutes, or notes, are an official record of each meeting. If an agency has a website maintained by its own full-time staff, Illinois’s Open Meetings Act requires that it posts minutes online within 10 days of being approved.  A passing grade indicates the majority of past meetings have minutes posted.`,
       },
       {
         title: `Minutes include required details`,
         id: `minutesDetail`,
-        detail: `Meeting minutes are only useful if they include relevant information. Illinois’s Open Meetings Act requires that minutes include the time and place of a meeting, attendance and a summary of any votes taken or discussion. Many agencies leave out the discussion and only report a list of votes.`,
+        detail: `Illinois’s Open Meetings Act requires that minutes include the time and place of a meeting, attendance and a summary of any votes taken or discussion. Many agencies leave out the discussion and only report a list of votes.`,
       },
       {
-        title: `Meeting recordings or a live-stream posted online`,
+        title: `Meeting recordings or livestream posted online`,
         id: `recording`,
-        detail: `Meeting minutes and text transcripts are useful, but can sometimes leave out important context for what goes on at a meeting. Audio or video recordings provide additional layers of communications and context for how a meeting was conducted.`,
+        detail: `Though not legally required, audio or video recordings provide additional layers of communication and context for how a meeting was conducted.`,
       },
     ],
   },
   {
     title: `Public Comment`,
-    description: `Public comment periods offer an avenue for people to support or reject policy decisions, share perspectives and provide information that might not otherwise be represented in a meeting.
-`,
+    description: `The Illinois Attorney General [has said](http://foia.ilattorneygeneral.net/pdf/opinions/2019/19-002.pdf){target="_blank", rel="noopener noreferrer"} that all public bodies subject to the Open Meetings Act must provide an opportunity for members of the public to address public officials at open meetings. Public comment periods offer an avenue for people to support or oppose policy decisions and provide information that might not otherwise be represented in a meeting.`,
     items: [
       {
-        title: `Public commenters can speak without having to pre-register`,
+        title: `Public commenters don’t need to register in advance`,
         id: `preReg`,
-        detail: `The Illinois Attorney General [has said](https://www.documentcloud.org/documents/6194259-OMA-Determination-Letters-2018-10-2019-06.html#document/p45){target="_blank", rel="noopener noreferrer"} that requiring people to sign up for public comment even 15 minutes in advance can be an unnecessary barrier to participation.`,
+        detail: `The Illinois Attorney General [has said](https://www.documentcloud.org/documents/6194259-OMA-Determination-Letters-2018-10-2019-06.html#document/p45){target="_blank", rel="noopener noreferrer"} people should not be required to sign up for public comment before the meeting begins, as it’s an unnecessary barrier to participation.`,
       },
       {
         title: `Commenters can discuss anything related to the agency and not just the meeting agenda`,
         id: `commentAgenda`,
-        detail: `It’s hard to advocate for an agency to add an issue to its agenda when you can only talk about the items already on it. The Illinois Attorney General [has said](https://www.documentcloud.org/documents/6194259-OMA-Determination-Letters-2018-10-2019-06.html#document/p317){target="_blank", rel="noopener noreferrer"} that agencies can only restrict public comment to issues under their jurisdiction.`,
+        detail: `The Illinois Attorney General [has said](https://www.documentcloud.org/documents/6194259-OMA-Determination-Letters-2018-10-2019-06.html#document/p317){target="_blank", rel="noopener noreferrer"} that agencies can only restrict public comment to issues under their jurisdiction, not to specific agenda items. Otherwise it would be impossible for attendees to bring up novel agenda items that apply to the agency.`,
       },
       {
-        title: `Total time for public comment is not limited or at least one hour`,
+        title: `Total time for public comment period is unlimited or at least one hour`,
         id: `commentLimit`,
-        detail: `Agencies are allowed to limit how long each commenter can speak as well as the maximum length for public comment periods, but limits as low as 15 total minutes per period can unduly restrict access.`,
+        detail: `Agencies are allowed to limit how long each commenter can speak and the maximum length for public comment periods. City Bureau set the bar at one hour as a reasonable time for attendees to participate.`,
       },
     ],
   },
   {
     title: `Scheduling`,
-    description: `Knowing the time and location of a meeting is one thing, but it doesn’t necessarily make getting there any easier. Reasonable variation of  meeting times and locations can reduce barriers to attendance.`,
+    description: `Knowing the time and location of a meeting is one thing, but it doesn’t necessarily make getting there any easier. Varying meeting times and locations can reduce barriers for attendees.`,
     items: [
       {
         title: `Meetings are rarely cancelled`,
         id: `cancel`,
-        detail: `While some cancellations are inevitable, a pattern of cancelled meetings can be discouraging. This category is looking at whether 20% or more of the meetings we looked at were cancelled.`,
+        detail: `While some cancellations are inevitable, this category flags agencies where 20% or more of the meetings were canceled.`,
       },
       {
-        title: `Meetings from 8am-5pm as well as on the evenings and/or weekends`,
+        title: `Meeting times vary to accommodate differing schedules`,
         id: `times`,
-        detail: `The overwhelming majority of public meetings happen between 8am and 5pm on weekdays because it’s the most convenient time for politicians and government staff. While there’s [no perfect time to hold a meeting](https://tcf.org/content/commentary/better-community-meeting-possible/){target="_blank", rel="noopener noreferrer"}, holding meetings at different times can make attending more accessible to members of the public.`,
+        detail: `The overwhelming majority of public meetings happen between 8 a.m. and 5 p.m. on weekdays. While there’s [no perfect time to hold a meeting](https://tcf.org/content/commentary/better-community-meeting-possible/){target="_blank", rel="noopener noreferrer"}, varying the times can make meetings more accessible to members of the public.`,
       },
     ],
   },
