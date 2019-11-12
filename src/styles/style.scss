@@ -380,6 +380,11 @@ footer {
   justify-content: space-between;
   cursor: pointer;
   border-bottom: $defaultBorder;
+
+  &:active,
+  &:focus {
+    border-color: $blue;
+  }
 }
 
 @media screen and (max-width: $mobile) {
