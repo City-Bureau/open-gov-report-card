@@ -464,6 +464,7 @@ footer {
     min-width: grid(6);
     height: grid(6);
     color: $gray;
+    pointer-events: none;
   }
 
   &[aria-expanded="true"] svg {
@@ -605,6 +606,7 @@ footer {
     left: grid(1);
     top: 50%;
     transform: translateY(-50%);
+    pointer-events: none;
   }
 }
 
@@ -698,6 +700,7 @@ footer {
     top: grid(1);
     transform: rotate(90deg);
     color: $gray;
+    pointer-events: none;
   }
 }
 
