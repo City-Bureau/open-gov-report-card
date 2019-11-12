@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
               subAgency: Sub_Agency
               jurisdiction: Jurisdiction
               description: Description
-              context: Report_Card_Context
+              reportCardContext: Report_Card_Context
               tags: Tags
               website: Website
               publicCommentPolicy: Public_Comment_Policy

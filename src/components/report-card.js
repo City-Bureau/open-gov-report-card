@@ -112,7 +112,7 @@ const ReportCard = ({
   correct,
   questions,
   description,
-  context,
+  reportCardContext,
   website,
   publicCommentPolicy,
   points,
@@ -148,9 +148,11 @@ const ReportCard = ({
           __html: processor.processSync(description || ""),
         }}
       />
-      {context || "" ? (
+      {reportCardContext || "" ? (
         <div
-          dangerouslySetInnerHTML={{ __html: processor.processSync(context) }}
+          dangerouslySetInnerHTML={{
+            __html: processor.processSync(reportCardContext),
+          }}
         />
       ) : (
         ``
@@ -202,7 +204,7 @@ ReportCard.propTypes = {
   correct: PropTypes.number.isRequired,
   questions: PropTypes.number.isRequired,
   description: PropTypes.string,
-  context: PropTypes.string,
+  reportCardContext: PropTypes.string,
   website: PropTypes.string,
   publicCommentPolicy: PropTypes.string,
   agencyId: PropTypes.array,
@@ -216,7 +218,7 @@ ReportCard.defaultProps = {
   name: ``,
   tags: [],
   description: ``,
-  context: ``,
+  reportCardContext: ``,
   website: ``,
   publicCommentPolicy: ``,
   agencyId: [],

@@ -17,7 +17,7 @@ const ReportCardTemplate = ({
     correct,
     questions,
     description,
-    context,
+    reportCardContext,
     points,
     times,
     jurisdiction,
@@ -63,7 +63,7 @@ const ReportCardTemplate = ({
         correct={correct}
         questions={questions}
         description={description}
-        context={context}
+        reportCardContext={reportCardContext}
         points={points}
         website={website}
         agencyId={agencyId}
