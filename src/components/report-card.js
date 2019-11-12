@@ -57,9 +57,9 @@ const ReportCardSection = ({
             <ExternalLinkIcon />
           </a>
         ) : (
-          <div className="report-card-missing-info">
+          <span className="report-card-missing-info">
             No public comment policy available
-          </div>
+          </span>
         )}
       </p>
     )
@@ -184,9 +184,9 @@ const ReportCard = ({
         ``
       ) : (
         <div className="report-card-row">
-          <div className="report-card-missing-info">
+          <span className="report-card-missing-info">
             Detailed meeting information not available
-          </div>
+          </span>
         </div>
       )}
     </div>

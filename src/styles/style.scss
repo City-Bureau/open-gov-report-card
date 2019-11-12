@@ -338,9 +338,11 @@ footer {
   padding: grid(2) grid(3);
   font-style: italic;
   display: inline-block;
+  margin-bottom: grid(2);
 }
 
 .report-card-grade {
+  display: block;
   position: relative;
   width: grid(6);
   height: grid(6);
