@@ -1,4 +1,4 @@
-PREFIX = report-cards-stg
+PREFIX = open-gov-report-card
 .PHONY: clean install build deploy
 
 clean:

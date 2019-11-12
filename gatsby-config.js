@@ -1,13 +1,13 @@
 require("dotenv").config()
 
 module.exports = {
-  pathPrefix: `/report-cards-stg`,
+  pathPrefix: `/open-gov-report-card`,
   siteMetadata: {
     title: `Open Gov Report Card`,
     description: `How open is your government? 148 Chicago and Cook County agencies, ranked by transparency of public meetings`,
     author: `City Bureau`,
     twitterAuthor: `@city_bureau`,
-    siteUrl: `https://projects.citybureau.org/report-cards-stg`,
+    siteUrl: `https://projects.citybureau.org/open-gov-report-card`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
