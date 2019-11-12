@@ -3,8 +3,8 @@ require("dotenv").config()
 module.exports = {
   pathPrefix: `/report-cards-stg`,
   siteMetadata: {
-    title: `Chi Gov Report Card`,
-    description: `Chicago and Cook County government agencies, ranked by commitment to transparency`,
+    title: `Open Gov Report Card`,
+    description: `How open is your government? 148 Chicago and Cook County agencies, ranked by transparency of public meetings`,
     author: `City Bureau`,
     twitterAuthor: `@city_bureau`,
     siteUrl: `https://projects.citybureau.org/report-cards-stg`,

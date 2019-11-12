@@ -108,16 +108,19 @@ const IndexPage = ({
   return (
     <Layout>
       <SEO
-        title="How Open Is Your Government? | City Bureau"
+        title="Open Gov Report Card | City Bureau | Grading Public Meetings Access in Chicago"
         overrideTitle
         pathname="/"
       />
       <div className="list-description">
-        “Public business is the public’s business” — and public meetings are
-        important spaces for democracy where any resident can participate in
-        civic life and hold power to account. How great is your government at
-        upholding access and transparency standards? The TK TITLE is giving
-        local government a grade.
+        How open is your government? City Bureau analyzed data from over 100
+        government agencies serving the Chicago area about how they conduct
+        public meetings. Browse the report cards below or see our reporting{" "}
+        <a href="#" target="_blank" rel="noopener">
+          here
+          {/* TODO: replace link */}
+        </a>
+        .
       </div>
       <div className="filter-controls-container">
         <div className="search-container">

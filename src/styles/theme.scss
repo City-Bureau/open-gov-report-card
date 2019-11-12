@@ -23,10 +23,23 @@ $blue: #0c6dde;
 $darkBlue: #024ba0;
 $lightBlue: #00a6de;
 $purple: #472f92;
+$backgroundColor: #f2f2f2;
+
+$colorA: #417505;
+$backgroundA: rgba(65, 117, 5, 0.3);
+$colorB: #0c6dde;
+$backgroundB: rgba(12, 109, 222, 0.3);
+$colorC: #d07000;
+$backgroundC: #ffe222;
+$colorD: #ff4600;
+$backgroundD: rgba(255, 70, 0, 0.3);
+$colorF: #d0021b;
+$backgroundF: rgba(208, 2, 27, 0.3);
 
 $borderColor: $lightGray;
 $defaultBorder: solid 1px $borderColor;
 $defaultBoxShadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+$topicBgColor: $backgroundColor;
 
 $tablet: 750px;
 $mobile: 500px;

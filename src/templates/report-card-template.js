@@ -50,12 +50,10 @@ const ReportCardTemplate = ({
               transform: "rotate(180deg)",
               width: 24,
               height: 24,
-              marginRight: 8,
             }}
           />
-          <span>Back to list</span>
+          <span>Back to List</span>
         </Link>
-        <Link to="/about">About</Link>
       </div>
       <ReportCard
         name={name}

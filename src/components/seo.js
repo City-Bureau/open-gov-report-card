@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-// TODO: Update this based on report cards, add images
+// TODO: Update this based on report cards, add images, canonical?
 function SEO({ description, lang, meta, pathname, title, overrideTitle }) {
   const { site, ogImage, twitterImage } = useStaticQuery(
     graphql`

@@ -1,6 +1,5 @@
 import React from "react"
 
-// TODO: Which newsletter?
 const InfoFooter = () => (
   <div className="info-footer">
     <div>

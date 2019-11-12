@@ -15,7 +15,7 @@ const ReportCardThumb = ({ name, tags, score, slug }) => (
     </div>
     <div className="topic-row">
       {(tags || []).map(topic => (
-        <Tag topic={topic} key={topic} />
+        <Tag topic={topic} ignoreColor key={topic} />
       ))}
     </div>
   </div>

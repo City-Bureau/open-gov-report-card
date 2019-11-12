@@ -18,13 +18,16 @@ const Header = ({ siteTitle }) => {
   `)
   return (
     <header>
-      <div>
-        <h1>
-          <Link to="/">
-            <Img fixed={imageData.file.childImageSharp.fixed} />
-            <span>{siteTitle}</span>
-          </Link>
-        </h1>
+      <div className="header-container">
+        <div>
+          <h1>
+            <Link to="/">
+              <Img fixed={imageData.file.childImageSharp.fixed} />
+              <span>{siteTitle}</span>
+            </Link>
+          </h1>
+        </div>
+        <Link to="/about">About</Link>
       </div>
     </header>
   )

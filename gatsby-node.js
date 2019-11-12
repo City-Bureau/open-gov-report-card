@@ -96,6 +96,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+  // TODO: Re-check timings varying
 
   result.data.allAirtable.edges.forEach(({ node: { data, fields } }) => {
     const meetings = result.data.allMeetingsCsv.edges.filter(

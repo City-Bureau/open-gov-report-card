@@ -4,6 +4,7 @@ import remark from "remark"
 import html from "remark-html"
 import remarkAttr from "remark-attr"
 import recommended from "remark-preset-lint-recommended"
+import ExternalLinkIcon from "./external-link-icon"
 import Grade from "./grade"
 import GradeSymbol from "./grade-symbol"
 import Tag from "./tag"
@@ -14,6 +15,7 @@ import Week from "./week"
 import {
   REPORT_CARD_SECTIONS,
   TOTAL_REPORT_CARD_QUESTIONS,
+  getGrade,
   gradeQuestion,
 } from "../grading"
 
@@ -49,13 +51,15 @@ const ReportCardSection = ({
             href={publicCommentPolicy}
             target="_blank"
             rel="noopener noreferrer"
+            className="report-card-detail-link"
           >
-            Read the public comment policy
+            <span>Read the public comment policy</span>
+            <ExternalLinkIcon />
           </a>
         ) : (
-          <span className="unavailable">
+          <div className="report-card-missing-info">
             No public comment policy available
-          </span>
+          </div>
         )}
       </p>
     )
@@ -63,13 +67,19 @@ const ReportCardSection = ({
     details = (
       <p>
         {website ? (
-          <a href={website} target="_blank" rel="noopener noreferrer">
-            See agency website
+          <a
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="report-card-detail-link"
+          >
+            <span>See agency website</span>
+            <ExternalLinkIcon />
           </a>
         ) : (
-          <span className="unavailable">
+          <div className="report-card-missing-info">
             This agency does not have a website
-          </span>
+          </div>
         )}
       </p>
     )
@@ -109,25 +119,28 @@ const ReportCard = ({
   flags,
 }) => (
   <div className="report-card pym-child">
-    <div className="report-card-header">
-      <h2>{name}</h2>
-      {(tags || []).map(topic => (
-        <Tag topic={topic} key={topic} />
-      ))}
-    </div>
     <div className="report-card-score-container">
       <Grade score={score} isLarge />
-      <p>
-        This agency passes {correct} of the {questions} categories for a score
-        of {+(score * 100).toFixed(2)}%.
+      <div className={`report-card-score-description ${getGrade(score)}`}>
+        This agency passes{" "}
+        <span className="highlight">
+          {correct} of the {questions}
+        </span>{" "}
+        categories for a score of{" "}
+        <span className="highlight">{+(score * 100).toFixed(2)}%</span>.
         {TOTAL_REPORT_CARD_QUESTIONS - questions > 0
           ? ` Information was not available for ${TOTAL_REPORT_CARD_QUESTIONS -
               questions} categories`
           : ``}
-      </p>
+      </div>
+    </div>
+    <div className="report-card-header">
+      <h2>{name}</h2>
+      {(tags || []).map(topic => (
+        <Tag topic={topic} ignoreColor key={topic} />
+      ))}
     </div>
     <div className="report-card-description">
-      <h3>Description</h3>
       <div
         dangerouslySetInnerHTML={{
           __html: processor.processSync(description || ""),
@@ -171,9 +184,9 @@ const ReportCard = ({
         ``
       ) : (
         <div className="report-card-row">
-          <p style={{ fontStyle: `italic` }}>
+          <div className="report-card-missing-info">
             Detailed meeting information not available
-          </p>
+          </div>
         </div>
       )}
     </div>

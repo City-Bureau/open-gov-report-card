@@ -1,11 +1,44 @@
 @import "reset.scss";
 @import "theme.scss";
 
+@font-face {
+  font-family: "Governor";
+  src: url("https://documenters-shared.azureedge.net/fonts/Governor.eot");
+  src: url("https://documenters-shared.azureedge.net/fonts/Governor.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://documenters-shared.azureedge.net/fonts/Governor.woff2")
+      format("woff2"),
+    url("https://documenters-shared.azureedge.net/fonts/Governor.woff")
+      format("woff"),
+    url("https://documenters-shared.azureedge.net/fonts/Governor.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Governor";
+  src: url("https://documenters-shared.azureedge.net/fonts/Governor.eot");
+  src: url("https://documenters-shared.azureedge.net/fonts/Governor.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://documenters-shared.azureedge.net/fonts/Governor.woff2")
+      format("woff2"),
+    url("https://documenters-shared.azureedge.net/fonts/Governor.woff")
+      format("woff"),
+    url("https://documenters-shared.azureedge.net/fonts/Governor.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   font-family: $defaultFontFamily;
   font-weight: 300;
   font-size: 16px;
   overflow-x: hidden;
+  background-color: $backgroundColor;
 }
 
 a,
@@ -25,37 +58,41 @@ header {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   z-index: 1;
   width: 100%;
+}
 
-  & > div {
-    margin: 0 auto;
-    padding: grid(3) grid(4);
-    max-width: $maxWidth;
+.header-container {
+  margin: 0 auto;
+  padding: grid(3) grid(4);
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
-    h1 {
-      margin: 0;
-      font-size: 20px;
+  h1 {
+    margin: 0;
+    font-size: 20px;
 
-      a {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex: 1;
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex: 1;
 
-        span {
-          margin-left: grid(2);
-        }
+      span {
+        margin-left: grid(2);
       }
+    }
 
-      a,
-      a:visited {
-        color: $black;
-        text-decoration: none;
+    a,
+    a:visited {
+      color: $black;
+      text-decoration: none;
 
-        &:hover,
-        &:focus,
-        &:active {
-          color: $blue;
-        }
+      &:hover,
+      &:focus,
+      &:active {
+        color: $blue;
       }
     }
   }
@@ -117,6 +154,12 @@ input[type="checkbox"] {
   width: 100%;
   max-width: $maxWidth;
   padding: grid(4);
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    flex-grow: 0;
+  }
 }
 
 main > .content {
@@ -131,6 +174,13 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: $lightGray;
+
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }
 
 .breadcrumb {
@@ -142,14 +192,25 @@ footer {
   max-width: $reportCardWidth;
   margin: 0 auto;
   margin-bottom: grid(2);
+  font-size: 14px;
 
   a {
     display: flex;
     flex-direction: row;
     align-items: center;
+    border: $defaultBorder;
+    padding: grid(1) grid(3);
+    padding-left: grid(1);
+    color: $darkGray;
 
     &:last-child {
       flex-grow: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $red;
     }
   }
 }
@@ -160,6 +221,7 @@ footer {
   max-width: $reportCardWidth;
   margin: 0 auto;
   padding: grid(4);
+  background-color: $white;
 
   h2 {
     line-height: 1.25;
@@ -167,20 +229,40 @@ footer {
   }
 }
 
-span.unavailable {
-  font-style: italic;
+.report-card-score-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: grid(-4);
+  margin-bottom: grid(4);
+  padding: grid(4);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
-.report-card-score-container {
-  margin-top: grid(5);
+.report-card-score-description {
+  margin-left: grid(4);
+  max-width: grid(75);
 
-  p {
-    margin-top: grid(2);
+  &.A .highlight {
+    color: $colorA;
+  }
+  &.B .highlight {
+    color: $colorB;
+  }
+  &.C .highlight {
+    color: $colorC;
+  }
+  &.D .highlight {
+    color: $colorD;
+  }
+  &.F .highlight {
+    color: $colorF;
   }
 }
 
 .report-card-description {
   margin: grid(8) 0;
+  margin-top: grid(4);
 
   h3 {
     margin-bottom: grid(2);
@@ -204,7 +286,8 @@ span.unavailable {
   }
 
   .toggle {
-    margin: grid(4) 0;
+    margin: grid(3) 0;
+    padding-bottom: grid(3);
   }
 }
 
@@ -225,6 +308,32 @@ span.unavailable {
       margin-top: grid(5);
     }
   }
+}
+
+.report-card-detail-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: grid(0.5);
+  background-color: rgba(79, 160, 255, 0.2);
+  padding: grid(2) grid(3);
+  margin-bottom: grid(2);
+
+  span {
+    margin-right: grid(2);
+  }
+
+  svg {
+    width: grid(4);
+    height: grid(4);
+  }
+}
+
+.report-card-missing-info {
+  background-color: $backgroundColor;
+  padding: grid(2) grid(3);
+  font-style: italic;
+  display: inline-block;
 }
 
 .report-card-grade {
@@ -274,7 +383,10 @@ span.unavailable {
 
 .toggle {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   cursor: pointer;
+  border-bottom: $defaultBorder;
 }
 
 @media screen and (max-width: $mobile) {
@@ -294,37 +406,35 @@ span.unavailable {
   }
 }
 
-.toggle:active,
-.toggle:hover,
 .toggle:focus {
   outline: none;
 
   .info-toggle {
+    color: $blue;
+  }
+}
+
+.toggle:hover,
+.toggle:active {
+  outline: none;
+
+  .info-toggle {
     color: $red;
-    border-color: $red;
   }
 }
 
 .toggle-content {
-  border-left: solid grid(1.5) $lightGray;
   padding: grid(2);
-  padding-left: grid(4);
+  padding-left: grid(7);
 }
 
 .info-toggle {
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: grid(6);
-  min-width: grid(6);
-  height: grid(6);
-  border: solid 1.5px $blue;
-  background-color: $lightGray;
-  color: $blue;
+  color: #aaa;
   margin: 0;
-  margin-left: grid(1);
+  margin-left: grid(3);
+  width: grid(5);
+  height: grid(5);
+  min-width: grid(5);
 }
 
 .multiselect {
@@ -340,6 +450,7 @@ span.unavailable {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: $white;
 
   svg {
     position: absolute;
@@ -362,6 +473,7 @@ span.unavailable {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-right: grid(5);
+  color: $blue;
 }
 
 .multiselect-content {
@@ -429,6 +541,8 @@ span.unavailable {
 
 .filter-container {
   position: relative;
+  height: 100%;
+  flex-grow: 1;
 }
 
 .filter-controls-container {
@@ -436,7 +550,6 @@ span.unavailable {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  flex: 1;
 
   & > div {
     margin: 0;
@@ -552,6 +665,7 @@ span.unavailable {
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: $blue;
   }
 
   svg {
@@ -566,16 +680,19 @@ span.unavailable {
 }
 
 .filter-scroll {
-  margin-top: grid(1);
+  margin-top: grid(2);
+  padding-bottom: grid(2);
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, #{grid(64)});
-  grid-template-rows: repeat(3, 30%);
+  grid-template-rows: repeat(3, 32%);
+  grid-row-gap: grid(2);
   grid-auto-columns: grid(64);
   grid-auto-flow: column;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
+  height: 100%;
   width: 100%;
   min-height: grid(120);
   // Might not be necessary?
@@ -599,12 +716,6 @@ span.unavailable {
   justify-content: center;
 }
 
-@media screen and (max-width: $mobile) {
-  .filter-scroll {
-    grid-template-rows: repeat(2, 48%);
-  }
-}
-
 .filter-edge {
   position: absolute;
   z-index: 1;
@@ -623,22 +734,24 @@ span.unavailable {
 
   &.left {
     left: 0;
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #ffffff);
+    // background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #ffffff);
+    .scroll-button {
+      margin-left: grid(1);
+    }
   }
 
   &.right {
     right: 0;
-    background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0),
-      #ffffff
-    );
+    // background-image: linear-gradient(
+    //   to right,
+    //   rgba(255, 255, 255, 0),
+    //   #ffffff
+    // );
     justify-content: flex-end;
-  }
 
-  svg {
-    width: grid(10);
-    height: grid(10);
+    .scroll-button {
+      margin-right: grid(1);
+    }
   }
 }
 
@@ -650,11 +763,17 @@ span.unavailable {
   border-radius: 50%;
   color: $white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   appearance: none;
   border-width: 0;
   cursor: pointer;
+
+  svg {
+    width: grid(10);
+    height: grid(10);
+  }
 }
 
 .report-card-thumb {
@@ -665,8 +784,10 @@ span.unavailable {
   position: relative;
   border: $defaultBorder;
   border-radius: 2px;
-  min-height: 150px;
+  height: 100%;
+  min-height: grid(41);
   padding: grid(2);
+  background-color: $white;
   box-shadow: $defaultBoxShadow;
 
   .topic-row {
@@ -688,7 +809,17 @@ span.unavailable {
 }
 
 .filter-container .report-card-thumb {
-  margin: grid(1);
+  margin: 0 grid(1);
+}
+
+@media screen and (max-width: $mobile) {
+  .filter-scroll {
+    grid-template-rows: repeat(3, #{grid(41)});
+
+    .report-card-thumb {
+      min-height: 0;
+    }
+  }
 }
 
 .topic-tag {
@@ -703,7 +834,7 @@ span.unavailable {
   margin-right: grid(1);
   margin-bottom: grid(1);
 
-  background-color: $lightGray;
+  background-color: $topicBgColor;
   color: $black;
 
   &.yellow {
@@ -733,7 +864,7 @@ span.unavailable {
 }
 
 .topic-tag-input {
-  background-color: $lightGray;
+  background-color: $topicBgColor;
   color: $black;
   padding: grid(0.5) grid(1);
   font-size: 14px;
@@ -795,20 +926,28 @@ span.unavailable {
 
 .grade {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  background-color: $gray;
-  border-radius: 50%;
   height: grid(9);
   width: grid(9);
+  font-family: Governor, $defaultFontFamily;
+
+  svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    color: transparent;
+  }
 
   span {
+    position: relative;
     font-size: grid(6);
     font-weight: bold;
-    color: $white;
+    z-index: 1;
   }
 
   &.is-large {
@@ -821,23 +960,43 @@ span.unavailable {
   }
 
   &.A {
-    background-color: $green;
+    color: $colorA;
+
+    svg path {
+      fill: $backgroundA;
+    }
   }
 
   &.B {
-    background-color: $teal;
+    color: $colorB;
+
+    svg path {
+      fill: $backgroundB;
+    }
   }
 
   &.C {
-    background-color: $yellow;
+    color: $colorC;
+
+    svg path {
+      fill: $backgroundC;
+    }
   }
 
   &.D {
-    background-color: $orange;
+    color: $colorD;
+
+    svg path {
+      fill: $backgroundD;
+    }
   }
 
   &.F {
-    background-color: $red;
+    color: $colorF;
+
+    svg path {
+      fill: $backgroundF;
+    }
   }
 }
 
@@ -857,7 +1016,6 @@ span.unavailable {
 
 .week {
   font-size: 13px;
-  // justify-content: center;
 
   .week-row {
     display: flex;
@@ -1002,18 +1160,20 @@ span.unavailable {
     button {
       flex-grow: 0;
       height: 100%;
-      background-color: $lightGray;
+      color: $white;
+      background-color: $blue;
       border-radius: 0;
       border-top-right-radius: grid(0.5);
       border-bottom-right-radius: grid(0.5);
       border: $defaultBorder;
-      padding: grid(1);
+      padding: grid(1) grid(2);
       cursor: pointer;
       margin: 0;
 
       &:hover,
       &:active,
       &:focus {
+        color: $red;
         border-color: $red;
       }
     }
@@ -1021,6 +1181,11 @@ span.unavailable {
 }
 
 .content {
+  background-color: $white;
+  border: $defaultBorder;
+  border-radius: grid(0.5);
+  padding: grid(4);
+
   h1,
   h2 {
     margin: grid(4) 0;
@@ -1050,5 +1215,6 @@ html.embedded {
   body,
   .site {
     min-height: auto;
+    background-color: transparent;
   }
 }
