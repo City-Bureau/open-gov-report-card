@@ -77,9 +77,9 @@ const ReportCardSection = ({
             <ExternalLinkIcon />
           </a>
         ) : (
-          <div className="report-card-missing-info">
+          <span className="report-card-missing-info">
             This agency does not have a website
-          </div>
+          </span>
         )}
       </p>
     )
