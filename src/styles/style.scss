@@ -842,6 +842,7 @@ footer {
 
 @media screen and (max-width: $mobile) {
   .filter-scroll {
+    -ms-grid-rows: grid(41) grid(1) grid(41) grid(1) grid(41);
     grid-template-rows: repeat(3, #{grid(41)});
 
     .report-card-thumb {
@@ -1252,10 +1253,66 @@ html.embedded {
     min-height: auto;
     background-color: transparent;
   }
+
+  .site > main {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 800px) {
   .filter-controls-container > div {
     margin-bottom: grid(1);
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .site > main > .content,
+  .site > main > .report-card {
+    align-self: center;
+  }
+
+  .filter-scroll {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    .report-card-thumb {
+      width: grid(64);
+      min-width: grid(64);
+      margin-right: grid(0.5);
+      height: grid(52);
+    }
+
+    .report-card-thumb > div {
+      max-width: 100%;
+    }
+
+    .report-card-thumb-heading {
+      display: block;
+      overflow: visible;
+    }
+  }
+
+  .multiselect-control svg {
+    bottom: grid(1);
+  }
+
+  .select-container {
+    select {
+      padding-right: grid(1);
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .week .hour {
+    min-width: grid(5);
+    width: grid(5);
+  }
+
+  .header-container h1 a .heading {
+    min-width: grid(50);
   }
 }

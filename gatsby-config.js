@@ -47,8 +47,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Chi Gov Report Card`,
-        short_name: `Chi Gov Report Card`,
+        name: `Open Gov Report Card`,
+        short_name: `Open Gov Report Card`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
