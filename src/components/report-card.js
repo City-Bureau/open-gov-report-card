@@ -18,6 +18,7 @@ import {
   getGrade,
   gradeQuestion,
 } from "../grading"
+import { LAST_UPDATED_TEXT } from "../constants"
 
 const processor = remark()
   .use(recommended)
@@ -157,6 +158,7 @@ const ReportCard = ({
       ) : (
         ``
       )}
+      <p className="disclaimer">{LAST_UPDATED_TEXT}</p>
     </div>
     <div className="report-card-body">
       {REPORT_CARD_SECTIONS.map(({ title, description, items }) => (

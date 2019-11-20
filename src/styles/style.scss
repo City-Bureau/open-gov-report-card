@@ -958,6 +958,7 @@ footer {
   text-align: center;
   height: grid(9);
   width: grid(9);
+  min-width: grid(9);
   font-family: Governor, $defaultFontFamily;
   line-height: 1.6;
 
@@ -983,6 +984,7 @@ footer {
   &.is-large {
     height: grid(16);
     width: grid(16);
+    min-width: grid(16);
     line-height: 1.5;
 
     span {
@@ -1236,6 +1238,10 @@ footer {
   li {
     margin-bottom: grid(2);
   }
+}
+
+.disclaimer {
+  font-style: italic;
 }
 
 /* For Pym.js embed */
