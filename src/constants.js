@@ -1,4 +1,4 @@
-export const LAST_UPDATED_TEXT = `Grades are based on information from November 2019`
+export const LAST_UPDATED_TEXT = `Grades are based on information from December 2019`
 
 export const TOPICS = [
   `Criminal Justice`,
