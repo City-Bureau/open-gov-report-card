@@ -16,24 +16,15 @@ env:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    # Pinned: this is a Gatsby 2 build and node-sass 4.12 needs Node 12,
+    # whose binaries do not run on newer runner images.
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v1
+      - uses: actions/setup-node@v4
         with:
-          python-version: 3.7
-
-      - name: Install AWS CLI
-        run: |
-          python -m pip install --upgrade pip
-          pip install awscli
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "10.x"
-
-      - run: npm install -g gatsby-cli
+          node-version: 12
 
       - run: make install
 
