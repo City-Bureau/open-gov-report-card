@@ -16,8 +16,6 @@ env:
 jobs:
   deploy:
     name: Deploy
-    # Pinned: this is a Gatsby 2 build and node-sass 4.12 needs Node 12,
-    # whose binaries do not run on newer runner images.
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
