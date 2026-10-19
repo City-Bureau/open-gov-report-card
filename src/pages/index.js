@@ -207,7 +207,12 @@ const IndexPage = ({
 
 export const query = graphql`
   query {
-    allAirtable(filter: { table: { eq: "Agencies" } }) {
+    allAirtable(
+      filter: {
+        table: { eq: "Agencies" }
+        data: { Display_Name: { ne: null } }
+      }
+    ) {
       edges {
         node {
           data {
