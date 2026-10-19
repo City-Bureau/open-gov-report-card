@@ -23,6 +23,9 @@ const calculateScore = ({
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `Airtable`) {
+    if (typeof node.data.Display_Name !== `string` || !node.data.Display_Name.trim()) {
+      return
+    }
     const slug = slugify(node.data.Display_Name, SLUGOPTS)
     createNodeField({
       node,
@@ -54,7 +57,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      allAirtable(filter: { table: { eq: "Agencies" } }) {
+      allAirtable(
+        filter: {
+          table: { eq: "Agencies" }
+          data: { Display_Name: { ne: null } }
+        }
+      ) {
         edges {
           node {
             data {
